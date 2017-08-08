@@ -16,23 +16,12 @@ func error(code: Int = 0, localizedDescription: String? = nil, localizedRecovery
 	return NSError(domain: "com.juliand665.LeagueKit", code: code, userInfo: userInfo)
 }
 
+/// synchronously executes an asynchronous method with a completion block using a `DispatchGroup`
 public func synchronously(execute method: (@escaping () -> Void) -> Void) {
 	let group = DispatchGroup()
 	group.enter()
 	method(group.leave)
 	group.wait()
-}
-
-public func synchronously<T>(execute method: (@escaping (T) -> Void) -> Void) -> T {
-	var returned: T!
-	let group = DispatchGroup()
-	group.enter()
-	method { (output) in
-		returned = output
-		group.leave()
-	}
-	group.wait()
-	return returned
 }
 
 extension KeyedDecodingContainer {

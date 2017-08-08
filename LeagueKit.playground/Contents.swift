@@ -11,14 +11,15 @@ let items = Items.shared
 
 let group = DispatchGroup()
 
+synchronously(execute: requester.updateVersions)
 group.enter()
-requester.update(assets: champs, completion: group.leave)
+requester.update(champs, completion: group.leave)
 group.enter()
-requester.update(assets: items, completion: group.leave)
+requester.update(items, completion: group.leave)
 group.wait()
 //: ---
 //: ### Testing
-let cait = champs.assets["Caitlyn"]!
+let cait = champs.contents["Caitlyn"]!
 cait.stats.attackSpeed.value(atLevel: 1)
 cait.stats.attackSpeed.value(atLevel: 18)
 
