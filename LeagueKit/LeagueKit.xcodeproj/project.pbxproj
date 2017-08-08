@@ -1,0 +1,862 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		95717BCC1F1F74FA0094EF9E /* item.json in Resources */ = {isa = PBXBuildFile; fileRef = 95717BCB1F1F74FA0094EF9E /* item.json */; };
+		9596A24F1EF02AC300DE3D30 /* LeagueKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596A24E1EF02AC300DE3D30 /* LeagueKitTests.swift */; };
+		9596A2511EF02AC300DE3D30 /* LeagueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AA57F51EF0238700D1D8A7 /* LeagueKit.framework */; };
+		95AA58591EF0297300D1D8A7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58541EF0296B00D1D8A7 /* Asset.swift */; };
+		95AA585A1EF0297300D1D8A7 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58581EF0296B00D1D8A7 /* Champion.swift */; };
+		95AA585B1EF0297300D1D8A7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58571EF0296B00D1D8A7 /* Helpers.swift */; };
+		95AA585C1EF0297300D1D8A7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58531EF0296B00D1D8A7 /* Item.swift */; };
+		95AA585D1EF0297300D1D8A7 /* LeagueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AA58561EF0296B00D1D8A7 /* LeagueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AA585E1EF0297300D1D8A7 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58551EF0296B00D1D8A7 /* Requester.swift */; };
+		95AA585F1EF0297300D1D8A7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58541EF0296B00D1D8A7 /* Asset.swift */; };
+		95AA58601EF0297300D1D8A7 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58581EF0296B00D1D8A7 /* Champion.swift */; };
+		95AA58611EF0297300D1D8A7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58571EF0296B00D1D8A7 /* Helpers.swift */; };
+		95AA58621EF0297300D1D8A7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58531EF0296B00D1D8A7 /* Item.swift */; };
+		95AA58631EF0297300D1D8A7 /* LeagueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AA58561EF0296B00D1D8A7 /* LeagueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AA58641EF0297300D1D8A7 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58551EF0296B00D1D8A7 /* Requester.swift */; };
+		95AA58651EF0297400D1D8A7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58541EF0296B00D1D8A7 /* Asset.swift */; };
+		95AA58661EF0297400D1D8A7 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58581EF0296B00D1D8A7 /* Champion.swift */; };
+		95AA58671EF0297400D1D8A7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58571EF0296B00D1D8A7 /* Helpers.swift */; };
+		95AA58681EF0297400D1D8A7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58531EF0296B00D1D8A7 /* Item.swift */; };
+		95AA58691EF0297400D1D8A7 /* LeagueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AA58561EF0296B00D1D8A7 /* LeagueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AA586A1EF0297400D1D8A7 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58551EF0296B00D1D8A7 /* Requester.swift */; };
+		95AA586B1EF0297400D1D8A7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58541EF0296B00D1D8A7 /* Asset.swift */; };
+		95AA586C1EF0297400D1D8A7 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58581EF0296B00D1D8A7 /* Champion.swift */; };
+		95AA586D1EF0297400D1D8A7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58571EF0296B00D1D8A7 /* Helpers.swift */; };
+		95AA586E1EF0297400D1D8A7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58531EF0296B00D1D8A7 /* Item.swift */; };
+		95AA586F1EF0297400D1D8A7 /* LeagueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AA58561EF0296B00D1D8A7 /* LeagueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AA58701EF0297400D1D8A7 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58551EF0296B00D1D8A7 /* Requester.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9596A2521EF02AC300DE3D30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95AA57EC1EF0238700D1D8A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95AA57F41EF0238700D1D8A7;
+			remoteInfo = "LeagueKit macOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		95717BCB1F1F74FA0094EF9E /* item.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = item.json; path = ../../../../Desktop/item.json; sourceTree = "<group>"; };
+		9596A24C1EF02AC300DE3D30 /* LeagueKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeagueKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9596A24E1EF02AC300DE3D30 /* LeagueKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueKitTests.swift; sourceTree = "<group>"; };
+		9596A2501EF02AC300DE3D30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95AA57F51EF0238700D1D8A7 /* LeagueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LeagueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95AA57F91EF0238700D1D8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95AA58051EF0239B00D1D8A7 /* LeagueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LeagueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95AA58081EF0239B00D1D8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95AA58121EF023A400D1D8A7 /* LeagueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LeagueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95AA58151EF023A400D1D8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95AA581F1EF023B100D1D8A7 /* LeagueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LeagueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95AA58221EF023B100D1D8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95AA58531EF0296B00D1D8A7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Item.swift; path = LeagueKit/Item.swift; sourceTree = "<group>"; };
+		95AA58541EF0296B00D1D8A7 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = LeagueKit/Asset.swift; sourceTree = "<group>"; };
+		95AA58551EF0296B00D1D8A7 /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Requester.swift; path = LeagueKit/Requester.swift; sourceTree = "<group>"; };
+		95AA58561EF0296B00D1D8A7 /* LeagueKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LeagueKit.h; path = LeagueKit/LeagueKit.h; sourceTree = "<group>"; };
+		95AA58571EF0296B00D1D8A7 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = LeagueKit/Helpers.swift; sourceTree = "<group>"; };
+		95AA58581EF0296B00D1D8A7 /* Champion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Champion.swift; path = LeagueKit/Champion.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9596A2491EF02AC300DE3D30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9596A2511EF02AC300DE3D30 /* LeagueKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA57F11EF0238700D1D8A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA58011EF0239B00D1D8A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA580E1EF023A400D1D8A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA581B1EF023B100D1D8A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9596A24D1EF02AC300DE3D30 /* LeagueKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				9596A24E1EF02AC300DE3D30 /* LeagueKitTests.swift */,
+				95717BCB1F1F74FA0094EF9E /* item.json */,
+				9596A2501EF02AC300DE3D30 /* Info.plist */,
+			);
+			path = LeagueKitTests;
+			sourceTree = "<group>";
+		};
+		95AA57EB1EF0238700D1D8A7 = {
+			isa = PBXGroup;
+			children = (
+				95AA58271EF0281800D1D8A7 /* LeagueKit */,
+				95AA57F71EF0238700D1D8A7 /* LeagueKit macOS */,
+				95AA58061EF0239B00D1D8A7 /* LeagueKit iOS */,
+				95AA58131EF023A400D1D8A7 /* LeagueKit watchOS */,
+				95AA58201EF023B100D1D8A7 /* LeagueKit tvOS */,
+				9596A24D1EF02AC300DE3D30 /* LeagueKitTests */,
+				95AA57F61EF0238700D1D8A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		95AA57F61EF0238700D1D8A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95AA57F51EF0238700D1D8A7 /* LeagueKit.framework */,
+				95AA58051EF0239B00D1D8A7 /* LeagueKit.framework */,
+				95AA58121EF023A400D1D8A7 /* LeagueKit.framework */,
+				95AA581F1EF023B100D1D8A7 /* LeagueKit.framework */,
+				9596A24C1EF02AC300DE3D30 /* LeagueKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95AA57F71EF0238700D1D8A7 /* LeagueKit macOS */ = {
+			isa = PBXGroup;
+			children = (
+				95AA57F91EF0238700D1D8A7 /* Info.plist */,
+			);
+			path = "LeagueKit macOS";
+			sourceTree = "<group>";
+		};
+		95AA58061EF0239B00D1D8A7 /* LeagueKit iOS */ = {
+			isa = PBXGroup;
+			children = (
+				95AA58081EF0239B00D1D8A7 /* Info.plist */,
+			);
+			path = "LeagueKit iOS";
+			sourceTree = "<group>";
+		};
+		95AA58131EF023A400D1D8A7 /* LeagueKit watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				95AA58151EF023A400D1D8A7 /* Info.plist */,
+			);
+			path = "LeagueKit watchOS";
+			sourceTree = "<group>";
+		};
+		95AA58201EF023B100D1D8A7 /* LeagueKit tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				95AA58221EF023B100D1D8A7 /* Info.plist */,
+			);
+			path = "LeagueKit tvOS";
+			sourceTree = "<group>";
+		};
+		95AA58271EF0281800D1D8A7 /* LeagueKit */ = {
+			isa = PBXGroup;
+			children = (
+				95AA58561EF0296B00D1D8A7 /* LeagueKit.h */,
+				95AA58541EF0296B00D1D8A7 /* Asset.swift */,
+				95AA58581EF0296B00D1D8A7 /* Champion.swift */,
+				95AA58571EF0296B00D1D8A7 /* Helpers.swift */,
+				95AA58531EF0296B00D1D8A7 /* Item.swift */,
+				95AA58551EF0296B00D1D8A7 /* Requester.swift */,
+			);
+			name = LeagueKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		95AA57F21EF0238700D1D8A7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95AA585D1EF0297300D1D8A7 /* LeagueKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA58021EF0239B00D1D8A7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95AA58631EF0297300D1D8A7 /* LeagueKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA580F1EF023A400D1D8A7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95AA58691EF0297400D1D8A7 /* LeagueKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA581C1EF023B100D1D8A7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95AA586F1EF0297400D1D8A7 /* LeagueKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9596A24B1EF02AC300DE3D30 /* LeagueKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9596A2541EF02AC300DE3D30 /* Build configuration list for PBXNativeTarget "LeagueKitTests" */;
+			buildPhases = (
+				9596A2481EF02AC300DE3D30 /* Sources */,
+				9596A2491EF02AC300DE3D30 /* Frameworks */,
+				9596A24A1EF02AC300DE3D30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9596A2531EF02AC300DE3D30 /* PBXTargetDependency */,
+			);
+			name = LeagueKitTests;
+			productName = LeagueKitTests;
+			productReference = 9596A24C1EF02AC300DE3D30 /* LeagueKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		95AA57F41EF0238700D1D8A7 /* LeagueKit macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95AA57FD1EF0238700D1D8A7 /* Build configuration list for PBXNativeTarget "LeagueKit macOS" */;
+			buildPhases = (
+				95AA57F01EF0238700D1D8A7 /* Sources */,
+				95AA57F11EF0238700D1D8A7 /* Frameworks */,
+				95AA57F21EF0238700D1D8A7 /* Headers */,
+				95AA57F31EF0238700D1D8A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LeagueKit macOS";
+			productName = "LeagueKit macOS";
+			productReference = 95AA57F51EF0238700D1D8A7 /* LeagueKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		95AA58041EF0239B00D1D8A7 /* LeagueKit iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95AA580A1EF0239B00D1D8A7 /* Build configuration list for PBXNativeTarget "LeagueKit iOS" */;
+			buildPhases = (
+				95AA58001EF0239B00D1D8A7 /* Sources */,
+				95AA58011EF0239B00D1D8A7 /* Frameworks */,
+				95AA58021EF0239B00D1D8A7 /* Headers */,
+				95AA58031EF0239B00D1D8A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LeagueKit iOS";
+			productName = "LeagueKit iOS";
+			productReference = 95AA58051EF0239B00D1D8A7 /* LeagueKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		95AA58111EF023A400D1D8A7 /* LeagueKit watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95AA58171EF023A400D1D8A7 /* Build configuration list for PBXNativeTarget "LeagueKit watchOS" */;
+			buildPhases = (
+				95AA580D1EF023A400D1D8A7 /* Sources */,
+				95AA580E1EF023A400D1D8A7 /* Frameworks */,
+				95AA580F1EF023A400D1D8A7 /* Headers */,
+				95AA58101EF023A400D1D8A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LeagueKit watchOS";
+			productName = "LeagueKit watchOS";
+			productReference = 95AA58121EF023A400D1D8A7 /* LeagueKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		95AA581E1EF023B100D1D8A7 /* LeagueKit tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95AA58241EF023B100D1D8A7 /* Build configuration list for PBXNativeTarget "LeagueKit tvOS" */;
+			buildPhases = (
+				95AA581A1EF023B100D1D8A7 /* Sources */,
+				95AA581B1EF023B100D1D8A7 /* Frameworks */,
+				95AA581C1EF023B100D1D8A7 /* Headers */,
+				95AA581D1EF023B100D1D8A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LeagueKit tvOS";
+			productName = "LeagueKit tvOS";
+			productReference = 95AA581F1EF023B100D1D8A7 /* LeagueKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95AA57EC1EF0238700D1D8A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Julian Dunskus";
+				TargetAttributes = {
+					9596A24B1EF02AC300DE3D30 = {
+						CreatedOnToolsVersion = 9.0;
+					};
+					95AA57F41EF0238700D1D8A7 = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+					};
+					95AA58041EF0239B00D1D8A7 = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+					};
+					95AA58111EF023A400D1D8A7 = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+					};
+					95AA581E1EF023B100D1D8A7 = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+					};
+				};
+			};
+			buildConfigurationList = 95AA57EF1EF0238700D1D8A7 /* Build configuration list for PBXProject "LeagueKit" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 95AA57EB1EF0238700D1D8A7;
+			productRefGroup = 95AA57F61EF0238700D1D8A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95AA57F41EF0238700D1D8A7 /* LeagueKit macOS */,
+				95AA58041EF0239B00D1D8A7 /* LeagueKit iOS */,
+				95AA58111EF023A400D1D8A7 /* LeagueKit watchOS */,
+				95AA581E1EF023B100D1D8A7 /* LeagueKit tvOS */,
+				9596A24B1EF02AC300DE3D30 /* LeagueKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9596A24A1EF02AC300DE3D30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95717BCC1F1F74FA0094EF9E /* item.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA57F31EF0238700D1D8A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA58031EF0239B00D1D8A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA58101EF023A400D1D8A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA581D1EF023B100D1D8A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9596A2481EF02AC300DE3D30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9596A24F1EF02AC300DE3D30 /* LeagueKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA57F01EF0238700D1D8A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95AA585C1EF0297300D1D8A7 /* Item.swift in Sources */,
+				95AA585A1EF0297300D1D8A7 /* Champion.swift in Sources */,
+				95AA585B1EF0297300D1D8A7 /* Helpers.swift in Sources */,
+				95AA585E1EF0297300D1D8A7 /* Requester.swift in Sources */,
+				95AA58591EF0297300D1D8A7 /* Asset.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA58001EF0239B00D1D8A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95AA58621EF0297300D1D8A7 /* Item.swift in Sources */,
+				95AA58601EF0297300D1D8A7 /* Champion.swift in Sources */,
+				95AA58611EF0297300D1D8A7 /* Helpers.swift in Sources */,
+				95AA58641EF0297300D1D8A7 /* Requester.swift in Sources */,
+				95AA585F1EF0297300D1D8A7 /* Asset.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA580D1EF023A400D1D8A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95AA58681EF0297400D1D8A7 /* Item.swift in Sources */,
+				95AA58661EF0297400D1D8A7 /* Champion.swift in Sources */,
+				95AA58671EF0297400D1D8A7 /* Helpers.swift in Sources */,
+				95AA586A1EF0297400D1D8A7 /* Requester.swift in Sources */,
+				95AA58651EF0297400D1D8A7 /* Asset.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA581A1EF023B100D1D8A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95AA586E1EF0297400D1D8A7 /* Item.swift in Sources */,
+				95AA586C1EF0297400D1D8A7 /* Champion.swift in Sources */,
+				95AA586D1EF0297400D1D8A7 /* Helpers.swift in Sources */,
+				95AA58701EF0297400D1D8A7 /* Requester.swift in Sources */,
+				95AA586B1EF0297400D1D8A7 /* Asset.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9596A2531EF02AC300DE3D30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95AA57F41EF0238700D1D8A7 /* LeagueKit macOS */;
+			targetProxy = 9596A2521EF02AC300DE3D30 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9596A2551EF02AC300DE3D30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V2EPDFA9PV;
+				INFOPLIST_FILE = LeagueKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.juliand665.LeagueKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		9596A2561EF02AC300DE3D30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V2EPDFA9PV;
+				INFOPLIST_FILE = LeagueKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.juliand665.LeagueKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		95AA57FB1EF0238700D1D8A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		95AA57FC1EF0238700D1D8A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		95AA57FE1EF0238700D1D8A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V2EPDFA9PV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "LeagueKit macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juliand665.LeagueKit-macOS";
+				PRODUCT_NAME = LeagueKit;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		95AA57FF1EF0238700D1D8A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V2EPDFA9PV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "LeagueKit macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juliand665.LeagueKit-macOS";
+				PRODUCT_NAME = LeagueKit;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		95AA580B1EF0239B00D1D8A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V2EPDFA9PV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "LeagueKit iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juliand665.LeagueKit-iOS";
+				PRODUCT_NAME = LeagueKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		95AA580C1EF0239B00D1D8A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V2EPDFA9PV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "LeagueKit iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juliand665.LeagueKit-iOS";
+				PRODUCT_NAME = LeagueKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95AA58181EF023A400D1D8A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V2EPDFA9PV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "LeagueKit watchOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juliand665.LeagueKit-watchOS";
+				PRODUCT_NAME = LeagueKit;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		95AA58191EF023A400D1D8A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V2EPDFA9PV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "LeagueKit watchOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juliand665.LeagueKit-watchOS";
+				PRODUCT_NAME = LeagueKit;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
+		95AA58251EF023B100D1D8A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V2EPDFA9PV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "LeagueKit tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juliand665.LeagueKit-tvOS";
+				PRODUCT_NAME = LeagueKit;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		95AA58261EF023B100D1D8A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V2EPDFA9PV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "LeagueKit tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juliand665.LeagueKit-tvOS";
+				PRODUCT_NAME = LeagueKit;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9596A2541EF02AC300DE3D30 /* Build configuration list for PBXNativeTarget "LeagueKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9596A2551EF02AC300DE3D30 /* Debug */,
+				9596A2561EF02AC300DE3D30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95AA57EF1EF0238700D1D8A7 /* Build configuration list for PBXProject "LeagueKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95AA57FB1EF0238700D1D8A7 /* Debug */,
+				95AA57FC1EF0238700D1D8A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95AA57FD1EF0238700D1D8A7 /* Build configuration list for PBXNativeTarget "LeagueKit macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95AA57FE1EF0238700D1D8A7 /* Debug */,
+				95AA57FF1EF0238700D1D8A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95AA580A1EF0239B00D1D8A7 /* Build configuration list for PBXNativeTarget "LeagueKit iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95AA580B1EF0239B00D1D8A7 /* Debug */,
+				95AA580C1EF0239B00D1D8A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95AA58171EF023A400D1D8A7 /* Build configuration list for PBXNativeTarget "LeagueKit watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95AA58181EF023A400D1D8A7 /* Debug */,
+				95AA58191EF023A400D1D8A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95AA58241EF023B100D1D8A7 /* Build configuration list for PBXNativeTarget "LeagueKit tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95AA58251EF023B100D1D8A7 /* Debug */,
+				95AA58261EF023B100D1D8A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95AA57EC1EF0238700D1D8A7 /* Project object */;
+}
