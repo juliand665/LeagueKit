@@ -9,7 +9,6 @@
 import Foundation
 
 public final class Champions: WritableAssets {
-	
 	public static let shared = load()
 	public var contents: [String: Champion] = [:]
 	public static let assetIdentifier = "champion"
@@ -73,14 +72,14 @@ public protocol ScalingStat: Codable {
 	func value(atLevel level: Int) -> Double
 }
 
-/// a statistic that scales with level
+/// a statistic that scales with champion level
 extension ScalingStat {
 	func growth(atLevel level: Int) -> Double {
 		return (7 * (pow(Double(level), 2) - 1) + 267 * Double(level - 1)) / 400
 	}
 }
 
-/// attack speed is a little more complicated than the other `ScalableStat`s, but you can use it just the same way as a `LevelDependentStat`
+/// attack speed is a little more complicated than the other `ScalableStat`s, but you can use it just the same way as other `LevelDependentStat`s
 public struct AttackSpeed: ScalingStat {
 	public let offset: Double
 	public let percentagePerLevel: Double
@@ -111,7 +110,6 @@ public struct RegeneratingStat: Codable {
 }
 
 extension Champion {
-	
 	/// use this to access a champion's stats
 	public struct Stats: Codable {
 		public let movementSpeed: Double

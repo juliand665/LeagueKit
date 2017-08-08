@@ -9,19 +9,16 @@
 import Foundation
 
 public protocol Assets: class, Codable {
-	
-	init()
-	
 	typealias Contents = [AssetID: AssetType]
-	
-	/// shared singleton
-	static var shared: Self { get }
 	
 	/// the type that this asset container contains
 	associatedtype AssetType: Asset where AssetType.Provider == Self
 	
 	/// what the assets are keyed with in riot's JSON
 	typealias AssetID = AssetType.ID
+	
+	/// shared singleton
+	static var shared: Self { get }
 	
 	/// what should be put in the URL for the json and/or images
 	static var assetIdentifier: String { get }
@@ -32,12 +29,13 @@ public protocol Assets: class, Codable {
 	/// current version of these assets
 	var version: String { get }
 	
+	init()
+	
 	/// updates the `contents` and `version` to new values, applying transformations if necessary
 	func updateContents(to newContents: Contents, version: String)
 }
 
 protocol WritableAssets: Assets where AssetType: WritableAsset {
-	
 	/// list of assets provided by this class
 	var contents: Contents { get set }
 	
@@ -46,7 +44,6 @@ protocol WritableAssets: Assets where AssetType: WritableAsset {
 }
 
 extension WritableAssets {
-	
 	public func updateContents(to newContents: Contents, version: String) {
 		contents = newContents
 		for key in contents.keys {
@@ -60,7 +57,6 @@ private let encoder = JSONEncoder()
 private let decoder = JSONDecoder()
 
 extension Assets {
-	
 	/// loads data from defaults
 	public static func load() -> Self {
 		if let data = UserDefaults.standard.data(forKey: "LoLAPI.\(Self.assetIdentifier)"),
@@ -85,7 +81,6 @@ extension Assets {
 
 // MARK: searching
 extension Assets {
-	
 	/**
 	Computes a list of assets matching a search query.
 	
@@ -182,7 +177,6 @@ extension Array where Element == MatchQuality {
 // MARK: -
 
 public protocol Asset: Codable, Hashable {
-	
 	associatedtype Provider: Assets
 	associatedtype ID: Codable, Hashable
 	
@@ -199,13 +193,11 @@ public protocol Asset: Codable, Hashable {
 }
 
 protocol WritableAsset: Asset {
-	
 	var version: String! { get set }
 }
 
 // MARK: hashing and equality
 extension Asset {
-	
 	public var hashValue: Int {
 		return id.hashValue
 	}
@@ -217,7 +209,6 @@ extension Asset {
 
 // MARK: convenient functions
 extension Asset {
-	
 	/// URL of the full-resolution image riot offers for this asset
 	var imageURL: URL? {
 		return URL(string: "cdn/\(version!)/img/\(Provider.assetIdentifier)/\(imageName)", relativeTo: Requester.baseURL)

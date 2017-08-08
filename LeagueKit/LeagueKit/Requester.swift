@@ -9,7 +9,6 @@
 import Foundation
 
 public class Requester {
-	
 	/// List of available versions of riot's data.
 	/// Update this using `updateVersions(completion:)`
 	public static var versions: [String] = []

@@ -25,7 +25,6 @@ public func synchronously(execute method: (@escaping () -> Void) -> Void) {
 }
 
 extension KeyedDecodingContainer {
-	
 	/// nicer type inference
 	subscript<T: Decodable>(key: Key) -> T? {
 		// Stupid doubly wrapped optionals make this ugly. Can't chain optionals in this specific constellation ;~;
@@ -38,7 +37,6 @@ extension KeyedDecodingContainer {
 }
 
 extension String {
-	
     /// Reduces the string to lowercase letters (and spaces).
 	/// 
 	/// - Parameter allowingSpaces: whether to keep or delete spaces; keeps them by default
@@ -51,13 +49,12 @@ extension String {
 	/// `"The Black Cleaver".substrings(after: " ")` = `["Black Cleaver", "Cleaver"]`
 	func substrings(after splitter: Character) -> [Substring] {
 		return indices(of: splitter)
-			.map { self[index(after: $0)...] }
+			.map { self[$0...].dropFirst() }
 			.filter { !$0.isEmpty }
 	}
 }
 
 extension Double {
-	
 	func rounded(decimalDigits digits: Int) -> Double {
 		let power = pow(10, Double(digits))
 		return (self * power).rounded() / power
@@ -70,9 +67,9 @@ extension Double {
 }
 
 extension Collection where Element: Equatable {
-	
 	func indices(of item: Element) -> [Index] {
 		return zip(indices, self)
+			.lazy
 			.filter { $0.1 == item }
 			.map { $0.0 }
 	}
@@ -82,7 +79,6 @@ extension Collection where Element: Equatable {
 // these should really be part of the standard library
 
 extension Sequence {
-    
 	/// like a combination of `map` and `reduce`, `scan` returns an array of all intermediate results of `reduce`
 	///  
 	/// e.g. `[1, 2, 3, 4, 5].scan(0, +)` = `[1, 3, 6, 10, 15]` (partial sums)
@@ -95,27 +91,24 @@ extension Sequence {
     }
 }
 
-extension Sequence where SubSequence: Sequence { // this constraint will be unnecessary once all the Sequence constraints are implemented in Swift 4
-    
-    typealias SubElement = SubSequence.Element
-    
+extension Sequence where SubSequence: Sequence, SubSequence.Element == Element { // this constraint will be unnecessary once all the Sequence constraints are implemented in Swift 4
 	/// like reduce, but takes the first element of the array as `initialResult`
 	/// 
 	/// returns `nil` for `[]`
-    func reduce(_ nextPartialResult: @escaping (Element, SubElement) throws -> Element) rethrows -> Element? {
+    func reduce(_ nextPartialResult: @escaping (Element, Element) throws -> Element) rethrows -> Element? {
         var iterator = makeIterator()
         return try iterator.next().map { first in
-            return try dropFirst().reduce(first, nextPartialResult)
+            return try IteratorSequence(iterator).reduce(first, nextPartialResult)
         }
     }
     
 	/// like scan, but takes the first element of the array as `initialResult`.
 	/// 
 	/// returns `nil` for `[]`
-    func scan(_ nextPartialResult: @escaping (Element, SubElement) throws -> Element) rethrows -> [Element]? {
+    func scan(_ nextPartialResult: @escaping (Element, Element) throws -> Element) rethrows -> [Element]? {
         var iterator = makeIterator()
         return try iterator.next().map { (first: Element) -> [Element] in
-            return try [first] + dropFirst().scan(first, nextPartialResult)
+            return try [first] + IteratorSequence(iterator).scan(first, nextPartialResult)
         }
     }
 }

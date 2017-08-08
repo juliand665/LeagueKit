@@ -9,7 +9,6 @@
 import Foundation
 
 public final class Items: WritableAssets {
-	
 	public static let shared = load()
 	public var contents: [Int: Item] = [:]
 	public static let assetIdentifier = "item"
