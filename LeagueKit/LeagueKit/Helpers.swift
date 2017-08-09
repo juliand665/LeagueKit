@@ -24,14 +24,38 @@ public func synchronously(execute method: (@escaping () -> Void) -> Void) {
 	group.wait()
 }
 
+precedencegroup AccessPrecedence {
+	higherThan: BitwiseShiftPrecedence
+	associativity: left
+}
+
+infix operator →  : AccessPrecedence
+infix operator →? : AccessPrecedence
+infix operator →! : AccessPrecedence
+
 extension KeyedDecodingContainer {
-	/// nicer type inference
-	subscript<T: Decodable>(key: Key) -> T? {
+	/// decode if present
+	static func →<T: Decodable>(container: KeyedDecodingContainer, key: Key) throws -> T? {
+		return try container.decodeIfPresent(T.self, forKey: key)
+	}
+	
+	/// decode if present, returning nil upon error
+	static func →?<T: Decodable>(container: KeyedDecodingContainer, key: Key) -> T? {
 		// Stupid doubly wrapped optionals make this ugly. Can't chain optionals in this specific constellation ;~;
-		if let unwrapped = try? decodeIfPresent(T.self, forKey: key) {
+		if let unwrapped = try? container.decodeIfPresent(T.self, forKey: key) {
 			return unwrapped
 		} else {
 			return nil
+		}
+	}
+	
+	/// decode if present, throwing an error if not present
+	static func →!<T: Decodable>(container: KeyedDecodingContainer, key: Key) throws -> T {
+		// This is not the same as `decode`, because it doesn't insert a stupid placeholder if the key is not present.
+		if let result = try container.decodeIfPresent(T.self, forKey: key) {
+			return result
+		} else {
+			throw error(localizedDescription: "Expected value for key \(key)!")
 		}
 	}
 }

@@ -35,26 +35,25 @@ public struct Champion: WritableAsset {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
 		
-		id = container[.id]!
-		name = container[.name]!
-		title = container[.title]!
-		version = container[.version]
-		description = container[.description] ?? dataContainer[.description]!
-		imageName = try container[.imageName] ?? dataContainer.decode(ImageData.self, forKey: .imageData).full
-		stats = try container[.stats] ?? Stats(dataFrom: decoder)
+		try id = container →! .id
+		try name = container →! .name
+		try title = container →! .title
+		try version = container →! .version as String
+		try description = container → .description ?? dataContainer →! .description
+		try imageName = container → .imageName ?? dataContainer.decode(ImageData.self, forKey: .imageData).full
+		try stats = container →? .stats ?? Stats(dataFrom: decoder) // need `→?` here because otherwise it'll try to decode the Swift `Stats` structure from riot's json, producing an error, which would make the initializer fail if we were using `→`
 		
 		if container.contains(.searchTerms) {
-			searchTerms = container[.searchTerms]!
+			searchTerms = try container →! .searchTerms
 		} else {
-			var termsData: [String] = dataContainer[.searchTerms]!
+			var termsData: [String] = try dataContainer →! .searchTerms
 			termsData.append(name)
-			termsData = termsData
+			searchTerms = termsData
 				// "The Black Cleaver" -> ["Cleaver", "Black Cleaver", "The Black Cleaver"]
-				.flatMap { $0.components(separatedBy: " ").reversed().scan { $1 + $0 } ?? [] }
+				.flatMap { $0.components(separatedBy: " ").reversed().scan { $1 + $0 } ?? [] } // TODO should I be using `substrings(after:)` here?
 				// "The Black Cleaver" -> "theblackcleaver"
 				.map { $0.reducedToSimpleLetters() }
 				.filter { !$0.isEmpty }
-			searchTerms = termsData
 		}
 	}
 	
@@ -125,19 +124,19 @@ extension Champion {
 		init(dataFrom decoder: Decoder) throws {
 			let container = try decoder.container(keyedBy: DataCodingKeys.self)
 			
-			movementSpeed = container[.movementSpeed]!
-			attackRange = container[.attackRange]!
+			try movementSpeed = container →! .movementSpeed
+			try attackRange = container →! .attackRange
 			
-			health = RegeneratingStat(max:   SimpleScalingStat(base: container[.health]!,      perLevel: container[.healthPerLevel]!),
-			                          regen: SimpleScalingStat(base: container[.healthRegen]!, perLevel: container[.healthRegenPerLevel]!))
-			mana = RegeneratingStat(max:   SimpleScalingStat(base: container[.mana]!,      perLevel: container[.manaPerLevel]!),
-			                        regen: SimpleScalingStat(base: container[.manaRegen]!, perLevel: container[.manaRegenPerLevel]!))
+			try health = RegeneratingStat(max:   SimpleScalingStat(base: container →! .health,      perLevel: container →! .healthPerLevel),
+			                              regen: SimpleScalingStat(base: container →! .healthRegen, perLevel: container →! .healthRegenPerLevel))
+			try mana = RegeneratingStat(max:   SimpleScalingStat(base: container →! .mana,      perLevel: container →! .manaPerLevel),
+			                            regen: SimpleScalingStat(base: container →! .manaRegen, perLevel: container →! .manaRegenPerLevel))
 			
-			armor        = SimpleScalingStat(base: container[.armor]!,        perLevel: container[.armorPerLevel]!)
-			magicResist  = SimpleScalingStat(base: container[.magicResist]!,  perLevel: container[.magicResistPerLevel]!)
-			attackDamage = SimpleScalingStat(base: container[.attackDamage]!, perLevel: container[.attackDamagePerLevel]!)
+			try armor        = SimpleScalingStat(base: container →! .armor,        perLevel: container →! .armorPerLevel)
+			try magicResist  = SimpleScalingStat(base: container →! .magicResist,  perLevel: container →! .magicResistPerLevel)
+			try attackDamage = SimpleScalingStat(base: container →! .attackDamage, perLevel: container →! .attackDamagePerLevel)
 			
-			attackSpeed = AttackSpeed(offset: container[.attackSpeedOffset]!, percentagePerLevel: container[.attackSpeedPercentPerLevel]!)
+			try attackSpeed = AttackSpeed(offset: container →! .attackSpeedOffset, percentagePerLevel: container →! .attackSpeedPercentPerLevel)
 		}
 		
 		/// translate riot's data into something usable

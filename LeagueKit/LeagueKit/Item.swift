@@ -36,18 +36,18 @@ public struct Item: WritableAsset {
 		let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
 		
 		let key = decoder.codingPath.last?.intValue
-		id = container[.id] ?? key ?? -1
-		version = container[.version] // will be set in `Items.updateContents(to:version:)` if not present, i.e. after decoding riot's json
-		name = container[.name]!
-		description = container[.description]!
-		requiredChampion = container[.requiredChampion]
-		summary = container[.summary] ?? dataContainer[.summary]!
-		imageName = try container[.imageName] ?? dataContainer.decode(ImageData.self, forKey: .imageData).full
+		try id = container → .id ?? key ?? -1
+		try version = container → .version // will be set in `Items.updateContents(to:version:)` if not present, i.e. after decoding riot's json
+		try name = container →! .name
+		try description = container →! .description
+		try requiredChampion = container → .requiredChampion
+		try summary = container → .summary ?? dataContainer →! .summary
+		try imageName = container → .imageName ?? dataContainer.decode(ImageData.self, forKey: .imageData).full
 		
 		if container.contains(.searchTerms) {
-			searchTerms = container[.searchTerms]!
+			searchTerms = try container →! .searchTerms
 		} else {
-			let termsString: String = dataContainer[.searchTerms]!
+			let termsString: String = try dataContainer →! .searchTerms
 			var termsData = termsString.components(separatedBy: ";")
 			termsData.append(name.reducedToSimpleLetters())
 			termsData = termsData
