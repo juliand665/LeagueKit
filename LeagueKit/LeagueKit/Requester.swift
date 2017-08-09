@@ -60,12 +60,13 @@ public class Requester {
 	*/
 	public func updateVersions(completion: (() -> Void)? = nil) {
 		decode([String].self, fromJSONAt: apiURL(for: "versions.json")) { (versions) in
+			defer { completion?() }
+			guard let versions = versions else { return }
 			guard !versions.isEmpty else {
 				self.handle(.unexpectedObject(description: "Expected non-empty array of strings (got empty one)."))
 				return
 			}
 			Requester.versions = versions
-			completion?()
 		}
 	}
 	
@@ -83,8 +84,8 @@ public class Requester {
 	public func update<Provider: Assets>(_ assets: Provider, forceUpdate: Bool = false, completion: (() -> Void)? = nil) {
 		if forceUpdate || version != assets.version {
 			decode(DataJSON<Provider>.self, fromJSONAt: dataURL(for: "\(Provider.assetIdentifier).json")) { (json) in
-				assets.updateContents(to: json.data, version: self.version)
-				completion?()
+				defer { completion?() }
+				json.map { assets.updateContents(to: $0.data, version: self.version) }
 			}
 		} else {
 			completion?()
@@ -105,7 +106,7 @@ public class Requester {
 		- possibleURL: The location of the data. If this is `nil`, a `RequestError.urlError` is handled.
 		- completion: Called with the result of the request/decoding operation, if successful.
 	*/
-	public func decode<T: Decodable>(_ type: T.Type, fromJSONAt possibleURL: URL?, completion: @escaping (T) -> Void) {
+	public func decode<T: Decodable>(_ type: T.Type, fromJSONAt possibleURL: URL?, completion: @escaping (T?) -> Void) {
 		if let url = possibleURL {
 			let task = URLSession.shared.dataTask(with: url) { (data, response, taskError) in
 				if taskError == nil, let data = data {
@@ -113,15 +114,18 @@ public class Requester {
 						completion(try self.decoder.decode(type, from: data))
 					} catch {
 						self.handle(error as? RequestError ?? .parseError(error: error))
+						completion(nil)
 					}
 					return
 				}
 				let errorToHandle = taskError ?? error(localizedDescription: "No data received from data task!")
 				self.handle(.requestError(error: errorToHandle))
+				completion(nil)
 			}
 			task.resume()
 		} else {
 			handle(.urlError)
+			completion(nil)
 		}
 	}
 	
