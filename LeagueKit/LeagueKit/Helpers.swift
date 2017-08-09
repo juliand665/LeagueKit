@@ -65,7 +65,7 @@ extension String {
 	/// 
 	/// - Parameter allowingSpaces: whether to keep or delete spaces; keeps them by default
 	func reducedToSimpleLetters(allowingSpaces: Bool = true) -> String {
-		return lowercased().filter { char in
+		return lowercased().filter { (char: Character) -> Bool in // declaring this type explicitly reduced compile time by a full second…
             char >= "a" && char <= "z" || allowingSpaces && char == " "
         }
 	}
