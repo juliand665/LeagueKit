@@ -15,13 +15,13 @@ extension Assets {
 	The query is first reduced to simple lowercase letters, for easier matching.
 	
 	- Parameters:
-	- query: the search query to match against
-	- ordering:
-	How to order results depending on match quality. You can also use this to filter out unwanted results (like matches on alternate names). Type inference allows you to just put a period and get a nice list of predefined ordering in autocomplete. Alternatively, you can define your own by passing a custom array.
+		- query: the search query to match against
+		- ordering:
+			How to order results depending on match quality. You can also use this to filter out unwanted results (like matches on alternate names). Type inference allows you to just put a period and get a nice list of predefined ordering in autocomplete. Alternatively, you can define your own by passing a custom array.
+			
+			The default ordering is `[MatchQuality].recommended`.
 	
-	The default ordering is `[MatchQuality].recommended`.
-	
-	- Returns: a list of IDs of matching assets, in order of descending match quality
+	- Returns: a list of IDs of matching assets, in the given ordering
 	*/
 	public func assets(matchingQuery query: String, ordering: [MatchQuality] = .recommended) -> [AssetID] {
 		let query = query.reducedToSimpleLetters()

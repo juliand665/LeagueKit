@@ -10,7 +10,7 @@ import XCTest
 
 @testable import LeagueKit
 
-class LeagueKitTests: XCTestCase {
+final class LeagueKitTests: XCTestCase {
 	
 	let requester = Requester()
 	let encoder = JSONEncoder()

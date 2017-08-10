@@ -35,6 +35,7 @@ public protocol Assets: class, Codable { // class-only for (obvious) performance
 	func updateContents(to newContents: Contents, version: String)
 }
 
+// MARK: default implementation of updateContents
 protocol WritableAssets: Assets where AssetType: WritableAsset {
 	/// list of assets provided by this class
 	var contents: Contents { get set }
@@ -97,6 +98,7 @@ public protocol Asset: Codable, Hashable {
 	var imageName: String { get }
 }
 
+// MARK: default implementation of updateContents
 protocol WritableAsset: Asset {
 	var version: String! { get set }
 }
