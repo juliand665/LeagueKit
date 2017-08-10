@@ -48,12 +48,7 @@ public struct Item: WritableAsset {
 			searchTerms = try container →! .searchTerms
 		} else {
 			let termsString: String = try dataContainer →! .searchTerms
-			var termsData = termsString.components(separatedBy: ";")
-			termsData.append(name.reducedToSimpleLetters())
-			termsData = termsData
-				.map { $0.reducedToSimpleLetters() }
-				.filter { !$0.isEmpty }
-			searchTerms = termsData
+			searchTerms = termsString.components(separatedBy: ";")
 		}
 	}
 	

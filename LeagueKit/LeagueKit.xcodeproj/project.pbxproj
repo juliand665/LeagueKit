@@ -34,6 +34,10 @@
 		95AA586E1EF0297400D1D8A7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58531EF0296B00D1D8A7 /* Item.swift */; };
 		95AA586F1EF0297400D1D8A7 /* LeagueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AA58561EF0296B00D1D8A7 /* LeagueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95AA58701EF0297400D1D8A7 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58551EF0296B00D1D8A7 /* Requester.swift */; };
+		95C39A321F3BEDF200D79771 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C39A311F3BEDF200D79771 /* AssetSearching.swift */; };
+		95C39A331F3BEDF200D79771 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C39A311F3BEDF200D79771 /* AssetSearching.swift */; };
+		95C39A341F3BEDF200D79771 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C39A311F3BEDF200D79771 /* AssetSearching.swift */; };
+		95C39A351F3BEDF200D79771 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C39A311F3BEDF200D79771 /* AssetSearching.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +69,7 @@
 		95AA58561EF0296B00D1D8A7 /* LeagueKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LeagueKit.h; path = LeagueKit/LeagueKit.h; sourceTree = "<group>"; };
 		95AA58571EF0296B00D1D8A7 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = LeagueKit/Helpers.swift; sourceTree = "<group>"; };
 		95AA58581EF0296B00D1D8A7 /* Champion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Champion.swift; path = LeagueKit/Champion.swift; sourceTree = "<group>"; };
+		95C39A311F3BEDF200D79771 /* AssetSearching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AssetSearching.swift; path = LeagueKit/AssetSearching.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +184,7 @@
 			children = (
 				95AA58561EF0296B00D1D8A7 /* LeagueKit.h */,
 				95AA58541EF0296B00D1D8A7 /* Asset.swift */,
+				95C39A311F3BEDF200D79771 /* AssetSearching.swift */,
 				95AA58581EF0296B00D1D8A7 /* Champion.swift */,
 				95AA58571EF0296B00D1D8A7 /* Helpers.swift */,
 				95AA58531EF0296B00D1D8A7 /* Item.swift */,
@@ -251,6 +257,7 @@
 				95AA57F11EF0238700D1D8A7 /* Frameworks */,
 				95AA57F21EF0238700D1D8A7 /* Headers */,
 				95AA57F31EF0238700D1D8A7 /* Resources */,
+				95FF613F1F3BE8A700CEA15A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -406,6 +413,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		95FF613F1F3BE8A700CEA15A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = swiftlint;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9596A2481EF02AC300DE3D30 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -422,6 +445,7 @@
 				95AA585C1EF0297300D1D8A7 /* Item.swift in Sources */,
 				95AA585A1EF0297300D1D8A7 /* Champion.swift in Sources */,
 				95AA585B1EF0297300D1D8A7 /* Helpers.swift in Sources */,
+				95C39A321F3BEDF200D79771 /* AssetSearching.swift in Sources */,
 				95AA585E1EF0297300D1D8A7 /* Requester.swift in Sources */,
 				95AA58591EF0297300D1D8A7 /* Asset.swift in Sources */,
 			);
@@ -434,6 +458,7 @@
 				95AA58621EF0297300D1D8A7 /* Item.swift in Sources */,
 				95AA58601EF0297300D1D8A7 /* Champion.swift in Sources */,
 				95AA58611EF0297300D1D8A7 /* Helpers.swift in Sources */,
+				95C39A331F3BEDF200D79771 /* AssetSearching.swift in Sources */,
 				95AA58641EF0297300D1D8A7 /* Requester.swift in Sources */,
 				95AA585F1EF0297300D1D8A7 /* Asset.swift in Sources */,
 			);
@@ -446,6 +471,7 @@
 				95AA58681EF0297400D1D8A7 /* Item.swift in Sources */,
 				95AA58661EF0297400D1D8A7 /* Champion.swift in Sources */,
 				95AA58671EF0297400D1D8A7 /* Helpers.swift in Sources */,
+				95C39A341F3BEDF200D79771 /* AssetSearching.swift in Sources */,
 				95AA586A1EF0297400D1D8A7 /* Requester.swift in Sources */,
 				95AA58651EF0297400D1D8A7 /* Asset.swift in Sources */,
 			);
@@ -458,6 +484,7 @@
 				95AA586E1EF0297400D1D8A7 /* Item.swift in Sources */,
 				95AA586C1EF0297400D1D8A7 /* Champion.swift in Sources */,
 				95AA586D1EF0297400D1D8A7 /* Helpers.swift in Sources */,
+				95C39A351F3BEDF200D79771 /* AssetSearching.swift in Sources */,
 				95AA58701EF0297400D1D8A7 /* Requester.swift in Sources */,
 				95AA586B1EF0297400D1D8A7 /* Asset.swift in Sources */,
 			);

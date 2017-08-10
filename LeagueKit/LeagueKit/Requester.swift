@@ -108,7 +108,7 @@ public class Requester {
 	*/
 	public func decode<T: Decodable>(_ type: T.Type, fromJSONAt possibleURL: URL?, completion: @escaping (T?) -> Void) {
 		if let url = possibleURL {
-			let task = URLSession.shared.dataTask(with: url) { (data, response, taskError) in
+			let task = URLSession.shared.dataTask(with: url) { (data, _, taskError) in
 				if taskError == nil, let data = data {
 					do {
 						completion(try self.decoder.decode(type, from: data))
@@ -171,4 +171,3 @@ public class Requester {
 		var data: [Provider.AssetID: Provider.AssetType]
 	}
 }
-

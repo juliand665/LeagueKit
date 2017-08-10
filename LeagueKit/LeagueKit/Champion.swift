@@ -40,21 +40,9 @@ public struct Champion: WritableAsset {
 		try title = container →! .title
 		try version = container →! .version as String
 		try description = container → .description ?? dataContainer →! .description
+		try searchTerms = container → .searchTerms ?? dataContainer →! .searchTerms
 		try imageName = container → .imageName ?? dataContainer.decode(ImageData.self, forKey: .imageData).full
 		try stats = container →? .stats ?? Stats(dataFrom: decoder) // need `→?` here because otherwise it'll try to decode the Swift `Stats` structure from riot's json, producing an error, which would make the initializer fail if we were using `→`
-		
-		if container.contains(.searchTerms) {
-			searchTerms = try container →! .searchTerms
-		} else {
-			var termsData: [String] = try dataContainer →! .searchTerms
-			termsData.append(name)
-			searchTerms = termsData
-				// "The Black Cleaver" -> ["Cleaver", "Black Cleaver", "The Black Cleaver"]
-				.flatMap { $0.components(separatedBy: " ").reversed().scan { $1 + $0 } ?? [] } // TODO should I be using `substrings(after:)` here?
-				// "The Black Cleaver" -> "theblackcleaver"
-				.map { $0.reducedToSimpleLetters() }
-				.filter { !$0.isEmpty }
-		}
 	}
 	
 	/// translate riot's data into something usable
@@ -127,6 +115,7 @@ extension Champion {
 			try movementSpeed = container →! .movementSpeed
 			try attackRange = container →! .attackRange
 			
+			// swiftlint:disable comma
 			try health = RegeneratingStat(max:   SimpleScalingStat(base: container →! .health,      perLevel: container →! .healthPerLevel),
 			                              regen: SimpleScalingStat(base: container →! .healthRegen, perLevel: container →! .healthRegenPerLevel))
 			try mana = RegeneratingStat(max:   SimpleScalingStat(base: container →! .mana,      perLevel: container →! .manaPerLevel),
@@ -137,6 +126,7 @@ extension Champion {
 			try attackDamage = SimpleScalingStat(base: container →! .attackDamage, perLevel: container →! .attackDamagePerLevel)
 			
 			try attackSpeed = AttackSpeed(offset: container →! .attackSpeedOffset, percentagePerLevel: container →! .attackSpeedPercentPerLevel)
+			// swiftlint:enable comma
 		}
 		
 		/// translate riot's data into something usable
