@@ -40,7 +40,6 @@ final class LeagueKitTests: XCTestCase {
 		
 		XCTAssert(ahri.name == "Ahri")
 		
-		print(ahri.imageURL ?? "Could not generate image URL!")
 		XCTAssertNotNil(NSImage(contentsOf: ahri.imageURL!))
 		
 		XCTAssertEqual(330, ahri.stats.movementSpeed)
