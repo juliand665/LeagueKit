@@ -27,7 +27,7 @@ extension Assets {
 		let query = query.reducedToSimpleLetters()
 		var matches: [MatchQuality: Set<AssetID>] = [:]
 		
-		for (id, asset) in contents {
+		main: for (id, asset) in contents {
 			func register(as kind: MatchQuality) {
 				matches[kind, default: []].insert(id)
 			}
@@ -38,15 +38,15 @@ extension Assets {
 			let name = asset.name.reducedToSimpleLetters()
 			if name == query {
 				register(as: .perfect)
+				continue main
 			}
 			if name.hasPrefix(query) {
 				register(as: .fromStart)
+				continue main
 			}
-			for sub in name.substrings(after: " ") {
-				if sub.hasPrefix(query) {
-					register(as: .fromWithin)
-					break
-				}
+			for sub in name.substrings(after: " ") where sub.hasPrefix(query) {
+				register(as: .fromWithin)
+				continue main
 			}
 			
 			// matching on alternate names
@@ -54,20 +54,20 @@ extension Assets {
 			for alt in alternates {
 				if alt == query {
 					register(as: .alternatePerfect)
+					continue main
 				}
 				if alt.hasPrefix(query) {
 					register(as: .alternateFromStart)
+					continue main
 				}
-				for sub in alt.substrings(after: " ") {
-					if sub.hasPrefix(query) {
-						register(as: .fromWithin)
-						break
-					}
+				for sub in alt.substrings(after: " ") where sub.hasPrefix(query) {
+					register(as: .alternateFromWithin)
+					continue main
 				}
 			}
 		}
 		
-		return ordering.flatMap { matches[$0] ?? [] } // TODO make ordered set to avoid multiple occurrences!
+		return ordering.flatMap { matches[$0] ?? [] } // make ordered set to have values sorted reliably?
 	}
 }
 

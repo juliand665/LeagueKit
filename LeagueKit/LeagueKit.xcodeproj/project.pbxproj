@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		95717BCC1F1F74FA0094EF9E /* item.json in Resources */ = {isa = PBXBuildFile; fileRef = 95717BCB1F1F74FA0094EF9E /* item.json */; };
 		9596A24F1EF02AC300DE3D30 /* LeagueKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596A24E1EF02AC300DE3D30 /* LeagueKitTests.swift */; };
 		9596A2511EF02AC300DE3D30 /* LeagueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AA57F51EF0238700D1D8A7 /* LeagueKit.framework */; };
 		95AA58591EF0297300D1D8A7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58541EF0296B00D1D8A7 /* Asset.swift */; };
@@ -51,7 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		95717BCB1F1F74FA0094EF9E /* item.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = item.json; path = ../../../../Desktop/item.json; sourceTree = "<group>"; };
 		9596A24C1EF02AC300DE3D30 /* LeagueKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeagueKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9596A24E1EF02AC300DE3D30 /* LeagueKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueKitTests.swift; sourceTree = "<group>"; };
 		9596A2501EF02AC300DE3D30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				9596A24E1EF02AC300DE3D30 /* LeagueKitTests.swift */,
-				95717BCB1F1F74FA0094EF9E /* item.json */,
 				9596A2501EF02AC300DE3D30 /* Info.plist */,
 			);
 			path = LeagueKitTests;
@@ -379,7 +376,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95717BCC1F1F74FA0094EF9E /* item.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

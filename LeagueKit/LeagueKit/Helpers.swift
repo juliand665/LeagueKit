@@ -24,42 +24,6 @@ public func synchronously(execute method: (@escaping () -> Void) -> Void) {
 	group.wait()
 }
 
-precedencegroup AccessPrecedence {
-	higherThan: BitwiseShiftPrecedence
-	associativity: left
-}
-
-infix operator →  : AccessPrecedence
-infix operator →? : AccessPrecedence
-infix operator →! : AccessPrecedence
-
-extension KeyedDecodingContainer {
-	/// decode if present
-	static func → <T: Decodable>(container: KeyedDecodingContainer, key: Key) throws -> T? {
-		return try container.decodeIfPresent(T.self, forKey: key)
-	}
-	
-	/// decode if present, returning nil upon error
-	static func →? <T: Decodable>(container: KeyedDecodingContainer, key: Key) -> T? {
-		// Stupid doubly wrapped optionals make this ugly. Can't chain optionals in this specific constellation ;~;
-		if let unwrapped = try? container.decodeIfPresent(T.self, forKey: key) {
-			return unwrapped
-		} else {
-			return nil
-		}
-	}
-	
-	/// decode if present, throwing an error if not present
-	static func →! <T: Decodable>(container: KeyedDecodingContainer, key: Key) throws -> T {
-		// This is not the same as `decode`, because it doesn't insert a stupid placeholder if the key is not present.
-		if let result = try container.decodeIfPresent(T.self, forKey: key) {
-			return result
-		} else {
-			throw error(localizedDescription: "Expected value for key \(key)!")
-		}
-	}
-}
-
 extension String {
     /// Reduces the string to lowercase letters (and spaces).
 	/// 
@@ -99,6 +63,7 @@ extension Collection where Element: Equatable {
 	}
 }
 
+// MARK: -
 // MARK: Sequence extensions
 // these should really be part of the standard library
 
@@ -135,4 +100,55 @@ extension Sequence where SubSequence: Sequence, SubSequence.Element == Element {
             return try [first] + IteratorSequence(iterator).scan(first, nextPartialResult)
         }
     }
+}
+
+// MARK: -
+// MARK: Decoding Helpers
+
+precedencegroup AccessPrecedence {
+	higherThan: BitwiseShiftPrecedence
+	associativity: left
+}
+
+infix operator →  : AccessPrecedence
+infix operator →? : AccessPrecedence
+infix operator →! : AccessPrecedence
+
+extension KeyedDecodingContainer {
+	/// decode if present
+	static func → <T: Decodable>(container: KeyedDecodingContainer, key: Key) throws -> T? {
+		return try container.decodeIfPresent(T.self, forKey: key)
+	}
+	
+	/// decode if present, returning nil upon error
+	static func →? <T: Decodable>(container: KeyedDecodingContainer, key: Key) -> T? {
+		return (try? container.decodeIfPresent(T.self, forKey: key)) ?? nil // doubly wrapped → singly wrapped
+	}
+	
+	/// decode if present, throwing an error if not present
+	static func →! <T: Decodable>(container: KeyedDecodingContainer, key: Key) throws -> T {
+		// This is not the same as `decode`, because it doesn't insert a stupid placeholder if the key is not present.
+		if let result = try container.decodeIfPresent(T.self, forKey: key) {
+			return result
+		} else {
+			throw DecodingError.valueNotFound(T.self, .init(codingPath: container.codingPath, debugDescription: "Expected value for key \(key)!"))
+		}
+	}
+}
+
+struct CustomKey: CodingKey {
+	static func named(_ name: String) -> CustomKey {
+		return CustomKey(for: name)
+	}
+	
+	var intValue: Int?
+	var stringValue: String
+	
+	private init(for key: String) {
+		stringValue = key
+	}
+	
+	init?(intValue: Int) { return nil }
+	
+	init?(stringValue: String) { return nil }
 }

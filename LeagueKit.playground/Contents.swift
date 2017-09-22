@@ -22,8 +22,3 @@ group.wait()
 let cait = champs.contents["Caitlyn"]!
 cait.stats.attackSpeed.value(atLevel: 1)
 cait.stats.attackSpeed.value(atLevel: 18)
-
-
-
-
-

@@ -66,7 +66,7 @@ extension ScalingStat {
 	}
 }
 
-/// attack speed is a little more complicated than the other `ScalableStat`s, but you can use it just the same way as other `LevelDependentStat`s
+/// attack speed is a little more complicated than the other `ScalableStat`s, but you can use it just the same way as other `ScalingStat`s
 public struct AttackSpeed: ScalingStat {
 	public let offset: Double
 	public let percentagePerLevel: Double
@@ -78,12 +78,32 @@ public struct AttackSpeed: ScalingStat {
 	public func value(atLevel level: Int) -> Double {
 		return base * (1 + 0.01 * percentagePerLevel * growth(atLevel: level))
 	}
+	
+	/// initialize from raw riot data
+	init(dataFrom decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: DataCodingKeys.self)
+		
+		try offset = container →! .offset
+		try percentagePerLevel = container →! .percentagePerLevel
+	}
+	
+	private enum DataCodingKeys: String, CodingKey {
+		case offset = "attackspeedoffset"
+		case percentagePerLevel = "attackspeedperlevel"
+	}
 }
 
 /// a statistic that scales with level the regular way (i.e. not attack speed)
 public struct SimpleScalingStat: ScalingStat {
 	public let base: Double
 	public let perLevel: Double
+	
+	init(named name: String, dataFrom decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CustomKey.self)
+		
+		try base = container →! .named(name)
+		try perLevel = container →! .named(name + "perlevel")
+	}
 	
 	public func value(atLevel level: Int) -> Double {
 		return base + perLevel * growth(atLevel: level)
@@ -94,6 +114,11 @@ public struct SimpleScalingStat: ScalingStat {
 public struct RegeneratingStat: Codable {
 	public let max: SimpleScalingStat
 	public let regen: SimpleScalingStat
+	
+	init(named name: String, dataFrom decoder: Decoder) throws {
+		try max = .init(named: name, dataFrom: decoder)
+		try regen = .init(named: name + "regen", dataFrom: decoder)
+	}
 }
 
 extension Champion {
@@ -115,32 +140,19 @@ extension Champion {
 			try movementSpeed = container →! .movementSpeed
 			try attackRange = container →! .attackRange
 			
-			// swiftlint:disable comma
-			try health = RegeneratingStat(max:   SimpleScalingStat(base: container →! .health,      perLevel: container →! .healthPerLevel),
-			                              regen: SimpleScalingStat(base: container →! .healthRegen, perLevel: container →! .healthRegenPerLevel))
-			try mana = RegeneratingStat(max:   SimpleScalingStat(base: container →! .mana,      perLevel: container →! .manaPerLevel),
-			                            regen: SimpleScalingStat(base: container →! .manaRegen, perLevel: container →! .manaRegenPerLevel))
+			try health = RegeneratingStat(named: "hp", dataFrom: decoder)
+			try mana = RegeneratingStat(named: "mp", dataFrom: decoder)
+			try armor = SimpleScalingStat(named: "armor", dataFrom: decoder)
+			try magicResist = SimpleScalingStat(named: "spellblock", dataFrom: decoder)
+			try attackDamage = SimpleScalingStat(named: "attackdamage", dataFrom: decoder)
 			
-			try armor        = SimpleScalingStat(base: container →! .armor,        perLevel: container →! .armorPerLevel)
-			try magicResist  = SimpleScalingStat(base: container →! .magicResist,  perLevel: container →! .magicResistPerLevel)
-			try attackDamage = SimpleScalingStat(base: container →! .attackDamage, perLevel: container →! .attackDamagePerLevel)
-			
-			try attackSpeed = AttackSpeed(offset: container →! .attackSpeedOffset, percentagePerLevel: container →! .attackSpeedPercentPerLevel)
-			// swiftlint:enable comma
+			try attackSpeed = AttackSpeed(dataFrom: decoder)
 		}
 		
 		/// translate riot's data into something usable
 		private enum DataCodingKeys: String, CodingKey {
 			case movementSpeed = "movespeed"
 			case attackRange = "attackrange"
-			case health = "hp", healthPerLevel = "hpperlevel"
-			case healthRegen = "hpregen", healthRegenPerLevel = "hpregenperlevel"
-			case mana = "mp", manaPerLevel = "mpperlevel"
-			case manaRegen = "mpregen", manaRegenPerLevel = "mpregenperlevel"
-			case armor = "armor", armorPerLevel = "armorperlevel"
-			case magicResist = "spellblock", magicResistPerLevel = "spellblockperlevel"
-			case attackDamage = "attackdamage", attackDamagePerLevel = "attackdamageperlevel"
-			case attackSpeedOffset = "attackspeedoffset", attackSpeedPercentPerLevel = "attackspeedperlevel"
 		}
 	}
 }
