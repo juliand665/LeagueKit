@@ -117,7 +117,7 @@ extension Asset {
 // MARK: convenient functions
 extension Asset {
 	/// URL of the full-resolution image riot offers for this asset
-	var imageURL: URL? {
+	public var imageURL: URL? {
 		return URL(string: "cdn/\(version!)/img/\(Provider.assetIdentifier)/\(imageName)", relativeTo: Requester.baseURL)
 	}
 	
