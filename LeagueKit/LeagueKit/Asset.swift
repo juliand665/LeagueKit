@@ -126,7 +126,7 @@ extension Asset {
 		var pretty = ""
 		
 		var between: String?
-		for char in description.characters {
+		for char in description {
 			if let contents = between {
 				if char == ">" {
 					if contents.reducedToSimpleLetters(allowingSpaces: false) == "br" {
