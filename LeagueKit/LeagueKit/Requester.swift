@@ -9,8 +9,10 @@
 import Foundation
 
 public final class Requester {
-	/// List of available versions of riot's data.
-	/// Update this using `updateVersions(completion:)`
+	/**
+	List of available versions of riot's data. The list is sorted by descending release date, i.e. the newest version is the first entry in the list.
+	Update this using `updateVersions(completion:)`
+	*/
 	public static var versions: [String] = []
 	
 	/// The version of assets to request from the server. If `nil`, the newest version will be used.
@@ -47,7 +49,9 @@ public final class Requester {
 	}
 	
 	/// Creates a new `Requester` for you to configure the `errorHandler` or `desiredVersion` of.
-	public init() {}
+	public init(errorHandler: ((RequestError) -> (Bool))? = nil) {
+		self.errorHandler = errorHandler
+	}
 	
 	/**
 	Asynchronously does the following:
