@@ -15,7 +15,12 @@ extension Assets {
 	
 	- Returns: a list of IDs of matching assets, in the given ordering
 	*/
-	public func assets(matchingQuery query: String, ordering: [MatchQuality] = .recommended) -> [AssetID] {
+	public func assets(matchingQuery query: String, ordering: [MatchQuality] = .recommended) -> [AssetType] {
+		return assetIDs(matchingQuery: query, ordering: ordering)
+			.map { contents[$0]! }
+	}
+	
+	private func assetIDs(matchingQuery query: String, ordering: [MatchQuality] = .recommended) -> [AssetID] {
 		let query = query.reducedToSimpleLetters()
 		var matches: [MatchQuality: Set<AssetID>] = [:]
 		
@@ -59,7 +64,8 @@ extension Assets {
 			}
 		}
 		
-		return ordering.flatMap { matches[$0] ?? [] } // make ordered set to have values sorted reliably?
+		// TODO sort within categories?
+		return ordering.flatMap { matches[$0] ?? [] }
 	}
 }
 
@@ -75,7 +81,7 @@ public enum MatchQuality { // wish I could define this as a subtype of `Assets` 
 	case alternatePerfect
 	/// like `fromStart`, but for an alternate name of the asset — e.g. "trif" or "ton" for Trinity Force
 	case alternateFromStart
-	/// like `bad`, but for an alternate name of the asset — e.g. "dam" for Trinity Force
+	/// like `fromWithin`, but for an alternate name of the asset — e.g. "dam" for Trinity Force
 	case alternateFromWithin
 }
 
