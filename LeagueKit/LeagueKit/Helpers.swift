@@ -1,11 +1,3 @@
-//
-//  Extensions.swift
-//  LeagueHelper
-//
-//  Created by Julian Dunskus on 11/07/16.
-//  Copyright © 2016 Julian Dunskus. All rights reserved.
-//
-
 import Foundation
 
 /// Creates an `NSError` object with the specified parameters

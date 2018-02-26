@@ -1,11 +1,3 @@
-//
-//  Asset.swift
-//  LeagueHelper
-//
-//  Created by Julian Dunskus on 14/07/16.
-//  Copyright © 2016 Julian Dunskus. All rights reserved.
-//
-
 import Foundation
 
 public protocol Assets: class, Codable { // class-only for (obvious) performance reasons
@@ -33,6 +25,12 @@ public protocol Assets: class, Codable { // class-only for (obvious) performance
 	
 	/// updates the `contents` and `version` to new values, applying transformations if necessary
 	func updateContents(to newContents: Contents, version: String)
+	
+	/// loads data from defaults
+	static func load() -> Self
+	
+	/// saves data to defaults as "LolAPI.`assetIdentifier`"
+	static func save()
 }
 
 // MARK: default implementation of updateContents
@@ -50,6 +48,9 @@ extension WritableAssets {
 		for key in contents.keys {
 			contents[key]!.version = version 
 		}
+		if Self.shared === self {
+			Self.save()
+		}
 	}
 }
 
@@ -58,7 +59,6 @@ private let encoder = JSONEncoder()
 private let decoder = JSONDecoder()
 
 extension Assets {
-	/// loads data from defaults
 	public static func load() -> Self {
 		if let data = UserDefaults.standard.data(forKey: "LoLAPI.\(Self.assetIdentifier)"),
 		   let assets = try? decoder.decode(Self.self, from: data) {
@@ -68,7 +68,6 @@ extension Assets {
 		}
 	}
 	
-	/// saves data to defaults as "LolAPI.`assetIdentifier`"
 	public static func save() {
 		do {
 			let data = try encoder.encode(shared)

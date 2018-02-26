@@ -1,11 +1,3 @@
-//
-//  Champion.swift
-//  LeagueKit
-//
-//  Created by Julian Dunskus on 17/07/16.
-//  Copyright © 2016 Julian Dunskus. All rights reserved.
-//
-
 import Foundation
 
 public final class Champions: WritableAssets {

@@ -1,11 +1,3 @@
-//
-//  AssetSearching.swift
-//  LeagueKit
-//
-//  Created by Julian Dunskus on 10.08.17.
-//  Copyright © 2017 Julian Dunskus. All rights reserved.
-//
-
 import Foundation
 
 extension Assets {
