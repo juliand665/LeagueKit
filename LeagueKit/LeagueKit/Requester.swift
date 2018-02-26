@@ -34,7 +34,7 @@ public final class Requester {
 	
 	var version: String {
 		guard let version = desiredVersion ?? Requester.versions.first else {
-			handle(.incorrectAPIUsage(description: "You need to either set your desiredVersion or call updateVersions(completion:) before requesting anything else."))
+			handle(.incorrectAPIUsage(description: "You need to either set your desiredVersion or call updateVersions(completion:) before requesting anything else. More errors will follow."))
 			return "[N/A]" // make URL construction fail
 		}
 		return version

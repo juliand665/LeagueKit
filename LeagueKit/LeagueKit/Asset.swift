@@ -44,6 +44,7 @@ protocol WritableAssets: Assets where AssetType: WritableAsset {
 
 extension WritableAssets {
 	public func updateContents(to newContents: Contents, version: String) {
+		self.version = version
 		contents = newContents
 		for key in contents.keys {
 			contents[key]!.version = version 
