@@ -40,7 +40,9 @@ public struct Item: WritableAsset {
 			searchTerms = try container →! .searchTerms
 		} else {
 			let termsString: String = try dataContainer →! .searchTerms
-			searchTerms = termsString.components(separatedBy: ";")
+			searchTerms = termsString
+				.components(separatedBy: ";")
+				.filter { !$0.isEmpty }
 		}
 	}
 	
