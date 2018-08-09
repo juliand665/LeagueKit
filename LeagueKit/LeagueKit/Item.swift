@@ -1,6 +1,11 @@
 import Foundation
 
 public final class Items: WritableAssets {
+	public typealias AssetID = Int
+	public typealias AssetType = Item
+	public typealias Contents = [Int: Item]
+	public typealias Raw = SimpleRaw<Items>
+	
 	public static let shared = load()
 	public var contents: [Int: Item] = [:]
 	public static let assetIdentifier = "item"
@@ -9,7 +14,7 @@ public final class Items: WritableAssets {
 	public required init() {}
 }
 
-public struct Item: WritableAsset {
+public struct Item: SimpleAsset {
 	public typealias Provider = Items
 	
 	public var id: Int

@@ -1,7 +1,8 @@
 import Foundation
 
-public protocol Assets: class, Codable { // class-only for (obvious) performance reasons
-	typealias Contents = [AssetID: AssetType]
+public protocol Assets: AnyObject, Codable { // class-only for (obvious) performance reasons
+	associatedtype Contents: Codable
+	associatedtype Raw: Decodable
 	
 	/// the type that this asset container contains
 	associatedtype AssetType: Asset where AssetType.Provider == Self
@@ -12,7 +13,7 @@ public protocol Assets: class, Codable { // class-only for (obvious) performance
 	/// shared singleton
 	static var shared: Self { get }
 	
-	/// what should be put in the URL for the json and/or images
+	/// what should be put in the URL for the json and/or (by default) images
 	static var assetIdentifier: String { get }
 	
 	/// assets provided by this provider
@@ -24,7 +25,7 @@ public protocol Assets: class, Codable { // class-only for (obvious) performance
 	init()
 	
 	/// updates the `contents` and `version` to new values, applying transformations if necessary
-	func updateContents(to newContents: Contents, version: String)
+	func updateContents(to raw: Raw, version: String)
 	
 	/// loads data from defaults
 	static func load() -> Self
@@ -34,7 +35,8 @@ public protocol Assets: class, Codable { // class-only for (obvious) performance
 }
 
 // MARK: default implementation of updateContents
-protocol WritableAssets: Assets where AssetType: WritableAsset {
+
+public protocol WritableAssets: Assets {
 	/// list of assets provided by this class
 	var contents: Contents { get set }
 	
@@ -42,12 +44,26 @@ protocol WritableAssets: Assets where AssetType: WritableAsset {
 	var version: String { get set }
 }
 
-extension WritableAssets {
-	public func updateContents(to newContents: Contents, version: String) {
+extension WritableAssets where Raw == Contents {
+	public func updateContents(to raw: Raw, version: String) {
 		self.version = version
-		contents = newContents
+		contents = raw
+		if Self.shared === self {
+			Self.save()
+		}
+	}
+}
+
+public struct SimpleRaw<Provider: Assets>: Decodable {
+	var data: [Provider.AssetID: Provider.AssetType]
+}
+
+extension WritableAssets where AssetType: WritableAsset, Raw == SimpleRaw<Self>, Contents == [AssetID: AssetType] {
+	public func updateContents(to raw: Raw, version: String) {
+		self.version = version
+		contents = raw.data
 		for key in contents.keys {
-			contents[key]!.version = version 
+			contents[key]!.version = version
 		}
 		if Self.shared === self {
 			Self.save()
@@ -82,24 +98,28 @@ extension Assets {
 
 // MARK: -
 
+typealias SimpleAsset = WritableAsset & DescribedAsset & VersionedAsset
+
 public protocol Asset: Codable, Hashable {
 	associatedtype Provider: Assets
 	associatedtype ID: Codable, Hashable
 	
 	var id: ID { get }
 	var name: String { get }
-	var description: String { get }
-	var version: String! { get }
-	
-	/// these will be used when searching for the asset
-	var searchTerms: [String] { get }
 	
 	/// the name of the image file for this asset on riot's servers; used to compute `imageURL`
 	var imageName: String { get }
+	
+	/// the full url of the image file for the current version, if available
+	var imageURL: URL? { get }
+}
+
+protocol VersionedAsset: Asset {
+	var version: String! { get }
 }
 
 // MARK: default implementation of updateContents
-protocol WritableAsset: Asset {
+public protocol WritableAsset: Asset {
 	var version: String! { get set }
 }
 
@@ -115,13 +135,23 @@ extension Asset {
 }
 
 // MARK: convenient functions
-extension Asset {
+extension VersionedAsset {
 	/// URL of the full-resolution image riot offers for this asset
 	public var imageURL: URL? {
 		return URL(string: "cdn/\(version!)/img/\(Provider.assetIdentifier)/\(imageName)", relativeTo: Requester.baseURL)
 	}
+}
+
+// MARK: -
+
+public protocol DescribedAsset: Asset {
+	var description: String { get }
 	
 	/// the `desc` property without all the html tags
+	func prettyDescription() -> String
+}
+
+public extension DescribedAsset {
 	public func prettyDescription() -> String {
 		var pretty = ""
 		

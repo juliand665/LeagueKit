@@ -1,6 +1,11 @@
 import Foundation
 
 public final class Champions: WritableAssets {
+	public typealias AssetID = String
+	public typealias AssetType = Champion
+	public typealias Contents = [String: Champion]
+	public typealias Raw = SimpleRaw<Champions>
+	
 	public static let shared = load()
 	public var contents: [String: Champion] = [:]
 	public static let assetIdentifier = "champion"
@@ -9,10 +14,11 @@ public final class Champions: WritableAssets {
 	public init() {}
 }
 
-public struct Champion: WritableAsset {
+public struct Champion: SimpleAsset {
 	public typealias Provider = Champions
 	
 	public var id: String
+	public var key: Int
 	public var name: String
 	public var description: String
 	public var title: String
@@ -28,13 +34,22 @@ public struct Champion: WritableAsset {
 		let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
 		
 		try id = container →! .id
+		try key = container →? .key ?? Int(container →! .key as String)! // TODO throw instead of force unwrap
 		try name = container →! .name
 		try title = container →! .title
 		try version = container →! .version as String
 		try description = container → .description ?? dataContainer →! .description
 		try searchTerms = container → .searchTerms ?? dataContainer →! .searchTerms
 		try imageName = container → .imageName ?? dataContainer.decode(ImageData.self, forKey: .imageData).full
-		try stats = container →? .stats ?? Stats(dataFrom: decoder) // need `→?` here because otherwise it'll try to decode the Swift `Stats` structure from riot's json, producing an error, which would make the initializer fail if we were using `→`
+		try stats = container →? .stats ?? (container →! .stats as RawStats).stats
+	}
+	
+	struct RawStats: Decodable {
+		var stats: Stats
+		
+		init(from decoder: Decoder) throws {
+			stats = try Stats(dataFrom: decoder)
+		}
 	}
 	
 	/// translate riot's data into something usable
@@ -42,7 +57,6 @@ public struct Champion: WritableAsset {
 		case description = "blurb"
 		case searchTerms = "tags"
 		case imageData = "image"
-		case statsData = "stats"
 	}
 }
 
@@ -129,7 +143,7 @@ extension Champion {
 		init(dataFrom decoder: Decoder) throws {
 			let container = try decoder.container(keyedBy: DataCodingKeys.self)
 			
-			try movementSpeed = container →! .movementSpeed
+			try! movementSpeed = container →! .movementSpeed
 			try attackRange = container →! .attackRange
 			
 			try health = RegeneratingStat(named: "hp", dataFrom: decoder)

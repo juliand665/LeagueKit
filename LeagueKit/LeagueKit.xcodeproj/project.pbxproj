@@ -7,36 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		958447C9211CB03200975630 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447BF211CB03200975630 /* AssetSearching.swift */; };
+		958447CA211CB03200975630 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447BF211CB03200975630 /* AssetSearching.swift */; };
+		958447CB211CB03200975630 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447BF211CB03200975630 /* AssetSearching.swift */; };
+		958447CC211CB03200975630 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447BF211CB03200975630 /* AssetSearching.swift */; };
+		958447CD211CB03200975630 /* LeagueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 958447C0211CB03200975630 /* LeagueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		958447CE211CB03200975630 /* LeagueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 958447C0211CB03200975630 /* LeagueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		958447CF211CB03200975630 /* LeagueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 958447C0211CB03200975630 /* LeagueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		958447D0211CB03200975630 /* LeagueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 958447C0211CB03200975630 /* LeagueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		958447D1211CB03200975630 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C1211CB03200975630 /* Item.swift */; };
+		958447D2211CB03200975630 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C1211CB03200975630 /* Item.swift */; };
+		958447D3211CB03200975630 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C1211CB03200975630 /* Item.swift */; };
+		958447D4211CB03200975630 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C1211CB03200975630 /* Item.swift */; };
+		958447D5211CB03200975630 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C2211CB03200975630 /* Requester.swift */; };
+		958447D6211CB03200975630 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C2211CB03200975630 /* Requester.swift */; };
+		958447D7211CB03200975630 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C2211CB03200975630 /* Requester.swift */; };
+		958447D8211CB03200975630 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C2211CB03200975630 /* Requester.swift */; };
+		958447D9211CB03200975630 /* Rune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C3211CB03200975630 /* Rune.swift */; };
+		958447DA211CB03200975630 /* Rune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C3211CB03200975630 /* Rune.swift */; };
+		958447DB211CB03200975630 /* Rune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C3211CB03200975630 /* Rune.swift */; };
+		958447DC211CB03200975630 /* Rune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C3211CB03200975630 /* Rune.swift */; };
+		958447DD211CB03200975630 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C4211CB03200975630 /* Champion.swift */; };
+		958447DE211CB03200975630 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C4211CB03200975630 /* Champion.swift */; };
+		958447DF211CB03200975630 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C4211CB03200975630 /* Champion.swift */; };
+		958447E0211CB03200975630 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C4211CB03200975630 /* Champion.swift */; };
+		958447E1211CB03200975630 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C5211CB03200975630 /* Asset.swift */; };
+		958447E2211CB03300975630 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C5211CB03200975630 /* Asset.swift */; };
+		958447E3211CB03300975630 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C5211CB03200975630 /* Asset.swift */; };
+		958447E4211CB03300975630 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C5211CB03200975630 /* Asset.swift */; };
+		958447E5211CB03300975630 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C7211CB03200975630 /* Codable.swift */; };
+		958447E6211CB03300975630 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C7211CB03200975630 /* Codable.swift */; };
+		958447E7211CB03300975630 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C7211CB03200975630 /* Codable.swift */; };
+		958447E8211CB03300975630 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C7211CB03200975630 /* Codable.swift */; };
+		958447E9211CB03300975630 /* Miscellaneous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C8211CB03200975630 /* Miscellaneous.swift */; };
+		958447EA211CB03300975630 /* Miscellaneous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C8211CB03200975630 /* Miscellaneous.swift */; };
+		958447EB211CB03300975630 /* Miscellaneous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C8211CB03200975630 /* Miscellaneous.swift */; };
+		958447EC211CB03300975630 /* Miscellaneous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C8211CB03200975630 /* Miscellaneous.swift */; };
+		958447EE211CB08300975630 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447ED211CB08300975630 /* Sequence.swift */; };
+		958447EF211CB08300975630 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447ED211CB08300975630 /* Sequence.swift */; };
+		958447F0211CB08300975630 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447ED211CB08300975630 /* Sequence.swift */; };
+		958447F1211CB08300975630 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447ED211CB08300975630 /* Sequence.swift */; };
 		9596A24F1EF02AC300DE3D30 /* LeagueKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596A24E1EF02AC300DE3D30 /* LeagueKitTests.swift */; };
 		9596A2511EF02AC300DE3D30 /* LeagueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AA57F51EF0238700D1D8A7 /* LeagueKit.framework */; };
-		95AA58591EF0297300D1D8A7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58541EF0296B00D1D8A7 /* Asset.swift */; };
-		95AA585A1EF0297300D1D8A7 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58581EF0296B00D1D8A7 /* Champion.swift */; };
-		95AA585B1EF0297300D1D8A7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58571EF0296B00D1D8A7 /* Helpers.swift */; };
-		95AA585C1EF0297300D1D8A7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58531EF0296B00D1D8A7 /* Item.swift */; };
-		95AA585D1EF0297300D1D8A7 /* LeagueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AA58561EF0296B00D1D8A7 /* LeagueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95AA585E1EF0297300D1D8A7 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58551EF0296B00D1D8A7 /* Requester.swift */; };
-		95AA585F1EF0297300D1D8A7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58541EF0296B00D1D8A7 /* Asset.swift */; };
-		95AA58601EF0297300D1D8A7 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58581EF0296B00D1D8A7 /* Champion.swift */; };
-		95AA58611EF0297300D1D8A7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58571EF0296B00D1D8A7 /* Helpers.swift */; };
-		95AA58621EF0297300D1D8A7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58531EF0296B00D1D8A7 /* Item.swift */; };
-		95AA58631EF0297300D1D8A7 /* LeagueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AA58561EF0296B00D1D8A7 /* LeagueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95AA58641EF0297300D1D8A7 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58551EF0296B00D1D8A7 /* Requester.swift */; };
-		95AA58651EF0297400D1D8A7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58541EF0296B00D1D8A7 /* Asset.swift */; };
-		95AA58661EF0297400D1D8A7 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58581EF0296B00D1D8A7 /* Champion.swift */; };
-		95AA58671EF0297400D1D8A7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58571EF0296B00D1D8A7 /* Helpers.swift */; };
-		95AA58681EF0297400D1D8A7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58531EF0296B00D1D8A7 /* Item.swift */; };
-		95AA58691EF0297400D1D8A7 /* LeagueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AA58561EF0296B00D1D8A7 /* LeagueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95AA586A1EF0297400D1D8A7 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58551EF0296B00D1D8A7 /* Requester.swift */; };
-		95AA586B1EF0297400D1D8A7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58541EF0296B00D1D8A7 /* Asset.swift */; };
-		95AA586C1EF0297400D1D8A7 /* Champion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58581EF0296B00D1D8A7 /* Champion.swift */; };
-		95AA586D1EF0297400D1D8A7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58571EF0296B00D1D8A7 /* Helpers.swift */; };
-		95AA586E1EF0297400D1D8A7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58531EF0296B00D1D8A7 /* Item.swift */; };
-		95AA586F1EF0297400D1D8A7 /* LeagueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 95AA58561EF0296B00D1D8A7 /* LeagueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95AA58701EF0297400D1D8A7 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AA58551EF0296B00D1D8A7 /* Requester.swift */; };
-		95C39A321F3BEDF200D79771 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C39A311F3BEDF200D79771 /* AssetSearching.swift */; };
-		95C39A331F3BEDF200D79771 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C39A311F3BEDF200D79771 /* AssetSearching.swift */; };
-		95C39A341F3BEDF200D79771 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C39A311F3BEDF200D79771 /* AssetSearching.swift */; };
-		95C39A351F3BEDF200D79771 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C39A311F3BEDF200D79771 /* AssetSearching.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +62,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		958447BF211CB03200975630 /* AssetSearching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetSearching.swift; sourceTree = "<group>"; };
+		958447C0211CB03200975630 /* LeagueKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueKit.h; sourceTree = "<group>"; };
+		958447C1211CB03200975630 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		958447C2211CB03200975630 /* Requester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
+		958447C3211CB03200975630 /* Rune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rune.swift; sourceTree = "<group>"; };
+		958447C4211CB03200975630 /* Champion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Champion.swift; sourceTree = "<group>"; };
+		958447C5211CB03200975630 /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		958447C7211CB03200975630 /* Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
+		958447C8211CB03200975630 /* Miscellaneous.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Miscellaneous.swift; sourceTree = "<group>"; };
+		958447ED211CB08300975630 /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		9596A24C1EF02AC300DE3D30 /* LeagueKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeagueKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9596A24E1EF02AC300DE3D30 /* LeagueKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueKitTests.swift; sourceTree = "<group>"; };
 		9596A2501EF02AC300DE3D30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,13 +83,6 @@
 		95AA58151EF023A400D1D8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95AA581F1EF023B100D1D8A7 /* LeagueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LeagueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95AA58221EF023B100D1D8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95AA58531EF0296B00D1D8A7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Item.swift; path = LeagueKit/Item.swift; sourceTree = "<group>"; };
-		95AA58541EF0296B00D1D8A7 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = LeagueKit/Asset.swift; sourceTree = "<group>"; };
-		95AA58551EF0296B00D1D8A7 /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Requester.swift; path = LeagueKit/Requester.swift; sourceTree = "<group>"; };
-		95AA58561EF0296B00D1D8A7 /* LeagueKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LeagueKit.h; path = LeagueKit/LeagueKit.h; sourceTree = "<group>"; };
-		95AA58571EF0296B00D1D8A7 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = LeagueKit/Helpers.swift; sourceTree = "<group>"; };
-		95AA58581EF0296B00D1D8A7 /* Champion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Champion.swift; path = LeagueKit/Champion.swift; sourceTree = "<group>"; };
-		95C39A311F3BEDF200D79771 /* AssetSearching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AssetSearching.swift; path = LeagueKit/AssetSearching.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +125,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		958447BE211CB03200975630 /* LeagueKit */ = {
+			isa = PBXGroup;
+			children = (
+				958447C6211CB03200975630 /* Helpers */,
+				958447C5211CB03200975630 /* Asset.swift */,
+				958447BF211CB03200975630 /* AssetSearching.swift */,
+				958447C4211CB03200975630 /* Champion.swift */,
+				958447C1211CB03200975630 /* Item.swift */,
+				958447C2211CB03200975630 /* Requester.swift */,
+				958447C3211CB03200975630 /* Rune.swift */,
+				958447C0211CB03200975630 /* LeagueKit.h */,
+			);
+			path = LeagueKit;
+			sourceTree = "<group>";
+		};
+		958447C6211CB03200975630 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				958447C7211CB03200975630 /* Codable.swift */,
+				958447ED211CB08300975630 /* Sequence.swift */,
+				958447C8211CB03200975630 /* Miscellaneous.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		9596A24D1EF02AC300DE3D30 /* LeagueKitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,7 +162,7 @@
 		95AA57EB1EF0238700D1D8A7 = {
 			isa = PBXGroup;
 			children = (
-				95AA58271EF0281800D1D8A7 /* LeagueKit */,
+				958447BE211CB03200975630 /* LeagueKit */,
 				95AA57F71EF0238700D1D8A7 /* LeagueKit macOS */,
 				95AA58061EF0239B00D1D8A7 /* LeagueKit iOS */,
 				95AA58131EF023A400D1D8A7 /* LeagueKit watchOS */,
@@ -176,20 +216,6 @@
 			path = "LeagueKit tvOS";
 			sourceTree = "<group>";
 		};
-		95AA58271EF0281800D1D8A7 /* LeagueKit */ = {
-			isa = PBXGroup;
-			children = (
-				95AA58561EF0296B00D1D8A7 /* LeagueKit.h */,
-				95AA58541EF0296B00D1D8A7 /* Asset.swift */,
-				95C39A311F3BEDF200D79771 /* AssetSearching.swift */,
-				95AA58581EF0296B00D1D8A7 /* Champion.swift */,
-				95AA58571EF0296B00D1D8A7 /* Helpers.swift */,
-				95AA58531EF0296B00D1D8A7 /* Item.swift */,
-				95AA58551EF0296B00D1D8A7 /* Requester.swift */,
-			);
-			name = LeagueKit;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -197,7 +223,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95AA585D1EF0297300D1D8A7 /* LeagueKit.h in Headers */,
+				958447CD211CB03200975630 /* LeagueKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +231,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95AA58631EF0297300D1D8A7 /* LeagueKit.h in Headers */,
+				958447CE211CB03200975630 /* LeagueKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +239,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95AA58691EF0297400D1D8A7 /* LeagueKit.h in Headers */,
+				958447CF211CB03200975630 /* LeagueKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +247,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95AA586F1EF0297400D1D8A7 /* LeagueKit.h in Headers */,
+				958447D0211CB03200975630 /* LeagueKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +280,6 @@
 				95AA57F11EF0238700D1D8A7 /* Frameworks */,
 				95AA57F21EF0238700D1D8A7 /* Headers */,
 				95AA57F31EF0238700D1D8A7 /* Resources */,
-				95FF613F1F3BE8A700CEA15A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -326,7 +351,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Julian Dunskus";
 				TargetAttributes = {
 					9596A24B1EF02AC300DE3D30 = {
@@ -334,7 +359,7 @@
 					};
 					95AA57F41EF0238700D1D8A7 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 					};
 					95AA58041EF0239B00D1D8A7 = {
 						CreatedOnToolsVersion = 9.0;
@@ -409,22 +434,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		95FF613F1F3BE8A700CEA15A /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		9596A2481EF02AC300DE3D30 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -438,12 +447,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95AA585C1EF0297300D1D8A7 /* Item.swift in Sources */,
-				95AA585A1EF0297300D1D8A7 /* Champion.swift in Sources */,
-				95AA585B1EF0297300D1D8A7 /* Helpers.swift in Sources */,
-				95C39A321F3BEDF200D79771 /* AssetSearching.swift in Sources */,
-				95AA585E1EF0297300D1D8A7 /* Requester.swift in Sources */,
-				95AA58591EF0297300D1D8A7 /* Asset.swift in Sources */,
+				958447E5211CB03300975630 /* Codable.swift in Sources */,
+				958447E1211CB03200975630 /* Asset.swift in Sources */,
+				958447DD211CB03200975630 /* Champion.swift in Sources */,
+				958447E9211CB03300975630 /* Miscellaneous.swift in Sources */,
+				958447D1211CB03200975630 /* Item.swift in Sources */,
+				958447C9211CB03200975630 /* AssetSearching.swift in Sources */,
+				958447D5211CB03200975630 /* Requester.swift in Sources */,
+				958447D9211CB03200975630 /* Rune.swift in Sources */,
+				958447EE211CB08300975630 /* Sequence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,12 +463,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95AA58621EF0297300D1D8A7 /* Item.swift in Sources */,
-				95AA58601EF0297300D1D8A7 /* Champion.swift in Sources */,
-				95AA58611EF0297300D1D8A7 /* Helpers.swift in Sources */,
-				95C39A331F3BEDF200D79771 /* AssetSearching.swift in Sources */,
-				95AA58641EF0297300D1D8A7 /* Requester.swift in Sources */,
-				95AA585F1EF0297300D1D8A7 /* Asset.swift in Sources */,
+				958447E6211CB03300975630 /* Codable.swift in Sources */,
+				958447E2211CB03300975630 /* Asset.swift in Sources */,
+				958447DE211CB03200975630 /* Champion.swift in Sources */,
+				958447EA211CB03300975630 /* Miscellaneous.swift in Sources */,
+				958447D2211CB03200975630 /* Item.swift in Sources */,
+				958447CA211CB03200975630 /* AssetSearching.swift in Sources */,
+				958447D6211CB03200975630 /* Requester.swift in Sources */,
+				958447DA211CB03200975630 /* Rune.swift in Sources */,
+				958447EF211CB08300975630 /* Sequence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,12 +479,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95AA58681EF0297400D1D8A7 /* Item.swift in Sources */,
-				95AA58661EF0297400D1D8A7 /* Champion.swift in Sources */,
-				95AA58671EF0297400D1D8A7 /* Helpers.swift in Sources */,
-				95C39A341F3BEDF200D79771 /* AssetSearching.swift in Sources */,
-				95AA586A1EF0297400D1D8A7 /* Requester.swift in Sources */,
-				95AA58651EF0297400D1D8A7 /* Asset.swift in Sources */,
+				958447E7211CB03300975630 /* Codable.swift in Sources */,
+				958447E3211CB03300975630 /* Asset.swift in Sources */,
+				958447DF211CB03200975630 /* Champion.swift in Sources */,
+				958447EB211CB03300975630 /* Miscellaneous.swift in Sources */,
+				958447D3211CB03200975630 /* Item.swift in Sources */,
+				958447CB211CB03200975630 /* AssetSearching.swift in Sources */,
+				958447D7211CB03200975630 /* Requester.swift in Sources */,
+				958447DB211CB03200975630 /* Rune.swift in Sources */,
+				958447F0211CB08300975630 /* Sequence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,12 +495,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95AA586E1EF0297400D1D8A7 /* Item.swift in Sources */,
-				95AA586C1EF0297400D1D8A7 /* Champion.swift in Sources */,
-				95AA586D1EF0297400D1D8A7 /* Helpers.swift in Sources */,
-				95C39A351F3BEDF200D79771 /* AssetSearching.swift in Sources */,
-				95AA58701EF0297400D1D8A7 /* Requester.swift in Sources */,
-				95AA586B1EF0297400D1D8A7 /* Asset.swift in Sources */,
+				958447E8211CB03300975630 /* Codable.swift in Sources */,
+				958447E4211CB03300975630 /* Asset.swift in Sources */,
+				958447E0211CB03200975630 /* Champion.swift in Sources */,
+				958447EC211CB03300975630 /* Miscellaneous.swift in Sources */,
+				958447D4211CB03200975630 /* Item.swift in Sources */,
+				958447CC211CB03200975630 /* AssetSearching.swift in Sources */,
+				958447D8211CB03200975630 /* Requester.swift in Sources */,
+				958447DC211CB03200975630 /* Rune.swift in Sources */,
+				958447F1211CB08300975630 /* Sequence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +521,7 @@
 		9596A2551EF02AC300DE3D30 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = V2EPDFA9PV;
 				INFOPLIST_FILE = LeagueKitTests/Info.plist;
@@ -513,6 +535,7 @@
 		9596A2561EF02AC300DE3D30 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = V2EPDFA9PV;
 				INFOPLIST_FILE = LeagueKitTests/Info.plist;
@@ -537,12 +560,16 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -595,12 +622,16 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -651,7 +682,7 @@
 				PRODUCT_NAME = LeagueKit;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -674,7 +705,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.juliand665.LeagueKit-macOS";
 				PRODUCT_NAME = LeagueKit;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -683,6 +714,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = V2EPDFA9PV;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -707,6 +739,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = V2EPDFA9PV;
 				DYLIB_COMPATIBILITY_VERSION = 1;

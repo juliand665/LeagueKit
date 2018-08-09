@@ -79,9 +79,9 @@ public final class Requester {
 	*/
 	public func update<Provider: Assets>(_ assets: Provider, forceUpdate: Bool = false, completion: (() -> Void)? = nil) {
 		if forceUpdate || version != assets.version {
-			decode(DataJSON<Provider>.self, fromJSONAt: dataURL(for: "\(Provider.assetIdentifier).json")) { (json) in
+			decode(Provider.Raw.self, fromJSONAt: dataURL(for: "\(Provider.assetIdentifier).json")) { (raw) in
 				defer { completion?() }
-				json.map { assets.updateContents(to: $0.data, version: self.version) }
+				raw.map { assets.updateContents(to: $0, version: self.version) }
 			}
 		} else {
 			completion?()
@@ -103,20 +103,30 @@ public final class Requester {
 		- completion: Called with the result of the request/decoding operation, if successful.
 	*/
 	public func decode<T: Decodable>(_ type: T.Type, fromJSONAt possibleURL: URL?, completion: @escaping (T?) -> Void) {
+		getData(at: possibleURL) { (data) in
+			guard let data = data else {
+				completion(nil)
+				return
+			}
+			do {
+				completion(try self.decoder.decode(type, from: data))
+			} catch {
+				self.handle(.parseError(error: error))
+				completion(nil)
+			}
+		}
+	}
+	
+	private func getData(at possibleURL: URL?, completion: @escaping (Data?) -> Void) {
 		if let url = possibleURL {
 			let task = URLSession.shared.dataTask(with: url) { (data, _, taskError) in
-				if taskError == nil, let data = data {
-					do {
-						completion(try self.decoder.decode(type, from: data))
-					} catch {
-						self.handle(error as? RequestError ?? .parseError(error: error))
-						completion(nil)
-					}
+				guard taskError == nil, let data = data else {
+					let errorToHandle = taskError ?? NSError(localizedDescription: "No data received from data task!")
+					self.handle(.requestError(error: errorToHandle))
+					completion(nil)
 					return
 				}
-				let errorToHandle = taskError ?? error(localizedDescription: "No data received from data task!")
-				self.handle(.requestError(error: errorToHandle))
-				completion(nil)
+				completion(data)
 			}
 			task.resume()
 		} else {
@@ -139,8 +149,10 @@ public final class Requester {
 			print("Could not construct URL!")
 		case .requestError(let error):
 			print("Could not request data:", error.localizedDescription)
+			dump(error)
 		case .parseError(let error):
 			print("Could not parse JSON data:", error.localizedDescription)
+			dump(error)
 		case .unexpectedObject(let expected):
 			print("Unexpected object in JSON deserialization:", expected)
 		case .incorrectAPIUsage(let description):
@@ -160,10 +172,5 @@ public final class Requester {
 		case unexpectedObject(description: String)
 		/// You, the user of this API, did something wrong.
 		case incorrectAPIUsage(description: String)
-	}
-	
-	/// used for easier decoding of riot json
-	private struct DataJSON<Provider: Assets>: Decodable {
-		var data: [Provider.AssetID: Provider.AssetType]
 	}
 }

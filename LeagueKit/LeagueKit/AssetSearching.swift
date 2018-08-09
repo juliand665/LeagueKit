@@ -1,6 +1,11 @@
 import Foundation
 
-extension Assets {
+public protocol SearchableAsset: Asset {
+	/// these will be used when searching for the asset
+	var searchTerms: [String] { get }
+}
+
+extension Assets where AssetType: SearchableAsset, Contents == [AssetID: AssetType] {
 	/**
 	Computes a list of assets matching a search query.
 	
@@ -16,8 +21,7 @@ extension Assets {
 	- Returns: a list of IDs of matching assets, in the given ordering
 	*/
 	public func assets(matchingQuery query: String, ordering: [MatchQuality] = .recommended) -> [AssetType] {
-		return assetIDs(matchingQuery: query, ordering: ordering)
-			.map { contents[$0]! }
+		return assetIDs(matchingQuery: query, ordering: ordering).map { contents[$0]! }
 	}
 	
 	private func assetIDs(matchingQuery query: String, ordering: [MatchQuality] = .recommended) -> [AssetID] {

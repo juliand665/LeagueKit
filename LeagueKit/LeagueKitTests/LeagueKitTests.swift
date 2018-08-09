@@ -11,7 +11,6 @@ import XCTest
 @testable import LeagueKit
 
 final class LeagueKitTests: XCTestCase {
-	
 	let requester = Requester()
 	let encoder = JSONEncoder()
 	let decoder = JSONDecoder()
@@ -31,6 +30,12 @@ final class LeagueKitTests: XCTestCase {
 		synchronously(execute: requester.updateVersions)
 		synchronously { requester.update(Champions.shared, completion: $0) }
 		XCTAssert(!Champions.shared.contents.isEmpty)
+	}
+	
+	func testDecodingRunes() {
+		synchronously(execute: requester.updateVersions)
+		synchronously { requester.update(Runes.shared, completion: $0) }
+		XCTAssert(!Runes.shared.contents.isEmpty)
 	}
 	
 	func testDecodingAhri() throws {
