@@ -31,24 +31,28 @@ public struct Champion: SimpleAsset {
 	
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
+		
+		if decoder.useAPIFormat {
+			let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
+			
+			try key = Int(container.decode(String.self, forKey: .key))
+					??? DecodingError.dataCorruptedError(forKey: .key, in: container, debugDescription: "key string could not be converted to int")
+			try description = dataContainer.decodeValue(forKey: .description)
+			try searchTerms = dataContainer.decodeValue(forKey: .searchTerms)
+			try imageName = dataContainer.decode(ImageData.self, forKey: .imageData).full
+			try stats = container.decode(RawStats.self, forKey: .stats).stats
+		} else {
+			try key = container.decodeValue(forKey: .key)
+			try description = container.decodeValue(forKey: .description)
+			try searchTerms = container.decodeValue(forKey: .searchTerms)
+			try imageName = container.decodeValue(forKey: .imageName)
+			try stats = container.decodeValue(forKey: .stats)
+		}
 		
 		try id = container.decodeValue(forKey: .id)
-		try key = container.tryToDecodeValue(forKey: .key)
-			?? (Int(container.decode(String.self, forKey: .key))
-				??? DecodingError.dataCorruptedError(forKey: .key, in: container, debugDescription: "key string could not be converted to int")
-		)
 		try name = container.decodeValue(forKey: .name)
 		try title = container.decodeValue(forKey: .title)
 		try version = container.decodeValue(forKey: .version) as String
-		try description = container.decodeValueIfPresent(forKey: .description)
-			?? dataContainer.decodeValue(forKey: .description)
-		try searchTerms = container.decodeValueIfPresent(forKey: .searchTerms)
-			?? dataContainer.decodeValue(forKey: .searchTerms)
-		try imageName = container.decodeValueIfPresent(forKey: .imageName)
-			?? dataContainer.decode(ImageData.self, forKey: .imageData).full
-		try stats = container.tryToDecodeValue(forKey: .stats)
-			?? container.decode(RawStats.self, forKey: .stats).stats
 	}
 	
 	struct RawStats: Decodable {

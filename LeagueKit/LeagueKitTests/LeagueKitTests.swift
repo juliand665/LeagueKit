@@ -39,9 +39,10 @@ final class LeagueKitTests: XCTestCase {
 //	}
 	
 	func testDecodingAhri() throws {
+		do {
 		try testRequestingNewestVersion()
 		
-		let ahri = try decoder.decode(Champion.self, from: ahriJSON)
+		let ahri = try requester.responseDecoder.decode(Champion.self, from: ahriJSON)
 		
 		XCTAssert(ahri.name == "Ahri")
 		
@@ -62,10 +63,14 @@ final class LeagueKitTests: XCTestCase {
 		checkStat(expecting: 30.0,	atLevel: 7, for: \.magicResist)
 		checkStat(expecting: 70.4,	atLevel: 8, for: \.attackDamage)
 		checkStat(expecting: 0.759,	atLevel: 9, for: \.attackSpeed)
+		} catch {
+			dump(error)
+			throw error
+		}
 	}
 	
 	func testReencodingAhri() throws {
-		let ahri = try decoder.decode(Champion.self, from: ahriJSON)
+		let ahri = try requester.responseDecoder.decode(Champion.self, from: ahriJSON)
 		let reencoded = try encoder.encode(ahri)
 		_ = try decoder.decode(Champion.self, from: reencoded)
 	}

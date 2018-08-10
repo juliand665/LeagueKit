@@ -30,23 +30,27 @@ public struct Item: SimpleAsset {
 	
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
 		
-		let key = decoder.codingPath.last?.intValue
-		try id = container.decodeValueIfPresent(forKey: .id) ?? key ?? -1
-		try version = container.decodeValueIfPresent(forKey: .version) // will be set in `Items.updateContents(to:version:)` if not present, i.e. after decoding riot's json
+		if decoder.useAPIFormat {
+			let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
+			
+			id = decoder.codingPath.last?.intValue ?? -1
+			try summary = dataContainer.decodeValue(forKey: .summary)
+			try imageName = dataContainer.decode(ImageData.self, forKey: .imageData).full
+			try searchTerms = dataContainer.decode(String.self, forKey: .searchTerms)
+				.components(separatedBy: ";")
+				.filter { !$0.isEmpty }
+		} else {
+			try id = container.decodeValue(forKey: .id)
+			try summary = container.decodeValue(forKey: .summary)
+			try searchTerms = container.decodeValue(forKey: .searchTerms)
+			try version = container.decodeValue(forKey: .version)
+		}
+		
 		try name = container.decodeValue(forKey: .name)
 		try description = container.decodeValue(forKey: .description)
 		try requiredChampion = container.decodeValueIfPresent(forKey: .requiredChampion)
-		try summary = container.decodeValueIfPresent(forKey: .summary)
-			?? dataContainer.decodeValue(forKey: .summary)
-		try imageName = container.decodeValueIfPresent(forKey: .imageName)
-			?? dataContainer.decode(ImageData.self, forKey: .imageData).full
-		
-		try searchTerms = container.decodeValueIfPresent(forKey: .searchTerms)
-			?? dataContainer.decode(String.self, forKey: .searchTerms)
-				.components(separatedBy: ";")
-				.filter { !$0.isEmpty }
+		try imageName = container.decodeValue(forKey: .imageName)
 	}
 	
 	/// translate riot's data into something usable

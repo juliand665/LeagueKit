@@ -7,6 +7,8 @@ public final class Requester {
 	*/
 	public static var versions: [String] = []
 	
+	static let baseURL = URL(string: "http://ddragon.leagueoflegends.com")!
+	
 	/// The version of assets to request from the server. If `nil`, the newest version will be used.
 	public var desiredVersion: String?
 	
@@ -20,17 +22,17 @@ public final class Requester {
 	*/
 	public var errorHandler: ((RequestError) -> (Bool))?
 	
-	static let baseURL = URL(string: "http://ddragon.leagueoflegends.com")!
-	
-	func apiURL(for string: String) -> URL? {
+	private func apiURL(for string: String) -> URL? {
 		return URL(string: "api/\(string)", relativeTo: Requester.baseURL)
 	}
 	
-	func dataURL(for string: String, inLanguage language: String = "en_US") -> URL? {
+	private func dataURL(for string: String, inLanguage language: String = "en_US") -> URL? {
 		return URL(string: "cdn/\(version)/data/\(language)/\(string)", relativeTo: Requester.baseURL)
 	}
 	
-	let decoder = JSONDecoder()
+	let responseDecoder = JSONDecoder() <- {
+		$0.userInfo[.useAPIFormat] = true
+	}
 	
 	var version: String {
 		guard let version = desiredVersion ?? Requester.versions.first else {
@@ -109,7 +111,7 @@ public final class Requester {
 				return
 			}
 			do {
-				completion(try self.decoder.decode(type, from: data))
+				completion(try self.responseDecoder.decode(type, from: data))
 			} catch {
 				self.handle(.parseError(error: error))
 				completion(nil)

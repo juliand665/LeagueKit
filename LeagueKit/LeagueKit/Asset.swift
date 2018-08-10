@@ -58,7 +58,11 @@ public struct SimpleRaw<Provider: Assets>: Decodable {
 	var data: [Provider.AssetID: Provider.AssetType]
 }
 
-extension WritableAssets where AssetType: WritableAsset, Raw == SimpleRaw<Self>, Contents == [AssetID: AssetType] {
+extension WritableAssets where
+	AssetType: WritableAsset,
+	Raw == SimpleRaw<Self>,
+	Contents == [AssetID: AssetType]
+{
 	public func updateContents(to raw: Raw, version: String) {
 		self.version = version
 		contents = raw.data
@@ -184,4 +188,14 @@ public extension DescribedAsset {
 /// only used to decode riot's JSON
 struct ImageData: Codable {
 	var full: String
+}
+
+extension Decoder {
+	var useAPIFormat: Bool {
+		get { return userInfo[.useAPIFormat] as? Bool == true }
+	}
+}
+
+extension CodingUserInfoKey {
+	static let useAPIFormat = CodingUserInfoKey(rawValue: "LeagueKit.useAPIFormat")!
 }
