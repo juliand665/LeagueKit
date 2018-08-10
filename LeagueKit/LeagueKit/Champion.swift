@@ -35,7 +35,9 @@ public struct Champion: SimpleAsset {
 		
 		try id = container.decodeValue(forKey: .id)
 		try key = container.tryToDecodeValue(forKey: .key)
-			?? Int(container.decode(String.self, forKey: .key))! // TODO throw instead of force unwrap
+			?? (Int(container.decode(String.self, forKey: .key))
+				??? DecodingError.dataCorruptedError(forKey: .key, in: container, debugDescription: "key string could not be converted to int")
+		)
 		try name = container.decodeValue(forKey: .name)
 		try title = container.decodeValue(forKey: .title)
 		try version = container.decodeValue(forKey: .version) as String

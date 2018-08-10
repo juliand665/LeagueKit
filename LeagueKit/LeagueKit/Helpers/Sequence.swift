@@ -38,3 +38,9 @@ extension Sequence where SubSequence: Sequence, SubSequence.Element == Element {
 		}
 	}
 }
+
+extension Sequence {
+	func count(where condition: (Element) throws -> Bool) rethrows -> Int {
+		return try lazy.filter(condition).count
+	}
+}
