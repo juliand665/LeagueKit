@@ -1,6 +1,6 @@
 import Foundation
 
-public final class Requester {
+public final class Client {
 	/**
 	List of available versions of riot's data. The list is sorted by descending release date, i.e. the newest version is the first entry in the list.
 	Update this using `updateVersions(completion:)`
@@ -23,11 +23,11 @@ public final class Requester {
 	public var errorHandler: ((RequestError) -> (Bool))?
 	
 	private func apiURL(for string: String) -> URL? {
-		return URL(string: "api/\(string)", relativeTo: Requester.baseURL)
+		return URL(string: "api/\(string)", relativeTo: Client.baseURL)
 	}
 	
 	private func dataURL(for string: String, inLanguage language: String = "en_US") -> URL? {
-		return URL(string: "cdn/\(version)/data/\(language)/\(string)", relativeTo: Requester.baseURL)
+		return URL(string: "cdn/\(version)/data/\(language)/\(string)", relativeTo: Client.baseURL)
 	}
 	
 	let responseDecoder = JSONDecoder() <- {
@@ -35,14 +35,14 @@ public final class Requester {
 	}
 	
 	var version: String {
-		guard let version = desiredVersion ?? Requester.versions.first else {
+		guard let version = desiredVersion ?? Client.versions.first else {
 			handle(.incorrectAPIUsage(description: "You need to either set your desiredVersion or call updateVersions(completion:) before requesting anything else. More errors will follow."))
 			return "[N/A]" // make URL construction fail
 		}
 		return version
 	}
 	
-	/// Creates a new `Requester` for you to configure the `errorHandler` or `desiredVersion` of.
+	/// Creates a new `Client` for you to configure the `errorHandler` or `desiredVersion` of.
 	public init(errorHandler: ((RequestError) -> (Bool))? = nil) {
 		self.errorHandler = errorHandler
 	}
@@ -50,7 +50,7 @@ public final class Requester {
 	/**
 	Asynchronously does the following:
 	1. Requests and decodes the list of versions from Riot, handling any errors with `handle(_:)`
-	2. Stores the list in `Requester.versions`
+	2. Stores the list in `Client.versions`
 	3. Calls `completion`
 	
 	- Parameters:
@@ -64,7 +64,7 @@ public final class Requester {
 				self.handle(.unexpectedObject(description: "Expected non-empty array of strings (got empty one)."))
 				return
 			}
-			Requester.versions = versions
+			Client.versions = versions
 		}
 	}
 	

@@ -11,30 +11,30 @@ import XCTest
 @testable import LeagueKit
 
 final class LeagueKitTests: XCTestCase {
-	let requester = Requester()
+	let client = Client()
 	let encoder = JSONEncoder()
 	let decoder = JSONDecoder()
 	
 	func testRequestingNewestVersion() throws {
-		synchronously(execute: requester.updateVersions)
-		XCTAssert(!Requester.versions.isEmpty)
+		synchronously(execute: client.updateVersions)
+		XCTAssert(!Client.versions.isEmpty)
 	}
 	
 	func testDecodingItems() {
-		synchronously(execute: requester.updateVersions)
-		synchronously { requester.update(Items.shared, completion: $0) }
+		synchronously(execute: client.updateVersions)
+		synchronously { client.update(Items.shared, completion: $0) }
 		XCTAssert(!Items.shared.contents.isEmpty)
 	}
 	
 	func testDecodingChampions() {
-		synchronously(execute: requester.updateVersions)
-		synchronously { requester.update(Champions.shared, completion: $0) }
+		synchronously(execute: client.updateVersions)
+		synchronously { client.update(Champions.shared, completion: $0) }
 		XCTAssert(!Champions.shared.contents.isEmpty)
 	}
 	
 //	func testDecodingRunes() {
-//		synchronously(execute: requester.updateVersions)
-//		synchronously { requester.update(Runes.shared, completion: $0) }
+//		synchronously(execute: client.updateVersions)
+//		synchronously { client.update(Runes.shared, completion: $0) }
 //		XCTAssert(!Runes.shared.contents.isEmpty)
 //	}
 	
@@ -42,7 +42,7 @@ final class LeagueKitTests: XCTestCase {
 		do {
 		try testRequestingNewestVersion()
 		
-		let ahri = try requester.responseDecoder.decode(Champion.self, from: ahriJSON)
+		let ahri = try client.responseDecoder.decode(Champion.self, from: ahriJSON)
 		
 		XCTAssert(ahri.name == "Ahri")
 		
@@ -70,7 +70,7 @@ final class LeagueKitTests: XCTestCase {
 	}
 	
 	func testReencodingAhri() throws {
-		let ahri = try requester.responseDecoder.decode(Champion.self, from: ahriJSON)
+		let ahri = try client.responseDecoder.decode(Champion.self, from: ahriJSON)
 		let reencoded = try encoder.encode(ahri)
 		_ = try decoder.decode(Champion.self, from: reencoded)
 	}

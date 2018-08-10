@@ -5,17 +5,17 @@
 import Cocoa
 import LeagueKit
 
-let requester = Requester()
+let client = Client()
 let champs = Champions.shared
 let items = Items.shared
 
 let group = DispatchGroup()
 
-synchronously(execute: requester.updateVersions)
+synchronously(execute: client.updateVersions)
 group.enter()
-requester.update(champs, completion: group.leave)
+client.update(champs, completion: group.leave)
 group.enter()
-requester.update(items, completion: group.leave)
+client.update(items, completion: group.leave)
 group.wait()
 //: ---
 //: ### Testing

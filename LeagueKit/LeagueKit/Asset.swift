@@ -142,7 +142,7 @@ extension Asset {
 extension VersionedAsset {
 	/// URL of the full-resolution image riot offers for this asset
 	public var imageURL: URL? {
-		return URL(string: "cdn/\(version!)/img/\(Provider.assetIdentifier)/\(imageName)", relativeTo: Requester.baseURL)
+		return URL(string: "cdn/\(version!)/img/\(Provider.assetIdentifier)/\(imageName)", relativeTo: Client.baseURL)
 	}
 }
 

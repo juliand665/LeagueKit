@@ -25,7 +25,7 @@ public struct RunePath: Asset {
 	public var imageName: String
 	
 	public var imageURL: URL? {
-		return URL(string: "cdn/img/\(imageName)", relativeTo: Requester.baseURL)
+		return URL(string: "cdn/img/\(imageName)", relativeTo: Client.baseURL)
 	}
 	
 	public init(from decoder: Decoder) throws {
@@ -66,7 +66,7 @@ public struct Rune: Codable {
 	public var imageName: String
 	
 	public var imageURL: URL? {
-		return URL(string: "cdn/img/\(imageName)", relativeTo: Requester.baseURL)
+		return URL(string: "cdn/img/\(imageName)", relativeTo: Client.baseURL)
 	}
 	
 	public init(from decoder: Decoder) throws {
