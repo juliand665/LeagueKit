@@ -34,23 +34,24 @@ public struct Item: SimpleAsset {
 		if decoder.useAPIFormat {
 			let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
 			
-			id = decoder.codingPath.last?.intValue ?? -1
+			try id = decoder.codingPath.last?.intValue
+				??? DecodingError.dataCorruptedError(forKey: .id, in: container, debugDescription: "expected int as key in item dictionary!")
 			try summary = dataContainer.decodeValue(forKey: .summary)
-			try imageName = dataContainer.decode(ImageData.self, forKey: .imageData).full
 			try searchTerms = dataContainer.decode(String.self, forKey: .searchTerms)
 				.components(separatedBy: ";")
 				.filter { !$0.isEmpty }
+			try imageName = dataContainer.decode(ImageData.self, forKey: .imageData).full
 		} else {
 			try id = container.decodeValue(forKey: .id)
 			try summary = container.decodeValue(forKey: .summary)
 			try searchTerms = container.decodeValue(forKey: .searchTerms)
 			try version = container.decodeValue(forKey: .version)
+			try imageName = container.decodeValue(forKey: .imageName)
 		}
 		
 		try name = container.decodeValue(forKey: .name)
 		try description = container.decodeValue(forKey: .description)
 		try requiredChampion = container.decodeValueIfPresent(forKey: .requiredChampion)
-		try imageName = container.decodeValue(forKey: .imageName)
 	}
 	
 	/// translate riot's data into something usable
