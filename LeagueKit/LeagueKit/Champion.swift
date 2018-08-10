@@ -33,15 +33,20 @@ public struct Champion: SimpleAsset {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
 		
-		try id = container →! .id
-		try key = container →? .key ?? Int(container →! .key as String)! // TODO throw instead of force unwrap
-		try name = container →! .name
-		try title = container →! .title
-		try version = container →! .version as String
-		try description = container → .description ?? dataContainer →! .description
-		try searchTerms = container → .searchTerms ?? dataContainer →! .searchTerms
-		try imageName = container → .imageName ?? dataContainer.decode(ImageData.self, forKey: .imageData).full
-		try stats = container →? .stats ?? (container →! .stats as RawStats).stats
+		try id = container.decodeValue(forKey: .id)
+		try key = container.tryToDecodeValue(forKey: .key)
+			?? Int(container.decode(String.self, forKey: .key))! // TODO throw instead of force unwrap
+		try name = container.decodeValue(forKey: .name)
+		try title = container.decodeValue(forKey: .title)
+		try version = container.decodeValue(forKey: .version) as String
+		try description = container.decodeValueIfPresent(forKey: .description)
+			?? dataContainer.decodeValue(forKey: .description)
+		try searchTerms = container.decodeValueIfPresent(forKey: .searchTerms)
+			?? dataContainer.decodeValue(forKey: .searchTerms)
+		try imageName = container.decodeValueIfPresent(forKey: .imageName)
+			?? dataContainer.decode(ImageData.self, forKey: .imageData).full
+		try stats = container.tryToDecodeValue(forKey: .stats)
+			?? container.decode(RawStats.self, forKey: .stats).stats
 	}
 	
 	struct RawStats: Decodable {
@@ -89,8 +94,8 @@ public struct AttackSpeed: ScalingStat {
 	init(dataFrom decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: DataCodingKeys.self)
 		
-		try offset = container →! .offset
-		try percentagePerLevel = container →! .percentagePerLevel
+		try offset = container.decodeValue(forKey: .offset)
+		try percentagePerLevel = container.decodeValue(forKey: .percentagePerLevel)
 	}
 	
 	private enum DataCodingKeys: String, CodingKey {
@@ -107,8 +112,8 @@ public struct SimpleScalingStat: ScalingStat {
 	init(named name: String, dataFrom decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CustomKey.self)
 		
-		try base = container →! .named(name)
-		try perLevel = container →! .named(name + "perlevel")
+		try base = container.decodeValue(forKey: .named(name))
+		try perLevel = container.decodeValue(forKey: .named(name + "perlevel"))
 	}
 	
 	public func value(atLevel level: Int) -> Double {
@@ -143,8 +148,8 @@ extension Champion {
 		init(dataFrom decoder: Decoder) throws {
 			let container = try decoder.container(keyedBy: DataCodingKeys.self)
 			
-			try! movementSpeed = container →! .movementSpeed
-			try attackRange = container →! .attackRange
+			try! movementSpeed = container.decodeValue(forKey: .movementSpeed)
+			try attackRange = container.decodeValue(forKey: .attackRange)
 			
 			try health = RegeneratingStat(named: "hp", dataFrom: decoder)
 			try mana = RegeneratingStat(named: "mp", dataFrom: decoder)
