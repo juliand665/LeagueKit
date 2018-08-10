@@ -3,7 +3,12 @@ import XCTest
 @testable import LeagueKit
 
 final class LeagueKitTests: XCTestCase {
-	let client = Client()
+	let client = Client() <- {
+		$0.errorHandler = { error in
+			XCTFail(error.localizedDescription)
+			return false
+		}
+	}
 	let encoder = JSONEncoder()
 	let decoder = JSONDecoder()
 	
@@ -13,21 +18,19 @@ final class LeagueKitTests: XCTestCase {
 	}
 	
 	func testDecodingItems() {
+		Items.shared.contents = [:]
 		synchronously(execute: client.updateVersions)
-		synchronously { client.update(Items.shared, completion: $0) }
-		XCTAssert(!Items.shared.contents.isEmpty)
+		synchronously { client.update(Items.shared, forceUpdate: true, completion: $0) }
 	}
 	
 	func testDecodingChampions() {
 		synchronously(execute: client.updateVersions)
-		synchronously { client.update(Champions.shared, completion: $0) }
-		XCTAssert(!Champions.shared.contents.isEmpty)
+		synchronously { client.update(Champions.shared, forceUpdate: true, completion: $0) }
 	}
 	
 	func testDecodingRunes() {
 		synchronously(execute: client.updateVersions)
-		synchronously { client.update(Runes.shared, completion: $0) }
-		XCTAssert(!Runes.shared.contents.isEmpty)
+		synchronously { client.update(Runes.shared, forceUpdate: true, completion: $0) }
 	}
 	
 	func testDecodingAhri() throws {
