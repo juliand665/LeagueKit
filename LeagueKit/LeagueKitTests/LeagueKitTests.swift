@@ -1,11 +1,3 @@
-//
-//  LeagueKitTests.swift
-//  LeagueKitTests
-//
-//  Created by Julian Dunskus on 13.06.17.
-//  Copyright © 2017 Julian Dunskus. All rights reserved.
-//
-
 import XCTest
 
 @testable import LeagueKit
@@ -32,11 +24,11 @@ final class LeagueKitTests: XCTestCase {
 		XCTAssert(!Champions.shared.contents.isEmpty)
 	}
 	
-//	func testDecodingRunes() {
-//		synchronously(execute: client.updateVersions)
-//		synchronously { client.update(Runes.shared, completion: $0) }
-//		XCTAssert(!Runes.shared.contents.isEmpty)
-//	}
+	func testDecodingRunes() {
+		synchronously(execute: client.updateVersions)
+		synchronously { client.update(Runes.shared, completion: $0) }
+		XCTAssert(!Runes.shared.contents.isEmpty)
+	}
 	
 	func testDecodingAhri() throws {
 		do {

@@ -1,14 +1,14 @@
 import Foundation
 
-/*
 public final class Runes: WritableAssets {
+	public typealias AssetType = RunePath
+	
 	public typealias Contents = [RunePath]
 	public typealias Raw = [RunePath]
 	
 	public static let shared = load()
 	public var contents: [RunePath] = []
 	public static let assetIdentifier = "runesReforged"
-	public static let imageURLBase = "perk-images"
 	public var version = "N/A"
 	
 	public required init() {}
@@ -30,20 +30,20 @@ public struct RunePath: Asset {
 	
 	public init(from decoder: Decoder) throws {
 		let container: KeyedDecodingContainer = try decoder.container(keyedBy: CodingKeys.self)
-		let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
 		
-		try id = container →! .id
-		try key = container →! .key
-		try name = container →! .name
-		
-		if let slots = try? container →! .slots as [[Rune]] {
-			self.slots = slots
+		if decoder.useAPIFormat {
+			let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
+			
+			try slots = container.decode([RawSlot].self, forKey: .slots).map { $0.runes }
+			try imageName = dataContainer.decodeValue(forKey: .imageName)
 		} else {
-			let rawSlots = try container →! .slots as [RawSlot]
-			slots = rawSlots.map { $0.runes }
+			try slots = container.decodeValue(forKey: .slots)
+			try imageName = container.decodeValue(forKey: .imageName)
 		}
 		
-		try imageName = container → .imageName ?? dataContainer →! .imageName
+		try id = container.decodeValue(forKey: .id)
+		try key = container.decodeValue(forKey: .key)
+		try name = container.decodeValue(forKey: .name)
 	}
 	
 	/// translate riot's data into something usable
@@ -71,15 +71,21 @@ public struct Rune: Codable {
 	
 	public init(from decoder: Decoder) throws {
 		let container: KeyedDecodingContainer = try decoder.container(keyedBy: CodingKeys.self)
-		let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
+		if decoder.useAPIFormat {
+			let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
+			
+			try summary = dataContainer.decodeValue(forKey: .summary)
+			try description = dataContainer.decodeValue(forKey: .description)
+			try imageName = dataContainer.decodeValue(forKey: .imageName)
+		} else {
+			try summary = container.decodeValue(forKey: .summary)
+			try description = container.decodeValue(forKey: .description)
+			try imageName = container.decodeValue(forKey: .imageName)
+		}
 		
-		try id = container →! .id
-		try key = container →! .key
-		try name = container →! .name
-		try summary = container → .summary ?? dataContainer →! .summary
-		try description = container → .description ?? dataContainer →! .description
-		
-		try imageName = container →! .imageName ?? dataContainer →! .imageName
+		try id = container.decodeValue(forKey: .id)
+		try key = container.decodeValue(forKey: .key)
+		try name = container.decodeValue(forKey: .name)
 	}
 	
 	/// translate riot's data into something usable
@@ -89,4 +95,3 @@ public struct Rune: Codable {
 		case imageName = "icon"
 	}
 }
-*/

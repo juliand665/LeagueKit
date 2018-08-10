@@ -24,4 +24,4 @@ cait.stats.attackSpeed.value(atLevel: 1)
 cait.stats.attackSpeed.value(atLevel: 18)
 NSImage(byReferencing: cait.imageURL!)
 
-champs.assets(matchingQuery: "cait", ordering: .byQuality)
+//champs.assets(matchingQuery: "cait", ordering: .byQuality)

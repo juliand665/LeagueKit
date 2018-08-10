@@ -1,5 +1,3 @@
-// Created by Julian Dunskus
-
 import Foundation
 
 // these should really be part of the standard library
