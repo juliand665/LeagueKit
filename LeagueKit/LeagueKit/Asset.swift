@@ -102,7 +102,7 @@ extension Assets {
 
 // MARK: -
 
-typealias SimpleAsset = WritableAsset & DescribedAsset & VersionedAsset
+typealias SimpleAsset = WritableAsset & DescribedAsset & VersionedAsset & SearchableAsset
 
 public protocol Asset: Codable, Hashable {
 	associatedtype Provider: Assets
