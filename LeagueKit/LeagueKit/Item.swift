@@ -1,14 +1,13 @@
 import Foundation
 
 public final class Items: WritableAssetProvider {
-	public typealias AssetID = Int
 	public typealias AssetType = Item
-	public typealias Contents = [Int: Item]
 	public typealias Raw = SimpleRaw<Items>
 	
 	public static let shared = load()
-	public var contents: [Int: Item] = [:]
 	public static let assetIdentifier = "item"
+	
+	public var contents: [Int: Item] = [:]
 	public var version = "N/A"
 	
 	public required init() {}
@@ -17,16 +16,16 @@ public final class Items: WritableAssetProvider {
 public struct Item: SimpleAsset {
 	public typealias Provider = Items
 	
-	public var id: Int
-	public var name: String
-	public var description: String
-	public var requiredChampion: String?
-	public var summary: String
-	public var searchTerms: [String]
+	public let id: Int
+	public let name: String
+	public let description: String
+	public let requiredChampion: String?
+	public let summary: String
+	public let searchTerms: [String]
 	
-	public var version: String
+	public let version: String
 	
-	public var imageName: String
+	public let imageName: String
 	
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)

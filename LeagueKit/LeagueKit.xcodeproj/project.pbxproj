@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		95143F0C216B728A00815DA0 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF2D216ADD9C000FEDB7 /* Promise.framework */; };
+		95143F0E216B865C00815DA0 /* ahri.json in Resources */ = {isa = PBXBuildFile; fileRef = 95143F0D216B865C00815DA0 /* ahri.json */; };
 		958447C9211CB03200975630 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447BF211CB03200975630 /* AssetSearching.swift */; };
 		958447CA211CB03200975630 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447BF211CB03200975630 /* AssetSearching.swift */; };
 		958447CB211CB03200975630 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447BF211CB03200975630 /* AssetSearching.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		95143F0D216B865C00815DA0 /* ahri.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ahri.json; sourceTree = "<group>"; };
 		958447BF211CB03200975630 /* AssetSearching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetSearching.swift; sourceTree = "<group>"; };
 		958447C0211CB03200975630 /* LeagueKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueKit.h; sourceTree = "<group>"; };
 		958447C1211CB03200975630 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -147,11 +149,11 @@
 			isa = PBXGroup;
 			children = (
 				958447C6211CB03200975630 /* Helpers */,
+				958447C2211CB03200975630 /* Client.swift */,
 				958447C5211CB03200975630 /* Asset.swift */,
 				958447BF211CB03200975630 /* AssetSearching.swift */,
 				958447C4211CB03200975630 /* Champion.swift */,
 				958447C1211CB03200975630 /* Item.swift */,
-				958447C2211CB03200975630 /* Client.swift */,
 				958447C3211CB03200975630 /* Rune.swift */,
 				958447C0211CB03200975630 /* LeagueKit.h */,
 			);
@@ -173,6 +175,7 @@
 			children = (
 				9596A24E1EF02AC300DE3D30 /* LeagueKitTests.swift */,
 				9596A2501EF02AC300DE3D30 /* Info.plist */,
+				95143F0D216B865C00815DA0 /* ahri.json */,
 			);
 			path = LeagueKitTests;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95143F0E216B865C00815DA0 /* ahri.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

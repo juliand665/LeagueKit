@@ -11,12 +11,12 @@ final class LeagueKitTests: XCTestCase {
 		XCTAssert(try !client.updateVersions().await().isEmpty)
 	}
 	
-	func testDecodingItems() throws {
-		try client.update(Items.shared, forceUpdate: true).await()
-	}
-	
 	func testDecodingChampions() throws {
 		try client.update(Champions.shared, forceUpdate: true).await()
+	}
+	
+	func testDecodingItems() throws {
+		try client.update(Items.shared, forceUpdate: true).await()
 	}
 	
 	func testDecodingRunes() throws {
@@ -60,56 +60,5 @@ final class LeagueKitTests: XCTestCase {
 		_ = try decoder.decode(Champion.self, from: reencoded)
 	}
 	
-	let ahriJSON = """
-	{
-		"version": "7.4.1",
-		"id": "Ahri",
-		"key": "103",
-		"name": "Ahri",
-		"title": "the Nine-Tailed Fox",
-		"blurb": "Unlike other foxes that roamed the woods of southern Ionia, Ahri had always felt a strange connection to the magical world around her; a connection that was somehow incomplete. Deep inside, she felt the skin she had been born into was an ill fit for her...",
-		"info": {
-			"attack": 3,
-			"defense": 4,
-			"magic": 8,
-			"difficulty": 5
-		},
-		"image": {
-			"full": "Ahri.png",
-			"sprite": "champion0.png",
-			"group": "champion",
-			"x": 48,
-			"y": 0,
-			"w": 48,
-			"h": 48
-		},
-		"tags": [
-			"Mage",
-			"Assassin"
-		],
-		"partype": "Mana",
-		"stats": {
-			"hp": 514.4,
-			"hpperlevel": 80,
-			"mp": 334,
-			"mpperlevel": 50,
-			"movespeed": 330,
-			"armor": 20.88,
-			"armorperlevel": 3.5,
-			"spellblock": 30,
-			"spellblockperlevel": 0,
-			"attackrange": 550,
-			"hpregen": 6.508,
-			"hpregenperlevel": 0.6,
-			"mpregen": 6,
-			"mpregenperlevel": 0.8,
-			"crit": 0,
-			"critperlevel": 0,
-			"attackdamage": 53.04,
-			"attackdamageperlevel": 3,
-			"attackspeedoffset": -0.065,
-			"attackspeedperlevel": 2
-		}
-	}
-	""".data(using: .utf8)!
+	let ahriJSON = try! Data(contentsOf: URL(fileURLWithPath: Bundle(for: LeagueKitTests.self).path(forResource: "ahri.json", ofType: nil)!))
 }

@@ -2,13 +2,12 @@ import Foundation
 
 public final class Runes: WritableAssetProvider {
 	public typealias AssetType = RunePath
-	
-	public typealias Contents = [RunePath]
 	public typealias Raw = [RunePath]
 	
 	public static let shared = load()
-	public var contents: [RunePath] = []
 	public static let assetIdentifier = "runesReforged"
+	
+	public var contents: [RunePath] = []
 	public var version = "N/A"
 	
 	public required init() {}
@@ -17,12 +16,12 @@ public final class Runes: WritableAssetProvider {
 public struct RunePath: Asset {
 	public typealias Provider = Runes
 	
-	public var id: Int
-	public var key: String
-	public var name: String
-	public var slots: [[Rune]]
+	public let id: Int
+	public let key: String
+	public let name: String
+	public let slots: [[Rune]]
 	
-	public var imageName: String
+	public let imageName: String
 	
 	public var imageURL: URL? {
 		return URL(string: "cdn/img/\(imageName)", relativeTo: Client.baseURL)
@@ -57,13 +56,13 @@ public struct RunePath: Asset {
 }
 
 public struct Rune: Codable, Equatable {
-	public var id: Int
-	public var key: String
-	public var name: String
-	public var summary: String
-	public var description: String
+	public let id: Int
+	public let key: String
+	public let name: String
+	public let summary: String
+	public let description: String
 	
-	public var imageName: String
+	public let imageName: String
 	
 	public var imageURL: URL? {
 		return URL(string: "cdn/img/\(imageName)", relativeTo: Client.baseURL)

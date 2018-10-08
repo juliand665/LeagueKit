@@ -4,22 +4,20 @@ import Promise
 public final class Client {
 	public static let shared = Client()
 	
-	/**
-	List of available versions of riot's data. The list is sorted by descending release date, i.e. the newest version is the first entry in the list.
-	
-	Updated by `updateVersions()`.
-	*/
+	/// List of available versions of riot's data. The list is sorted by descending release date, i.e. the newest version is the first entry in the list.
 	public private(set) var versions: [String] = []
 	
-	static let baseURL = URL(string: "http://ddragon.leagueoflegends.com")!
+	static let baseURL = URL(string: "https://ddragon.leagueoflegends.com")!
 	
 	/// The version of assets to request from the server. If `nil`, the newest version will be used.
 	public var desiredVersion: String?
 	
-	private let urlSession = URLSession.shared
+	// internal for testing
 	let responseDecoder = JSONDecoder() <- {
 		$0.userInfo[.useAPIFormat] = true
 	}
+	
+	private let urlSession = URLSession.shared
 	
 	public init() {}
 	
@@ -70,8 +68,8 @@ public final class Client {
 	
 	private func decode<T: Decodable>(_ type: T.Type, fromJSONAt url: URL, version: String? = nil) -> Future<T> {
 		return urlSession.dataTask(with: url).map { [responseDecoder] in
-			responseDecoder.userInfo[.assetVersion] = version
-			return try responseDecoder.decode(type, from: $0.data)
+			return try (responseDecoder <- { $0.userInfo[.assetVersion] = version })
+				.decode(type, from: $0.data)
 		}
 	}
 	

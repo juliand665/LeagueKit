@@ -1,14 +1,13 @@
 import Foundation
 
 public final class Champions: WritableAssetProvider {
-	public typealias AssetID = String
 	public typealias AssetType = Champion
-	public typealias Contents = [String: Champion]
 	public typealias Raw = SimpleRaw<Champions>
 	
 	public static let shared = load()
-	public var contents: [String: Champion] = [:]
 	public static let assetIdentifier = "champion"
+	
+	public var contents: [String: Champion] = [:]
 	public var version = "N/A"
 	
 	public init() {}
@@ -17,17 +16,17 @@ public final class Champions: WritableAssetProvider {
 public struct Champion: SimpleAsset {
 	public typealias Provider = Champions
 	
-	public var id: String
-	public var key: Int
-	public var name: String
-	public var description: String
-	public var title: String
-	public var searchTerms: [String]
-	public var stats: Stats
+	public let id: String
+	public let key: Int
+	public let name: String
+	public let description: String
+	public let title: String
+	public let searchTerms: [String]
+	public let stats: Stats
 	
-	public var version: String
+	public let version: String
 	
-	public var imageName: String
+	public let imageName: String
 	
 	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -56,7 +55,7 @@ public struct Champion: SimpleAsset {
 	}
 	
 	struct RawStats: Decodable {
-		var stats: Stats
+		let stats: Stats
 		
 		init(from decoder: Decoder) throws {
 			stats = try Stats(dataFrom: decoder)
@@ -154,7 +153,7 @@ extension Champion {
 		init(dataFrom decoder: Decoder) throws {
 			let container = try decoder.container(keyedBy: DataCodingKeys.self)
 			
-			try! movementSpeed = container.decodeValue(forKey: .movementSpeed)
+			try movementSpeed = container.decodeValue(forKey: .movementSpeed)
 			try attackRange = container.decodeValue(forKey: .attackRange)
 			
 			try health = RegeneratingStat(named: "hp", dataFrom: decoder)
