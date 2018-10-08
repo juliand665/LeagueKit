@@ -49,6 +49,10 @@
 		958447F1211CB08300975630 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447ED211CB08300975630 /* Sequence.swift */; };
 		9596A24F1EF02AC300DE3D30 /* LeagueKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596A24E1EF02AC300DE3D30 /* LeagueKitTests.swift */; };
 		9596A2511EF02AC300DE3D30 /* LeagueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AA57F51EF0238700D1D8A7 /* LeagueKit.framework */; };
+		95DADF32216ADD9C000FEDB7 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF2D216ADD9C000FEDB7 /* Promise.framework */; };
+		95DADF34216ADD9F000FEDB7 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF33216ADD9F000FEDB7 /* Promise.framework */; };
+		95DADF36216ADDA2000FEDB7 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF35216ADDA2000FEDB7 /* Promise.framework */; };
+		95DADF38216ADDA5000FEDB7 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF37216ADDA5000FEDB7 /* Promise.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +87,14 @@
 		95AA58151EF023A400D1D8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95AA581F1EF023B100D1D8A7 /* LeagueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LeagueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95AA58221EF023B100D1D8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95DADF19216AC6F2000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Checkouts/Promise/Carthage/Build/Mac/Promise.framework; sourceTree = "<group>"; };
+		95DADF1B216AC6F7000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Checkouts/Promise/Carthage/Build/iOS/Promise.framework; sourceTree = "<group>"; };
+		95DADF1D216AC6FA000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Checkouts/Promise/Carthage/Build/watchOS/Promise.framework; sourceTree = "<group>"; };
+		95DADF1F216AC6FD000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Checkouts/Promise/Carthage/Build/tvOS/Promise.framework; sourceTree = "<group>"; };
+		95DADF2D216ADD9C000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Build/Mac/Promise.framework; sourceTree = "<group>"; };
+		95DADF33216ADD9F000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Build/iOS/Promise.framework; sourceTree = "<group>"; };
+		95DADF35216ADDA2000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Build/watchOS/Promise.framework; sourceTree = "<group>"; };
+		95DADF37216ADDA5000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Build/tvOS/Promise.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95DADF32216ADD9C000FEDB7 /* Promise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95DADF34216ADD9F000FEDB7 /* Promise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95DADF36216ADDA2000FEDB7 /* Promise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95DADF38216ADDA5000FEDB7 /* Promise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +185,7 @@
 				95AA58201EF023B100D1D8A7 /* LeagueKit tvOS */,
 				9596A24D1EF02AC300DE3D30 /* LeagueKitTests */,
 				95AA57F61EF0238700D1D8A7 /* Products */,
+				95DADF18216AC6F2000FEDB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,6 +231,21 @@
 				95AA58221EF023B100D1D8A7 /* Info.plist */,
 			);
 			path = "LeagueKit tvOS";
+			sourceTree = "<group>";
+		};
+		95DADF18216AC6F2000FEDB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95DADF37216ADDA5000FEDB7 /* Promise.framework */,
+				95DADF35216ADDA2000FEDB7 /* Promise.framework */,
+				95DADF33216ADD9F000FEDB7 /* Promise.framework */,
+				95DADF2D216ADD9C000FEDB7 /* Promise.framework */,
+				95DADF1F216AC6FD000FEDB7 /* Promise.framework */,
+				95DADF1D216AC6FA000FEDB7 /* Promise.framework */,
+				95DADF1B216AC6F7000FEDB7 /* Promise.framework */,
+				95DADF19216AC6F2000FEDB7 /* Promise.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +312,7 @@
 				95AA57F11EF0238700D1D8A7 /* Frameworks */,
 				95AA57F21EF0238700D1D8A7 /* Headers */,
 				95AA57F31EF0238700D1D8A7 /* Resources */,
+				95412AFA216AEFEA0000503D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -298,6 +331,7 @@
 				95AA58011EF0239B00D1D8A7 /* Frameworks */,
 				95AA58021EF0239B00D1D8A7 /* Headers */,
 				95AA58031EF0239B00D1D8A7 /* Resources */,
+				95412AFB216AF11D0000503D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -316,6 +350,7 @@
 				95AA580E1EF023A400D1D8A7 /* Frameworks */,
 				95AA580F1EF023A400D1D8A7 /* Headers */,
 				95AA58101EF023A400D1D8A7 /* Resources */,
+				95412AFC216AF12D0000503D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -334,6 +369,7 @@
 				95AA581B1EF023B100D1D8A7 /* Frameworks */,
 				95AA581C1EF023B100D1D8A7 /* Headers */,
 				95AA581D1EF023B100D1D8A7 /* Resources */,
+				95412AFD216AF13A0000503D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -434,6 +470,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		95412AFA216AEFEA0000503D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/Promise.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		95412AFB216AF11D0000503D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Promise.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		95412AFC216AF12D0000503D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/watchOS/Promise.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		95412AFD216AF13A0000503D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/tvOS/Promise.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9596A2481EF02AC300DE3D30 /* Sources */ = {
@@ -674,6 +785,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "LeagueKit macOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -698,6 +813,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "LeagueKit macOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -721,6 +840,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "LeagueKit iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -746,6 +869,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "LeagueKit iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -771,6 +898,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
 				INFOPLIST_FILE = "LeagueKit watchOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -796,6 +927,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
 				INFOPLIST_FILE = "LeagueKit watchOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -820,6 +955,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				INFOPLIST_FILE = "LeagueKit tvOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -844,6 +983,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				INFOPLIST_FILE = "LeagueKit tvOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

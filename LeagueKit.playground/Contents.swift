@@ -5,21 +5,16 @@
 import Cocoa
 import LeagueKit
 
-let client = Client()
+let client = Client.shared
 let champs = Champions.shared
 let items = Items.shared
 let runes = Runes.shared
 
-let group = DispatchGroup()
-
-synchronously(execute: client.updateVersions)
-group.enter()
-client.update(champs, completion: group.leave)
-group.enter()
-client.update(items, completion: group.leave)
-group.enter()
-client.update(runes, completion: group.leave)
-group.wait()
+try [
+	client.update(champs),
+	client.update(items),
+	client.update(runes),
+].sequence().await()
 //: ---
 //: ### Basics
 let cait = champs.contents["Caitlyn"]!
