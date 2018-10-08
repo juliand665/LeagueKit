@@ -1,6 +1,6 @@
 import Foundation
 
-public final class Items: WritableAssets {
+public final class Items: WritableAssetProvider {
 	public typealias AssetID = Int
 	public typealias AssetType = Item
 	public typealias Contents = [Int: Item]
@@ -24,7 +24,7 @@ public struct Item: SimpleAsset {
 	public var summary: String
 	public var searchTerms: [String]
 	
-	public var version: String!
+	public var version: String
 	
 	public var imageName: String
 	
@@ -40,6 +40,7 @@ public struct Item: SimpleAsset {
 			try searchTerms = dataContainer.decode(String.self, forKey: .searchTerms)
 				.components(separatedBy: ";")
 				.filter { !$0.isEmpty }
+			version = decoder.assetVersion!
 			try imageName = dataContainer.decode(ImageData.self, forKey: .imageData).full
 		} else {
 			try id = container.decodeValue(forKey: .id)

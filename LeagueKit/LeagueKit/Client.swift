@@ -17,7 +17,7 @@ public final class Client {
 	public var desiredVersion: String?
 	
 	private let urlSession = URLSession.shared
-	private let responseDecoder = JSONDecoder() <- {
+	let responseDecoder = JSONDecoder() <- {
 		$0.userInfo[.useAPIFormat] = true
 	}
 	
@@ -39,11 +39,11 @@ public final class Client {
 		- assets: The asset provider to update.
 		- forceUpdate: If `true`, updates the assets even if they're at the desired version, effectively repairing them.
 	*/
-	public func update<Provider: Assets>(_ assets: Provider, forceUpdate: Bool = false) -> Future<Void> {
+	public func update<Provider: AssetProvider>(_ assets: Provider, forceUpdate: Bool = false) -> Future<Void> {
 		return requestedVersion().flatMap { version in
 			guard forceUpdate || version != assets.version else { return .fulfilled(with: ()) }
 			return self.dataURL(for: "\(Provider.assetIdentifier).json").flatMap {
-				self.decode(Provider.Raw.self, fromJSONAt: $0).map { raw in
+				self.decode(Provider.Raw.self, fromJSONAt: $0, version: version).map { raw in
 					assets.updateContents(to: raw, version: version)
 				}
 			}
@@ -68,13 +68,11 @@ public final class Client {
 		}
 	}
 	
-	private func decode<T: Decodable>(_ type: T.Type, fromJSONAt url: URL) -> Future<T> {
-		return getData(at: url).map { try self.responseDecoder.decode(type, from: $0) }
-	}
-	
-	private func getData(at url: URL) -> Future<Data> {
-		return urlSession.dataTask(with: url)
-			.map { $0.data }
+	private func decode<T: Decodable>(_ type: T.Type, fromJSONAt url: URL, version: String? = nil) -> Future<T> {
+		return urlSession.dataTask(with: url).map { [responseDecoder] in
+			responseDecoder.userInfo[.assetVersion] = version
+			return try responseDecoder.decode(type, from: $0.data)
+		}
 	}
 	
 	/// This enum abstracts the errors that can occur during requests. To override the default handling (as implemented in `handle(_:)`), assign your own closure to `errorHandler`.

@@ -5,7 +5,7 @@ public protocol SearchableAsset: Asset {
 	var searchTerms: [String] { get }
 }
 
-extension Assets where AssetType: SearchableAsset, Contents == [AssetID: AssetType] {
+extension AssetProvider where AssetType: SearchableAsset, Contents == [AssetID: AssetType] {
 	/**
 	Computes a list of assets matching a search query.
 	

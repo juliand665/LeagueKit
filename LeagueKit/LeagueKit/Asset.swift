@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol Assets: AnyObject, Codable { // class-only for (obvious) performance reasons
+public protocol AssetProvider: AnyObject, Codable { // class-only for (obvious) performance reasons
 	associatedtype Contents: Codable
 	associatedtype Raw: Decodable
 	
@@ -36,7 +36,7 @@ public protocol Assets: AnyObject, Codable { // class-only for (obvious) perform
 
 // MARK: default implementation of updateContents
 
-public protocol WritableAssets: Assets {
+public protocol WritableAssetProvider: AssetProvider {
 	/// list of assets provided by this class
 	var contents: Contents { get set }
 	
@@ -44,7 +44,7 @@ public protocol WritableAssets: Assets {
 	var version: String { get set }
 }
 
-extension WritableAssets where Raw == Contents {
+extension WritableAssetProvider where Raw == Contents {
 	public func updateContents(to raw: Raw, version: String) {
 		self.version = version
 		contents = raw
@@ -54,21 +54,17 @@ extension WritableAssets where Raw == Contents {
 	}
 }
 
-public struct SimpleRaw<Provider: Assets>: Decodable {
+public struct SimpleRaw<Provider: AssetProvider>: Decodable {
 	var data: [Provider.AssetID: Provider.AssetType]
 }
 
-extension WritableAssets where
-	AssetType: WritableAsset,
+extension WritableAssetProvider where
 	Raw == SimpleRaw<Self>,
 	Contents == [AssetID: AssetType]
 {
 	public func updateContents(to raw: Raw, version: String) {
 		self.version = version
 		contents = raw.data
-		for key in contents.keys {
-			contents[key]!.version = version
-		}
 		if Self.shared === self {
 			Self.save()
 		}
@@ -79,7 +75,7 @@ extension WritableAssets where
 private let encoder = JSONEncoder()
 private let decoder = JSONDecoder()
 
-extension Assets {
+extension AssetProvider {
 	public static func load() -> Self {
 		if let data = UserDefaults.standard.data(forKey: "LoLAPI.\(Self.assetIdentifier)"),
 		   let assets = try? decoder.decode(Self.self, from: data) {
@@ -102,10 +98,10 @@ extension Assets {
 
 // MARK: -
 
-typealias SimpleAsset = WritableAsset & DescribedAsset & VersionedAsset & SearchableAsset
+typealias SimpleAsset = DescribedAsset & VersionedAsset & SearchableAsset
 
 public protocol Asset: Codable, Hashable {
-	associatedtype Provider: Assets
+	associatedtype Provider: AssetProvider
 	associatedtype ID: Codable, Hashable
 	
 	var id: ID { get }
@@ -118,31 +114,27 @@ public protocol Asset: Codable, Hashable {
 	var imageURL: URL? { get }
 }
 
-protocol VersionedAsset: Asset {
-	var version: String! { get }
-}
-
-// MARK: default implementation of updateContents
-public protocol WritableAsset: Asset {
-	var version: String! { get set }
-}
-
 // MARK: hashing and equality
 extension Asset {
 	public var hashValue: Int {
 		return id.hashValue
 	}
 	
-	public static func == (lhs: Self, rhs: Self) -> Bool {
+	public static func === (lhs: Self, rhs: Self) -> Bool {
 		return lhs.id == rhs.id
 	}
 }
 
-// MARK: convenient functions
+// MARK: -
+
+protocol VersionedAsset: Asset {
+	var version: String { get }
+}
+
 extension VersionedAsset {
 	/// URL of the full-resolution image riot offers for this asset
 	public var imageURL: URL? {
-		return URL(string: "cdn/\(version!)/img/\(Provider.assetIdentifier)/\(imageName)", relativeTo: Client.baseURL)
+		return URL(string: "cdn/\(version)/img/\(Provider.assetIdentifier)/\(imageName)", relativeTo: Client.baseURL)
 	}
 }
 
@@ -194,8 +186,13 @@ extension Decoder {
 	var useAPIFormat: Bool {
 		get { return userInfo[.useAPIFormat] as? Bool == true }
 	}
+	
+	var assetVersion: String? {
+		get { return userInfo[.assetVersion] as? String }
+	}
 }
 
 extension CodingUserInfoKey {
 	static let useAPIFormat = CodingUserInfoKey(rawValue: "LeagueKit.useAPIFormat")!
+	static let assetVersion = CodingUserInfoKey(rawValue: "LeagueKit.assetVersion")!
 }

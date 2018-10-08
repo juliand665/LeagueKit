@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95143F0C216B728A00815DA0 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF2D216ADD9C000FEDB7 /* Promise.framework */; };
 		958447C9211CB03200975630 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447BF211CB03200975630 /* AssetSearching.swift */; };
 		958447CA211CB03200975630 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447BF211CB03200975630 /* AssetSearching.swift */; };
 		958447CB211CB03200975630 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447BF211CB03200975630 /* AssetSearching.swift */; };
@@ -103,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9596A2511EF02AC300DE3D30 /* LeagueKit.framework in Frameworks */,
+				95143F0C216B728A00815DA0 /* Promise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +295,7 @@
 				9596A2481EF02AC300DE3D30 /* Sources */,
 				9596A2491EF02AC300DE3D30 /* Frameworks */,
 				9596A24A1EF02AC300DE3D30 /* Resources */,
+				95143F0B216B71E600815DA0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -472,6 +475,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		95143F0B216B71E600815DA0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/Promise.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		95412AFA216AEFEA0000503D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -636,6 +657,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = V2EPDFA9PV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = LeagueKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.juliand665.LeagueKitTests;
@@ -650,6 +675,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = V2EPDFA9PV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = LeagueKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.juliand665.LeagueKitTests;

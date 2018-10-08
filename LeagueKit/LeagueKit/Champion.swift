@@ -1,6 +1,6 @@
 import Foundation
 
-public final class Champions: WritableAssets {
+public final class Champions: WritableAssetProvider {
 	public typealias AssetID = String
 	public typealias AssetType = Champion
 	public typealias Contents = [String: Champion]
@@ -25,7 +25,7 @@ public struct Champion: SimpleAsset {
 	public var searchTerms: [String]
 	public var stats: Stats
 	
-	public var version: String!
+	public var version: String
 	
 	public var imageName: String
 	
@@ -52,7 +52,7 @@ public struct Champion: SimpleAsset {
 		try id = container.decodeValue(forKey: .id)
 		try name = container.decodeValue(forKey: .name)
 		try title = container.decodeValue(forKey: .title)
-		try version = container.decodeValue(forKey: .version) as String
+		try version = container.decodeValue(forKey: .version)
 	}
 	
 	struct RawStats: Decodable {
@@ -72,7 +72,7 @@ public struct Champion: SimpleAsset {
 }
 
 // protocols can't be nested in other things for whatever reason
-public protocol ScalingStat: Codable {
+public protocol ScalingStat: Codable, Equatable {
 	func value(atLevel level: Int) -> Double
 }
 
@@ -128,7 +128,7 @@ public struct SimpleScalingStat: ScalingStat {
 }
 
 /// a statistic that can regenerate, i.e. health and mana
-public struct RegeneratingStat: Codable {
+public struct RegeneratingStat: Codable, Equatable {
 	public let max: SimpleScalingStat
 	public let regen: SimpleScalingStat
 	
@@ -140,7 +140,7 @@ public struct RegeneratingStat: Codable {
 
 extension Champion {
 	/// use this to access a champion's stats
-	public struct Stats: Codable {
+	public struct Stats: Codable, Equatable {
 		public let movementSpeed: Double
 		public let attackRange: Double
 		public let health: RegeneratingStat

@@ -3,61 +3,51 @@ import XCTest
 @testable import LeagueKit
 
 final class LeagueKitTests: XCTestCase {
-	let client = Client() <- {
-		$0.errorHandler = { error in
-			XCTFail(error.localizedDescription)
-			return false
-		}
-	}
+	let client = Client()
 	let encoder = JSONEncoder()
 	let decoder = JSONDecoder()
 	
 	func testRequestingNewestVersion() throws {
-		synchronously(execute: client.updateVersions)
-		XCTAssert(!Client.versions.isEmpty)
+		XCTAssert(try !client.updateVersions().await().isEmpty)
 	}
 	
-	func testDecodingItems() {
-		Items.shared.contents = [:]
-		synchronously(execute: client.updateVersions)
-		synchronously { client.update(Items.shared, forceUpdate: true, completion: $0) }
+	func testDecodingItems() throws {
+		try client.update(Items.shared, forceUpdate: true).await()
 	}
 	
-	func testDecodingChampions() {
-		synchronously(execute: client.updateVersions)
-		synchronously { client.update(Champions.shared, forceUpdate: true, completion: $0) }
+	func testDecodingChampions() throws {
+		try client.update(Champions.shared, forceUpdate: true).await()
 	}
 	
-	func testDecodingRunes() {
-		synchronously(execute: client.updateVersions)
-		synchronously { client.update(Runes.shared, forceUpdate: true, completion: $0) }
+	func testDecodingRunes() throws {
+		try client.update(Runes.shared, forceUpdate: true).await()
 	}
 	
 	func testDecodingAhri() throws {
 		do {
-		try testRequestingNewestVersion()
-		
-		let ahri = try client.responseDecoder.decode(Champion.self, from: ahriJSON)
-		
-		XCTAssert(ahri.name == "Ahri")
-		
-		XCTAssertNotNil(NSImage(contentsOf: ahri.imageURL!))
-		
-		XCTAssertEqual(330, ahri.stats.movementSpeed)
-		XCTAssertEqual(550, ahri.stats.attackRange)
-		
-		func checkStat<Stat: ScalingStat>(expecting expected: Double, atLevel level: Int, for path: KeyPath<Champion.Stats, Stat>) {
-			XCTAssertEqual(expected, ahri.stats[keyPath: path].value(atLevel: level).rounded(significantFigures: 3))
-		}
-		
-		checkStat(expecting: 572,	atLevel: 2, for: \.health.max)
-		checkStat(expecting: 7.39,	atLevel: 3, for: \.health.regen)
-		checkStat(expecting: 447,	atLevel: 4, for: \.mana.max)
-		checkStat(expecting: 8.47,	atLevel: 5, for: \.mana.regen)
-		checkStat(expecting: 34.7,	atLevel: 6, for: \.armor)
-		checkStat(expecting: 30.0,	atLevel: 7, for: \.magicResist)
-		checkStat(expecting: 70.4,	atLevel: 8, for: \.attackDamage)
-		checkStat(expecting: 0.759,	atLevel: 9, for: \.attackSpeed)
+			try testRequestingNewestVersion()
+			
+			let ahri = try client.responseDecoder.decode(Champion.self, from: ahriJSON)
+			
+			XCTAssert(ahri.name == "Ahri")
+			
+			XCTAssertNotNil(NSImage(contentsOf: ahri.imageURL!))
+			
+			XCTAssertEqual(330, ahri.stats.movementSpeed)
+			XCTAssertEqual(550, ahri.stats.attackRange)
+			
+			func checkStat<Stat: ScalingStat>(expecting expected: Double, atLevel level: Int, for path: KeyPath<Champion.Stats, Stat>) {
+				XCTAssertEqual(expected, ahri.stats[keyPath: path].value(atLevel: level).rounded(significantFigures: 3))
+			}
+			
+			checkStat(expecting: 572,	atLevel: 2, for: \.health.max)
+			checkStat(expecting: 7.39,	atLevel: 3, for: \.health.regen)
+			checkStat(expecting: 447,	atLevel: 4, for: \.mana.max)
+			checkStat(expecting: 8.47,	atLevel: 5, for: \.mana.regen)
+			checkStat(expecting: 34.7,	atLevel: 6, for: \.armor)
+			checkStat(expecting: 30.0,	atLevel: 7, for: \.magicResist)
+			checkStat(expecting: 70.4,	atLevel: 8, for: \.attackDamage)
+			checkStat(expecting: 0.759,	atLevel: 9, for: \.attackSpeed)
 		} catch {
 			dump(error)
 			throw error

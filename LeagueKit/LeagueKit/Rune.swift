@@ -1,6 +1,6 @@
 import Foundation
 
-public final class Runes: WritableAssets {
+public final class Runes: WritableAssetProvider {
 	public typealias AssetType = RunePath
 	
 	public typealias Contents = [RunePath]
@@ -56,7 +56,7 @@ public struct RunePath: Asset {
 	}
 }
 
-public struct Rune: Codable {
+public struct Rune: Codable, Equatable {
 	public var id: Int
 	public var key: String
 	public var name: String

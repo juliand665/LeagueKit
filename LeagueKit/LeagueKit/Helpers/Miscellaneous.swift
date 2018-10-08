@@ -31,14 +31,6 @@ extension NSError {
 	}
 }
 
-/// synchronously executes an asynchronous method with a completion block using a `DispatchGroup`
-public func synchronously(execute method: (@escaping () -> Void) -> Void) {
-	let group = DispatchGroup()
-	group.enter()
-	method(group.leave)
-	group.wait()
-}
-
 extension String {
     /// Reduces the string to lowercase letters (and spaces).
 	/// 
