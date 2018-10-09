@@ -10,9 +10,9 @@ public struct ChampionRotationRequest: Request {
 	public init() {}
 	
 	public struct Response: Decodable {
-		var freeChampions: [Int]
-		var freeChampionsForNewPlayers: [Int]
-		var maxNewPlayerLevel: Int
+		public var freeChampions: [Int]
+		public var freeChampionsForNewPlayers: [Int]
+		public var maxNewPlayerLevel: Int
 		
 		private enum CodingKeys: String, CodingKey {
 			case freeChampions = "freeChampionIds"
