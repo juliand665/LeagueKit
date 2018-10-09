@@ -7,10 +7,25 @@ public final class Champions: WritableAssetProvider {
 	public static let shared = load()
 	public static let assetIdentifier = "champion"
 	
-	public var contents: [String: Champion] = [:]
+	public var contents: [String: Champion] = [:] {
+		didSet {
+			championsByKey = Dictionary(uniqueKeysWithValues: contents.values.map { ($0.key, $0) })
+		}
+	}
 	public var version = "N/A"
 	
+	private var championsByKey: [Int: Champion] = [:]
+	
 	public init() {}
+	
+	public subscript(_ id: String) -> Champion? {
+		return contents[id]
+	}
+	
+	/// O(n)
+	public subscript(_ key: Int) -> Champion? {
+		return championsByKey[key]
+	}
 }
 
 public struct Champion: SimpleAsset {
