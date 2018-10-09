@@ -15,6 +15,7 @@ public final class Client {
 	// internal for testing
 	let responseDecoder = JSONDecoder() <- {
 		$0.userInfo[.useAPIFormat] = true
+		$0.dateDecodingStrategy = .millisecondsSince1970
 	}
 	
 	private let urlSession = URLSession.shared

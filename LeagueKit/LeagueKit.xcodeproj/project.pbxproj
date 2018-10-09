@@ -145,16 +145,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		958447BE211CB03200975630 /* LeagueKit */ = {
+		95122A32216C9A80001305A0 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				958447C6211CB03200975630 /* Helpers */,
 				958447C2211CB03200975630 /* Client.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		95122A33216C9A89001305A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				958447C5211CB03200975630 /* Asset.swift */,
 				958447BF211CB03200975630 /* AssetSearching.swift */,
 				958447C4211CB03200975630 /* Champion.swift */,
 				958447C1211CB03200975630 /* Item.swift */,
 				958447C3211CB03200975630 /* Rune.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		958447BE211CB03200975630 /* LeagueKit */ = {
+			isa = PBXGroup;
+			children = (
+				958447C6211CB03200975630 /* Helpers */,
+				95122A33216C9A89001305A0 /* Model */,
+				95122A32216C9A80001305A0 /* Networking */,
 				958447C0211CB03200975630 /* LeagueKit.h */,
 			);
 			path = LeagueKit;
