@@ -1,7 +1,7 @@
 import Foundation
 
 public protocol Request {
-	associatedtype ExpectedResponse: Decodable
+	associatedtype Response: Decodable
 	
 	static var base: APIBase { get }
 	var method: String { get }
@@ -52,11 +52,11 @@ public enum APIRegion: String {
 	case pbe = "pbe1"
 }
 
-/// The base for the method we're calling, as an enum because there's not too many of them
+/// The base for the method we're calling
 public enum APIBase: String {
 	case championMastery = "champion-mastery"
+	case champion = "platform"
 	case league
-	case staticData = "static-data"
 	case status
 	case match
 	case spectator

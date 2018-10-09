@@ -18,7 +18,7 @@ public final class Client {
 		self.baseURL = URLComponents(string: "https://\(region.rawValue).api.riotgames.com")!
 	}
 	
-	public func send<R: Request>(_ request: R) -> Future<R.ExpectedResponse> {
+	public func send<R: Request>(_ request: R) -> Future<R.Response> {
 		return Future.fulfilled(with: request)
 			.map(urlRequest)
 			.flatMap(send)

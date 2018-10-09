@@ -91,6 +91,10 @@
 		958447F1211CB08300975630 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447ED211CB08300975630 /* Sequence.swift */; };
 		9596A24F1EF02AC300DE3D30 /* LeagueKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596A24E1EF02AC300DE3D30 /* LeagueKitTests.swift */; };
 		9596A2511EF02AC300DE3D30 /* LeagueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AA57F51EF0238700D1D8A7 /* LeagueKit.framework */; };
+		95D03948216D544B00260748 /* ChampionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D03947216D544B00260748 /* ChampionEndpoint.swift */; };
+		95D03949216D544B00260748 /* ChampionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D03947216D544B00260748 /* ChampionEndpoint.swift */; };
+		95D0394A216D544B00260748 /* ChampionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D03947216D544B00260748 /* ChampionEndpoint.swift */; };
+		95D0394B216D544B00260748 /* ChampionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D03947216D544B00260748 /* ChampionEndpoint.swift */; };
 		95DADF32216ADD9C000FEDB7 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF2D216ADD9C000FEDB7 /* Promise.framework */; };
 		95DADF34216ADD9F000FEDB7 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF33216ADD9F000FEDB7 /* Promise.framework */; };
 		95DADF36216ADDA2000FEDB7 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF35216ADDA2000FEDB7 /* Promise.framework */; };
@@ -140,6 +144,7 @@
 		95AA58151EF023A400D1D8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95AA581F1EF023B100D1D8A7 /* LeagueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LeagueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95AA58221EF023B100D1D8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95D03947216D544B00260748 /* ChampionEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionEndpoint.swift; sourceTree = "<group>"; };
 		95DADF19216AC6F2000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Checkouts/Promise/Carthage/Build/Mac/Promise.framework; sourceTree = "<group>"; };
 		95DADF1B216AC6F7000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Checkouts/Promise/Carthage/Build/iOS/Promise.framework; sourceTree = "<group>"; };
 		95DADF1D216AC6FA000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Checkouts/Promise/Carthage/Build/watchOS/Promise.framework; sourceTree = "<group>"; };
@@ -244,6 +249,7 @@
 			children = (
 				95122A42216D48DD001305A0 /* SummonerEndpoint.swift */,
 				95122A47216D48F2001305A0 /* ChampionMasteryEndpoint.swift */,
+				95D03947216D544B00260748 /* ChampionEndpoint.swift */,
 				95122A3D216D48C7001305A0 /* MatchEndpoint.swift */,
 			);
 			path = Requests;
@@ -693,6 +699,7 @@
 				95122A66216D499E001305A0 /* DynamicAPIClient.swift in Sources */,
 				958447DD211CB03200975630 /* Champion.swift in Sources */,
 				958447E9211CB03300975630 /* Miscellaneous.swift in Sources */,
+				95D03948216D544B00260748 /* ChampionEndpoint.swift in Sources */,
 				958447D1211CB03200975630 /* Item.swift in Sources */,
 				95122A5D216D4950001305A0 /* Match.swift in Sources */,
 				958447C9211CB03200975630 /* AssetSearching.swift in Sources */,
@@ -719,6 +726,7 @@
 				95122A67216D499E001305A0 /* DynamicAPIClient.swift in Sources */,
 				958447DE211CB03200975630 /* Champion.swift in Sources */,
 				958447EA211CB03300975630 /* Miscellaneous.swift in Sources */,
+				95D03949216D544B00260748 /* ChampionEndpoint.swift in Sources */,
 				958447D2211CB03200975630 /* Item.swift in Sources */,
 				95122A5E216D4950001305A0 /* Match.swift in Sources */,
 				958447CA211CB03200975630 /* AssetSearching.swift in Sources */,
@@ -745,6 +753,7 @@
 				95122A68216D499E001305A0 /* DynamicAPIClient.swift in Sources */,
 				958447DF211CB03200975630 /* Champion.swift in Sources */,
 				958447EB211CB03300975630 /* Miscellaneous.swift in Sources */,
+				95D0394A216D544B00260748 /* ChampionEndpoint.swift in Sources */,
 				958447D3211CB03200975630 /* Item.swift in Sources */,
 				95122A5F216D4950001305A0 /* Match.swift in Sources */,
 				958447CB211CB03200975630 /* AssetSearching.swift in Sources */,
@@ -771,6 +780,7 @@
 				95122A69216D499E001305A0 /* DynamicAPIClient.swift in Sources */,
 				958447E0211CB03200975630 /* Champion.swift in Sources */,
 				958447EC211CB03300975630 /* Miscellaneous.swift in Sources */,
+				95D0394B216D544B00260748 /* ChampionEndpoint.swift in Sources */,
 				958447D4211CB03200975630 /* Item.swift in Sources */,
 				95122A60216D4950001305A0 /* Match.swift in Sources */,
 				958447CC211CB03200975630 /* AssetSearching.swift in Sources */,

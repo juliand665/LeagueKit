@@ -1,7 +1,7 @@
 import Foundation
 
 public struct MatchListRequest: Request {
-	public typealias ExpectedResponse = MatchList
+	public typealias Response = MatchList
 	public static let base = APIBase.match
 	
 	private let accountID: Int
@@ -16,7 +16,7 @@ public struct MatchListRequest: Request {
 }
 
 public struct MatchRequest: Request {
-	public typealias ExpectedResponse = Match
+	public typealias Response = Match
 	public static let base = APIBase.match
 	
 	private let matchID: Int
@@ -31,7 +31,7 @@ public struct MatchRequest: Request {
 }
 
 public struct MatchTimelineRequest: Request {
-	public typealias ExpectedResponse = MatchTimeline
+	public typealias Response = MatchTimeline
 	public static let base = APIBase.match
 	
 	private let matchID: Int

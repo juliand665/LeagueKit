@@ -1,7 +1,7 @@
 import Foundation
 
 public struct ChampionMasteryRequest: Request {
-	public typealias ExpectedResponse = [ChampionMastery]
+	public typealias Response = [ChampionMastery]
 	public static let base = APIBase.championMastery
 	
 	private let summonerID: Int
