@@ -21,10 +21,10 @@
 		958447D2211CB03200975630 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C1211CB03200975630 /* Item.swift */; };
 		958447D3211CB03200975630 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C1211CB03200975630 /* Item.swift */; };
 		958447D4211CB03200975630 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C1211CB03200975630 /* Item.swift */; };
-		958447D5211CB03200975630 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C2211CB03200975630 /* Client.swift */; };
-		958447D6211CB03200975630 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C2211CB03200975630 /* Client.swift */; };
-		958447D7211CB03200975630 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C2211CB03200975630 /* Client.swift */; };
-		958447D8211CB03200975630 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C2211CB03200975630 /* Client.swift */; };
+		958447D5211CB03200975630 /* StaticDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C2211CB03200975630 /* StaticDataClient.swift */; };
+		958447D6211CB03200975630 /* StaticDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C2211CB03200975630 /* StaticDataClient.swift */; };
+		958447D7211CB03200975630 /* StaticDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C2211CB03200975630 /* StaticDataClient.swift */; };
+		958447D8211CB03200975630 /* StaticDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C2211CB03200975630 /* StaticDataClient.swift */; };
 		958447D9211CB03200975630 /* Rune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C3211CB03200975630 /* Rune.swift */; };
 		958447DA211CB03200975630 /* Rune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C3211CB03200975630 /* Rune.swift */; };
 		958447DB211CB03200975630 /* Rune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447C3211CB03200975630 /* Rune.swift */; };
@@ -72,7 +72,7 @@
 		958447BF211CB03200975630 /* AssetSearching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetSearching.swift; sourceTree = "<group>"; };
 		958447C0211CB03200975630 /* LeagueKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueKit.h; sourceTree = "<group>"; };
 		958447C1211CB03200975630 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		958447C2211CB03200975630 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		958447C2211CB03200975630 /* StaticDataClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticDataClient.swift; sourceTree = "<group>"; };
 		958447C3211CB03200975630 /* Rune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rune.swift; sourceTree = "<group>"; };
 		958447C4211CB03200975630 /* Champion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Champion.swift; sourceTree = "<group>"; };
 		958447C5211CB03200975630 /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
@@ -148,12 +148,20 @@
 		95122A32216C9A80001305A0 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				958447C2211CB03200975630 /* Client.swift */,
+				958447C2211CB03200975630 /* StaticDataClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
 		};
 		95122A33216C9A89001305A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95122A35216D455B001305A0 /* Static Data */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		95122A35216D455B001305A0 /* Static Data */ = {
 			isa = PBXGroup;
 			children = (
 				958447C5211CB03200975630 /* Asset.swift */,
@@ -162,7 +170,7 @@
 				958447C1211CB03200975630 /* Item.swift */,
 				958447C3211CB03200975630 /* Rune.swift */,
 			);
-			path = Model;
+			path = "Static Data";
 			sourceTree = "<group>";
 		};
 		958447BE211CB03200975630 /* LeagueKit */ = {
@@ -606,7 +614,7 @@
 				958447E9211CB03300975630 /* Miscellaneous.swift in Sources */,
 				958447D1211CB03200975630 /* Item.swift in Sources */,
 				958447C9211CB03200975630 /* AssetSearching.swift in Sources */,
-				958447D5211CB03200975630 /* Client.swift in Sources */,
+				958447D5211CB03200975630 /* StaticDataClient.swift in Sources */,
 				958447D9211CB03200975630 /* Rune.swift in Sources */,
 				958447EE211CB08300975630 /* Sequence.swift in Sources */,
 			);
@@ -622,7 +630,7 @@
 				958447EA211CB03300975630 /* Miscellaneous.swift in Sources */,
 				958447D2211CB03200975630 /* Item.swift in Sources */,
 				958447CA211CB03200975630 /* AssetSearching.swift in Sources */,
-				958447D6211CB03200975630 /* Client.swift in Sources */,
+				958447D6211CB03200975630 /* StaticDataClient.swift in Sources */,
 				958447DA211CB03200975630 /* Rune.swift in Sources */,
 				958447EF211CB08300975630 /* Sequence.swift in Sources */,
 			);
@@ -638,7 +646,7 @@
 				958447EB211CB03300975630 /* Miscellaneous.swift in Sources */,
 				958447D3211CB03200975630 /* Item.swift in Sources */,
 				958447CB211CB03200975630 /* AssetSearching.swift in Sources */,
-				958447D7211CB03200975630 /* Client.swift in Sources */,
+				958447D7211CB03200975630 /* StaticDataClient.swift in Sources */,
 				958447DB211CB03200975630 /* Rune.swift in Sources */,
 				958447F0211CB08300975630 /* Sequence.swift in Sources */,
 			);
@@ -654,7 +662,7 @@
 				958447EC211CB03300975630 /* Miscellaneous.swift in Sources */,
 				958447D4211CB03200975630 /* Item.swift in Sources */,
 				958447CC211CB03200975630 /* AssetSearching.swift in Sources */,
-				958447D8211CB03200975630 /* Client.swift in Sources */,
+				958447D8211CB03200975630 /* StaticDataClient.swift in Sources */,
 				958447DC211CB03200975630 /* Rune.swift in Sources */,
 				958447F1211CB08300975630 /* Sequence.swift in Sources */,
 			);

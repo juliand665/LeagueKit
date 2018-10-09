@@ -3,7 +3,7 @@ import XCTest
 @testable import LeagueKit
 
 final class LeagueKitTests: XCTestCase {
-	let client = Client()
+	let client = StaticDataClient()
 	let encoder = JSONEncoder()
 	let decoder = JSONDecoder()
 	
