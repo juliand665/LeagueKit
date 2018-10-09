@@ -1,7 +1,7 @@
 import Foundation
 import Promise
 
-public final class Client {
+public final class DynamicAPIClient {
 	private let apiKey: String
 	private let region: APIRegion
 	private let baseURL: URLComponents

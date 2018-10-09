@@ -5,15 +5,15 @@
 import Cocoa
 import LeagueKit
 
-let client = StaticDataClient.shared
+let staticClient = StaticDataClient.shared
 let champs = Champions.shared
 let items = Items.shared
 let runes = Runes.shared
 
 try [
-	client.update(champs),
-	client.update(items),
-	client.update(runes),
+	staticClient.update(champs),
+	staticClient.update(items),
+	staticClient.update(runes),
 ].sequence().await()
 //: ---
 //: ### Basics
@@ -30,3 +30,12 @@ NSImage(byReferencing: electrocute.imageURL!)
 //: ### Searching
 champs.assets(matchingQuery: "ca")
 items.assets(matchingQuery: "dam", ordering: .byQuality)
+//: ---
+//: ## Dynamic API
+if let apiKey = apiKey {
+	let dynamicClient = DynamicAPIClient(apiKey: apiKey, region: .euw)
+	
+	dynamicClient.send(ChampionRotationRequest()).then { rotation in
+		dump(rotation)
+	}
+}
