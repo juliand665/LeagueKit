@@ -100,11 +100,9 @@ extension AssetProvider {
 
 typealias SimpleAsset = DescribedAsset & VersionedAsset & SearchableAsset
 
-public protocol Asset: Codable, Hashable {
+public protocol Asset: Codable, Identified {
 	associatedtype Provider: AssetProvider
-	associatedtype ID: Codable, Hashable
 	
-	var id: ID { get }
 	var name: String { get }
 	
 	/// the name of the image file for this asset on riot's servers; used to compute `imageURL`
@@ -114,13 +112,17 @@ public protocol Asset: Codable, Hashable {
 	var imageURL: URL { get }
 }
 
-// MARK: hashing and equality
-extension Asset {
+public protocol Identified: Hashable {
+	associatedtype ID: Codable, Hashable
+	var id: ID { get }
+}
+
+extension Identified {
 	public var hashValue: Int {
 		return id.hashValue
 	}
 	
-	public static func === (lhs: Self, rhs: Self) -> Bool {
+	public static func == (lhs: Self, rhs: Self) -> Bool {
 		return lhs.id == rhs.id
 	}
 }

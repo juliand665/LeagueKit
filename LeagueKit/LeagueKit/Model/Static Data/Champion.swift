@@ -22,13 +22,12 @@ public final class Champions: WritableAssetProvider {
 		return contents[id]
 	}
 	
-	/// O(n)
 	public subscript(_ key: Int) -> Champion? {
 		return championsByKey[key]
 	}
 }
 
-public struct Champion: SimpleAsset {
+public final class Champion: SimpleAsset {
 	public typealias Provider = Champions
 	
 	public let id: String
@@ -86,7 +85,7 @@ public struct Champion: SimpleAsset {
 }
 
 // protocols can't be nested in other things for whatever reason
-public protocol ScalingStat: Codable, Equatable {
+public protocol ScalingStat: Codable {
 	func value(atLevel level: Int) -> Double
 }
 
@@ -138,7 +137,7 @@ public struct SimpleScalingStat: ScalingStat {
 }
 
 /// a statistic that can regenerate, i.e. health and mana
-public struct RegeneratingStat: Codable, Equatable {
+public struct RegeneratingStat: Codable {
 	public let max: SimpleScalingStat
 	public let regen: SimpleScalingStat
 	
@@ -150,7 +149,7 @@ public struct RegeneratingStat: Codable, Equatable {
 
 extension Champion {
 	/// use this to access a champion's stats
-	public struct Stats: Codable, Equatable {
+	public final class Stats: Codable {
 		public let movementSpeed: Double
 		public let attackRange: Double
 		public let health: RegeneratingStat

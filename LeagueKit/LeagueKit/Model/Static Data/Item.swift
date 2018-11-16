@@ -13,7 +13,7 @@ public final class Items: WritableAssetProvider {
 	public required init() {}
 }
 
-public struct Item: SimpleAsset {
+public final class Item: SimpleAsset {
 	public typealias Provider = Items
 	
 	public let id: Int

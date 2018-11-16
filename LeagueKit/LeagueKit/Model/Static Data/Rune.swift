@@ -13,7 +13,7 @@ public final class Runes: WritableAssetProvider {
 	public required init() {}
 }
 
-public struct RunePath: Asset {
+public final class RunePath: Asset {
 	public typealias Provider = Runes
 	
 	public let id: Int
@@ -55,7 +55,7 @@ public struct RunePath: Asset {
 	}
 }
 
-public struct Rune: Codable, Equatable {
+public final class Rune: Codable, Identified {
 	public let id: Int
 	public let key: String
 	public let name: String
