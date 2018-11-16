@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct ChampionMastery: Codable {
+public struct ChampionMasteryDetails: Codable {
 	public var level: Int
 	public var points: Int
 	public var pointsSinceLastLevel: Int

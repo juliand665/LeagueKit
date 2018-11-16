@@ -2,20 +2,22 @@ import Foundation
 import Promise
 
 public final class DynamicAPIClient {
-	private let apiKey: String
-	private let region: APIRegion
-	private let baseURL: URLComponents
+	public var region: APIRegion
 	
+	private let apiKey: String
 	private let urlSession = URLSession.shared
 	private let responseDecoder = JSONDecoder() <- {
 		$0.dateDecodingStrategy = .millisecondsSince1970
+	}
+	
+	private var baseURL: URLComponents {
+		return URLComponents(string: "https://\(region.rawValue).api.riotgames.com")!
 	}
 	
 	/// - note: You should never expose your api key publicly, so make sure to only use this class from a server you control or in privately distributed apps.
 	public init(apiKey: String, region: APIRegion) {
 		self.apiKey = apiKey
 		self.region = region
-		self.baseURL = URLComponents(string: "https://\(region.rawValue).api.riotgames.com")!
 	}
 	
 	public func send<R: Request>(_ request: R) -> Future<R.Response> {

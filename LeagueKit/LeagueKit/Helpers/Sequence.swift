@@ -42,3 +42,12 @@ extension Sequence {
 		return try lazy.filter(condition).count
 	}
 }
+
+extension Collection where Element: Equatable {
+	func indices(of item: Element) -> [Index] {
+		return zip(indices, self)
+			.lazy
+			.filter { $0.1 == item }
+			.map { $0.0 }
+	}
+}

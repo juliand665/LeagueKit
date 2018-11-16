@@ -31,10 +31,10 @@
 		95122A53216D4937001305A0 /* Summoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A51216D4937001305A0 /* Summoner.swift */; };
 		95122A54216D4937001305A0 /* Summoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A51216D4937001305A0 /* Summoner.swift */; };
 		95122A55216D4937001305A0 /* Summoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A51216D4937001305A0 /* Summoner.swift */; };
-		95122A57216D494B001305A0 /* ChampionMastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A56216D494B001305A0 /* ChampionMastery.swift */; };
-		95122A58216D494B001305A0 /* ChampionMastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A56216D494B001305A0 /* ChampionMastery.swift */; };
-		95122A59216D494B001305A0 /* ChampionMastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A56216D494B001305A0 /* ChampionMastery.swift */; };
-		95122A5A216D494B001305A0 /* ChampionMastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A56216D494B001305A0 /* ChampionMastery.swift */; };
+		95122A57216D494B001305A0 /* ChampionMasteryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A56216D494B001305A0 /* ChampionMasteryDetails.swift */; };
+		95122A58216D494B001305A0 /* ChampionMasteryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A56216D494B001305A0 /* ChampionMasteryDetails.swift */; };
+		95122A59216D494B001305A0 /* ChampionMasteryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A56216D494B001305A0 /* ChampionMasteryDetails.swift */; };
+		95122A5A216D494B001305A0 /* ChampionMasteryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A56216D494B001305A0 /* ChampionMasteryDetails.swift */; };
 		95122A5D216D4950001305A0 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A5B216D4950001305A0 /* Match.swift */; };
 		95122A5E216D4950001305A0 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A5B216D4950001305A0 /* Match.swift */; };
 		95122A5F216D4950001305A0 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A5B216D4950001305A0 /* Match.swift */; };
@@ -49,6 +49,7 @@
 		95122A69216D499E001305A0 /* DynamicAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95122A65216D499E001305A0 /* DynamicAPIClient.swift */; };
 		95143F0C216B728A00815DA0 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF2D216ADD9C000FEDB7 /* Promise.framework */; };
 		95143F0E216B865C00815DA0 /* ahri.json in Resources */ = {isa = PBXBuildFile; fileRef = 95143F0D216B865C00815DA0 /* ahri.json */; };
+		953EDE5B217378DA00558320 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF33216ADD9F000FEDB7 /* Promise.framework */; };
 		958447C9211CB03200975630 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447BF211CB03200975630 /* AssetSearching.swift */; };
 		958447CA211CB03200975630 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447BF211CB03200975630 /* AssetSearching.swift */; };
 		958447CB211CB03200975630 /* AssetSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447BF211CB03200975630 /* AssetSearching.swift */; };
@@ -96,7 +97,6 @@
 		95D0394A216D544B00260748 /* ChampionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D03947216D544B00260748 /* ChampionEndpoint.swift */; };
 		95D0394B216D544B00260748 /* ChampionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D03947216D544B00260748 /* ChampionEndpoint.swift */; };
 		95DADF32216ADD9C000FEDB7 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF2D216ADD9C000FEDB7 /* Promise.framework */; };
-		95DADF34216ADD9F000FEDB7 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF33216ADD9F000FEDB7 /* Promise.framework */; };
 		95DADF36216ADDA2000FEDB7 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF35216ADDA2000FEDB7 /* Promise.framework */; };
 		95DADF38216ADDA5000FEDB7 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DADF37216ADDA5000FEDB7 /* Promise.framework */; };
 /* End PBXBuildFile section */
@@ -118,7 +118,7 @@
 		95122A47216D48F2001305A0 /* ChampionMasteryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionMasteryEndpoint.swift; sourceTree = "<group>"; };
 		95122A4C216D4926001305A0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		95122A51216D4937001305A0 /* Summoner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Summoner.swift; sourceTree = "<group>"; };
-		95122A56216D494B001305A0 /* ChampionMastery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionMastery.swift; sourceTree = "<group>"; };
+		95122A56216D494B001305A0 /* ChampionMasteryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionMasteryDetails.swift; sourceTree = "<group>"; };
 		95122A5B216D4950001305A0 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		95122A5C216D4950001305A0 /* MatchTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchTimeline.swift; sourceTree = "<group>"; };
 		95122A65216D499E001305A0 /* DynamicAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAPIClient.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95DADF34216ADD9F000FEDB7 /* Promise.framework in Frameworks */,
+				953EDE5B217378DA00558320 /* Promise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +237,7 @@
 			children = (
 				95122A4C216D4926001305A0 /* Constants.swift */,
 				95122A51216D4937001305A0 /* Summoner.swift */,
-				95122A56216D494B001305A0 /* ChampionMastery.swift */,
+				95122A56216D494B001305A0 /* ChampionMasteryDetails.swift */,
 				95122A5B216D4950001305A0 /* Match.swift */,
 				95122A5C216D4950001305A0 /* MatchTimeline.swift */,
 			);
@@ -248,8 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				95122A42216D48DD001305A0 /* SummonerEndpoint.swift */,
-				95122A47216D48F2001305A0 /* ChampionMasteryEndpoint.swift */,
 				95D03947216D544B00260748 /* ChampionEndpoint.swift */,
+				95122A47216D48F2001305A0 /* ChampionMasteryEndpoint.swift */,
 				95122A3D216D48C7001305A0 /* MatchEndpoint.swift */,
 			);
 			path = Requests;
@@ -424,7 +424,6 @@
 				95AA57F11EF0238700D1D8A7 /* Frameworks */,
 				95AA57F21EF0238700D1D8A7 /* Headers */,
 				95AA57F31EF0238700D1D8A7 /* Resources */,
-				95412AFA216AEFEA0000503D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -443,7 +442,6 @@
 				95AA58011EF0239B00D1D8A7 /* Frameworks */,
 				95AA58021EF0239B00D1D8A7 /* Headers */,
 				95AA58031EF0239B00D1D8A7 /* Resources */,
-				95412AFB216AF11D0000503D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -462,7 +460,6 @@
 				95AA580E1EF023A400D1D8A7 /* Frameworks */,
 				95AA580F1EF023A400D1D8A7 /* Headers */,
 				95AA58101EF023A400D1D8A7 /* Resources */,
-				95412AFC216AF12D0000503D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -481,7 +478,6 @@
 				95AA581B1EF023B100D1D8A7 /* Frameworks */,
 				95AA581C1EF023B100D1D8A7 /* Headers */,
 				95AA581D1EF023B100D1D8A7 /* Resources */,
-				95412AFD216AF13A0000503D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -603,78 +599,6 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
-		95412AFA216AEFEA0000503D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/Mac/Promise.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		95412AFB216AF11D0000503D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Promise.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		95412AFC216AF12D0000503D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/watchOS/Promise.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		95412AFD216AF13A0000503D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/tvOS/Promise.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -695,7 +619,7 @@
 				95122A52216D4937001305A0 /* Summoner.swift in Sources */,
 				958447E1211CB03200975630 /* Asset.swift in Sources */,
 				95122A61216D4950001305A0 /* MatchTimeline.swift in Sources */,
-				95122A57216D494B001305A0 /* ChampionMastery.swift in Sources */,
+				95122A57216D494B001305A0 /* ChampionMasteryDetails.swift in Sources */,
 				95122A66216D499E001305A0 /* DynamicAPIClient.swift in Sources */,
 				958447DD211CB03200975630 /* Champion.swift in Sources */,
 				958447E9211CB03300975630 /* Miscellaneous.swift in Sources */,
@@ -722,7 +646,7 @@
 				95122A53216D4937001305A0 /* Summoner.swift in Sources */,
 				958447E2211CB03300975630 /* Asset.swift in Sources */,
 				95122A62216D4950001305A0 /* MatchTimeline.swift in Sources */,
-				95122A58216D494B001305A0 /* ChampionMastery.swift in Sources */,
+				95122A58216D494B001305A0 /* ChampionMasteryDetails.swift in Sources */,
 				95122A67216D499E001305A0 /* DynamicAPIClient.swift in Sources */,
 				958447DE211CB03200975630 /* Champion.swift in Sources */,
 				958447EA211CB03300975630 /* Miscellaneous.swift in Sources */,
@@ -749,7 +673,7 @@
 				95122A54216D4937001305A0 /* Summoner.swift in Sources */,
 				958447E3211CB03300975630 /* Asset.swift in Sources */,
 				95122A63216D4951001305A0 /* MatchTimeline.swift in Sources */,
-				95122A59216D494B001305A0 /* ChampionMastery.swift in Sources */,
+				95122A59216D494B001305A0 /* ChampionMasteryDetails.swift in Sources */,
 				95122A68216D499E001305A0 /* DynamicAPIClient.swift in Sources */,
 				958447DF211CB03200975630 /* Champion.swift in Sources */,
 				958447EB211CB03300975630 /* Miscellaneous.swift in Sources */,
@@ -776,7 +700,7 @@
 				95122A55216D4937001305A0 /* Summoner.swift in Sources */,
 				958447E4211CB03300975630 /* Asset.swift in Sources */,
 				95122A64216D4951001305A0 /* MatchTimeline.swift in Sources */,
-				95122A5A216D494B001305A0 /* ChampionMastery.swift in Sources */,
+				95122A5A216D494B001305A0 /* ChampionMasteryDetails.swift in Sources */,
 				95122A69216D499E001305A0 /* DynamicAPIClient.swift in Sources */,
 				958447E0211CB03200975630 /* Champion.swift in Sources */,
 				958447EC211CB03300975630 /* Miscellaneous.swift in Sources */,

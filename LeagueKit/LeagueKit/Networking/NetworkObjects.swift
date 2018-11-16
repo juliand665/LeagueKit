@@ -37,7 +37,7 @@ public struct Status: Decodable {
 	}
 }
 
-public enum APIRegion: String {
+public enum APIRegion: String, CaseIterable {
 	case br = "br1"
 	case eune = "eun1"
 	case euw = "euw1"
