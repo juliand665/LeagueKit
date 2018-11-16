@@ -31,7 +31,7 @@ final class LeagueKitTests: XCTestCase {
 			
 			XCTAssert(ahri.name == "Ahri")
 			
-			XCTAssertNotNil(NSImage(contentsOf: ahri.imageURL!))
+			XCTAssertNotNil(NSImage(contentsOf: ahri.imageURL))
 			
 			XCTAssertEqual(330, ahri.stats.movementSpeed)
 			XCTAssertEqual(550, ahri.stats.attackRange)

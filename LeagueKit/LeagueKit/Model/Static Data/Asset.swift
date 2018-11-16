@@ -111,7 +111,7 @@ public protocol Asset: Codable, Hashable {
 	var imageName: String { get }
 	
 	/// the full url of the image file for the current version, if available
-	var imageURL: URL? { get }
+	var imageURL: URL { get }
 }
 
 // MARK: hashing and equality
@@ -133,7 +133,7 @@ protocol VersionedAsset: Asset {
 
 extension VersionedAsset {
 	/// URL of the full-resolution image riot offers for this asset
-	public var imageURL: URL? {
+	public var imageURL: URL {
 		return StaticDataClient.dataURL(path: "/cdn/\(version)/img/\(Provider.assetIdentifier)/\(imageName)")
 	}
 }

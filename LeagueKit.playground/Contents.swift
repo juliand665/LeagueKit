@@ -21,12 +21,12 @@ try [
 let cait = champs.contents["Caitlyn"]!
 cait.stats.attackSpeed.value(atLevel: 1)
 cait.stats.attackSpeed.value(atLevel: 18)
-NSImage(byReferencing: cait.imageURL!)
+NSImage(byReferencing: cait.imageURL)
 
 let domination = runes.contents[0]
-NSImage(byReferencing: domination.imageURL!)
+NSImage(byReferencing: domination.imageURL)
 let electrocute = domination.slots[0][0]
-NSImage(byReferencing: electrocute.imageURL!)
+NSImage(byReferencing: electrocute.imageURL)
 //: ---
 //: ### Searching
 champs.assets(matchingQuery: "ca")

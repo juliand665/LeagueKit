@@ -23,7 +23,7 @@ public struct RunePath: Asset {
 	
 	public let imageName: String
 	
-	public var imageURL: URL? {
+	public var imageURL: URL {
 		return StaticDataClient.dataURL(path: "/cdn/img/\(imageName)")
 	}
 	
@@ -64,7 +64,7 @@ public struct Rune: Codable, Equatable {
 	
 	public let imageName: String
 	
-	public var imageURL: URL? {
+	public var imageURL: URL {
 		return StaticDataClient.dataURL(path: "/cdn/img/\(imageName)")
 	}
 	
