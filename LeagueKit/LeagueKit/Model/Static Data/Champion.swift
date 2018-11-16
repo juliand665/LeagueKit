@@ -99,12 +99,8 @@ extension ScalingStat {
 
 /// attack speed is a little more complicated than the other `ScalableStat`s, but you can use it just the same way as other `ScalingStat`s
 public struct AttackSpeed: ScalingStat {
-	public let offset: Double
+	public let base: Double
 	public let percentagePerLevel: Double
-	
-	public var base: Double {
-		return 0.625 / (1 + offset)
-	}
 	
 	public func value(atLevel level: Int) -> Double {
 		return base * (1 + 0.01 * percentagePerLevel * growth(atLevel: level))
@@ -114,12 +110,12 @@ public struct AttackSpeed: ScalingStat {
 	init(dataFrom decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: DataCodingKeys.self)
 		
-		try offset = container.decodeValue(forKey: .offset)
+		try base = container.decodeValue(forKey: .base)
 		try percentagePerLevel = container.decodeValue(forKey: .percentagePerLevel)
 	}
 	
 	private enum DataCodingKeys: String, CodingKey {
-		case offset = "attackspeedoffset"
+		case base = "attackspeed"
 		case percentagePerLevel = "attackspeedperlevel"
 	}
 }

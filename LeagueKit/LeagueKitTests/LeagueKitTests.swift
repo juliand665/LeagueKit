@@ -40,14 +40,14 @@ final class LeagueKitTests: XCTestCase {
 				XCTAssertEqual(expected, ahri.stats[keyPath: path].value(atLevel: level).rounded(significantFigures: 3))
 			}
 			
-			checkStat(expecting: 572,	atLevel: 2, for: \.health.max)
+			checkStat(expecting: 592,	atLevel: 2, for: \.health.max)
 			checkStat(expecting: 7.39,	atLevel: 3, for: \.health.regen)
-			checkStat(expecting: 447,	atLevel: 4, for: \.mana.max)
-			checkStat(expecting: 8.47,	atLevel: 5, for: \.mana.regen)
+			checkStat(expecting: 475,	atLevel: 4, for: \.mana.max)
+			checkStat(expecting: 10.5,	atLevel: 5, for: \.mana.regen)
 			checkStat(expecting: 34.7,	atLevel: 6, for: \.armor)
-			checkStat(expecting: 30.0,	atLevel: 7, for: \.magicResist)
+			checkStat(expecting: 32.4,	atLevel: 7, for: \.magicResist)
 			checkStat(expecting: 70.4,	atLevel: 8, for: \.attackDamage)
-			checkStat(expecting: 0.759,	atLevel: 9, for: \.attackSpeed)
+			checkStat(expecting: 0.758,	atLevel: 9, for: \.attackSpeed)
 		} catch {
 			dump(error)
 			throw error

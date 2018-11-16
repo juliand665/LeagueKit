@@ -1,10 +1,10 @@
 {
-	"version": "7.4.1",
+	"version": "8.23.1",
 	"id": "Ahri",
 	"key": "103",
 	"name": "Ahri",
 	"title": "the Nine-Tailed Fox",
-	"blurb": "Unlike other foxes that roamed the woods of southern Ionia, Ahri had always felt a strange connection to the magical world around her; a connection that was somehow incomplete. Deep inside, she felt the skin she had been born into was an ill fit for her...",
+	"blurb": "Innately connected to the latent power of Runeterra, Ahri is a vastaya who can reshape magic into orbs of raw energy. She revels in toying with her prey by manipulating their emotions before devouring their life essence. Despite her predatory nature...",
 	"info": {
 		"attack": 3,
 		"defense": 4,
@@ -26,25 +26,25 @@
 	],
 	"partype": "Mana",
 	"stats": {
-		"hp": 514.4,
-		"hpperlevel": 80,
-		"mp": 334,
-		"mpperlevel": 50,
+		"hp": 526,
+		"hpperlevel": 92,
+		"mp": 418,
+		"mpperlevel": 25,
 		"movespeed": 330,
 		"armor": 20.88,
 		"armorperlevel": 3.5,
 		"spellblock": 30,
-		"spellblockperlevel": 0,
+		"spellblockperlevel": 0.5,
 		"attackrange": 550,
-		"hpregen": 6.508,
+		"hpregen": 6.5,
 		"hpregenperlevel": 0.6,
-		"mpregen": 6,
+		"mpregen": 8,
 		"mpregenperlevel": 0.8,
 		"crit": 0,
 		"critperlevel": 0,
 		"attackdamage": 53.04,
 		"attackdamageperlevel": 3,
-		"attackspeedoffset": -0.065,
-		"attackspeedperlevel": 2
+		"attackspeedperlevel": 2,
+		"attackspeed": 0.668
 	}
 }
