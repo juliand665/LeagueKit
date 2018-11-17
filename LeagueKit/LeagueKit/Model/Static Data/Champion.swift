@@ -96,7 +96,7 @@ extension ScalingStat {
 	}
 }
 
-/// attack speed is a little more complicated than the other `ScalableStat`s, but you can use it just the same way as other `ScalingStat`s
+/// Attack speed is a little different from the other `ScalingStat`s, but you can use it just the same way.
 public struct AttackSpeed: ScalingStat {
 	public let base: Double
 	public let percentagePerLevel: Double
