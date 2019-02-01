@@ -29,7 +29,7 @@ public final class DynamicAPIClient {
 	
 	private func urlRequest<R: Request>(request: R) throws -> URLRequest {
 		let components = baseURL <- {
-			$0.path = "/lol/\(R.base.rawValue)/v3/\(request.method)"
+			$0.path = "/lol/\(R.base.rawValue)/\(request.method)"
 			$0.queryItems = request.parameters
 				.mapValues(String.init(describing:))
 				.map(URLQueryItem.init)
@@ -59,7 +59,10 @@ public final class DynamicAPIClient {
 					throw error
 				}
 			}
-			.catch { dump($0) }
+			.catch {
+				print("error while executing request to \(request.url!)")
+				dump($0)
+		}
 	}
 }
 

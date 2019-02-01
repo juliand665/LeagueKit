@@ -3,9 +3,7 @@ import Foundation
 public struct ChampionRotationRequest: Request {
 	public static let base = APIBase.champion
 	
-	public var method: String {
-		return "champion-rotations"
-	}
+	public let method = "v3/champion-rotations"
 	
 	public init() {}
 	

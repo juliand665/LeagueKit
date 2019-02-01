@@ -120,6 +120,7 @@ public struct TeamStats: Codable {
 	}
 }
 
+public typealias MatchID = ID<Match>
 public struct Match: Codable {
 	public var matchID: Int
 	public var startTime: Date

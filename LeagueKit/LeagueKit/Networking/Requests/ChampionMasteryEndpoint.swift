@@ -4,13 +4,13 @@ public struct ChampionMasteryRequest: Request {
 	public typealias Response = [ChampionMasteryDetails]
 	public static let base = APIBase.championMastery
 	
-	private let summonerID: Int
+	private let summonerID: SummonerID
 	
 	public var method: String {
-		return "champion-masteries/by-summoner/\(summonerID)"
+		return "v4/champion-masteries/by-summoner/\(summonerID)"
 	}
 	
-	public init(summonerID: Int) {
+	public init(summonerID: SummonerID) {
 		self.summonerID = summonerID
 	}
 	
