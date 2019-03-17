@@ -92,6 +92,7 @@
 		958447F1211CB08300975630 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958447ED211CB08300975630 /* Sequence.swift */; };
 		9596A24F1EF02AC300DE3D30 /* LeagueKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596A24E1EF02AC300DE3D30 /* LeagueKitTests.swift */; };
 		9596A2511EF02AC300DE3D30 /* LeagueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AA57F51EF0238700D1D8A7 /* LeagueKit.framework */; };
+		95B051E9223D9FF100C6B46B /* Promise.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 95DADF2D216ADD9C000FEDB7 /* Promise.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95D03948216D544B00260748 /* ChampionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D03947216D544B00260748 /* ChampionEndpoint.swift */; };
 		95D03949216D544B00260748 /* ChampionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D03947216D544B00260748 /* ChampionEndpoint.swift */; };
 		95D0394A216D544B00260748 /* ChampionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D03947216D544B00260748 /* ChampionEndpoint.swift */; };
@@ -110,6 +111,19 @@
 			remoteInfo = "LeagueKit macOS";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		95B051E8223D9FCE00C6B46B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				95B051E9223D9FF100C6B46B /* Promise.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		95122A37216D4856001305A0 /* NetworkObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkObjects.swift; sourceTree = "<group>"; };
@@ -145,10 +159,6 @@
 		95AA581F1EF023B100D1D8A7 /* LeagueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LeagueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95AA58221EF023B100D1D8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95D03947216D544B00260748 /* ChampionEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionEndpoint.swift; sourceTree = "<group>"; };
-		95DADF19216AC6F2000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Checkouts/Promise/Carthage/Build/Mac/Promise.framework; sourceTree = "<group>"; };
-		95DADF1B216AC6F7000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Checkouts/Promise/Carthage/Build/iOS/Promise.framework; sourceTree = "<group>"; };
-		95DADF1D216AC6FA000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Checkouts/Promise/Carthage/Build/watchOS/Promise.framework; sourceTree = "<group>"; };
-		95DADF1F216AC6FD000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Checkouts/Promise/Carthage/Build/tvOS/Promise.framework; sourceTree = "<group>"; };
 		95DADF2D216ADD9C000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Build/Mac/Promise.framework; sourceTree = "<group>"; };
 		95DADF33216ADD9F000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Build/iOS/Promise.framework; sourceTree = "<group>"; };
 		95DADF35216ADDA2000FEDB7 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Build/watchOS/Promise.framework; sourceTree = "<group>"; };
@@ -351,10 +361,6 @@
 				95DADF35216ADDA2000FEDB7 /* Promise.framework */,
 				95DADF33216ADD9F000FEDB7 /* Promise.framework */,
 				95DADF2D216ADD9C000FEDB7 /* Promise.framework */,
-				95DADF1F216AC6FD000FEDB7 /* Promise.framework */,
-				95DADF1D216AC6FA000FEDB7 /* Promise.framework */,
-				95DADF1B216AC6F7000FEDB7 /* Promise.framework */,
-				95DADF19216AC6F2000FEDB7 /* Promise.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -424,6 +430,7 @@
 				95AA57F11EF0238700D1D8A7 /* Frameworks */,
 				95AA57F21EF0238700D1D8A7 /* Headers */,
 				95AA57F31EF0238700D1D8A7 /* Resources */,
+				95B051E8223D9FCE00C6B46B /* CopyFiles */,
 			);
 			buildRules = (
 			);
