@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Promise",
+        "repositoryURL": "https://github.com/timvermeulen/Promise.git",
+        "state": {
+          "branch": "master",
+          "revision": "5152cf895afe696193c881af6bfc5c3caa876db4",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -15,7 +15,7 @@ extension Sequence {
 	}
 }
 
-extension Sequence where SubSequence: Sequence, SubSequence.Element == Element { // this constraint will be unnecessary once all the Sequence constraints are implemented in Swift 4
+extension Sequence {
 	/// like reduce, but takes the first element of the array as `initialResult`
 	/// 
 	/// returns `nil` for `[]`
