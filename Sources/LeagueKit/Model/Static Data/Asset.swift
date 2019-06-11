@@ -44,8 +44,8 @@ public protocol WritableAssetProvider: AssetProvider {
 	var version: String { get set }
 }
 
-extension WritableAssetProvider where Raw == Contents {
-	public func updateContents(to raw: Raw, version: String) {
+public extension WritableAssetProvider where Raw == Contents {
+	func updateContents(to raw: Raw, version: String) {
 		self.version = version
 		contents = raw
 		if Self.shared === self {
@@ -58,11 +58,11 @@ public struct SimpleRaw<Provider: AssetProvider>: Decodable {
 	var data: [Provider.AssetID: Provider.AssetType]
 }
 
-extension WritableAssetProvider where
+public extension WritableAssetProvider where
 	Raw == SimpleRaw<Self>,
 	Contents == [AssetID: AssetType]
 {
-	public func updateContents(to raw: Raw, version: String) {
+	func updateContents(to raw: Raw, version: String) {
 		self.version = version
 		contents = raw.data
 		if Self.shared === self {
@@ -75,8 +75,8 @@ extension WritableAssetProvider where
 private let encoder = JSONEncoder()
 private let decoder = JSONDecoder()
 
-extension AssetProvider {
-	public static func load() -> Self {
+public extension AssetProvider {
+	static func load() -> Self {
 		if let data = UserDefaults.standard.data(forKey: "LoLAPI.\(Self.assetIdentifier)"),
 		   let assets = try? decoder.decode(Self.self, from: data) {
 			return assets
@@ -85,7 +85,7 @@ extension AssetProvider {
 		}
 	}
 	
-	public static func save() {
+	static func save() {
 		do {
 			let data = try encoder.encode(shared)
 			UserDefaults.standard.set(data, forKey: "LoLAPI.\(Self.assetIdentifier)")
@@ -117,12 +117,12 @@ public protocol Identified: Hashable {
 	var id: ID { get }
 }
 
-extension Identified {
-	public var hashValue: Int {
-		return id.hashValue
+public extension Identified {
+	func hash(into hasher: inout Hasher) {
+		id.hash(into: &hasher)
 	}
 	
-	public static func == (lhs: Self, rhs: Self) -> Bool {
+	static func == (lhs: Self, rhs: Self) -> Bool {
 		return lhs.id == rhs.id
 	}
 }
@@ -135,6 +135,7 @@ protocol VersionedAsset: Asset {
 
 extension VersionedAsset {
 	/// URL of the full-resolution image riot offers for this asset
+	// TODO: figure out why this only works as a public member of an internal extension
 	public var imageURL: URL {
 		return StaticDataClient.dataURL(path: "/cdn/\(version)/img/\(Provider.assetIdentifier)/\(imageName)")
 	}
@@ -150,7 +151,7 @@ public protocol DescribedAsset: Asset {
 }
 
 public extension DescribedAsset {
-	public func prettyDescription() -> String {
+	func prettyDescription() -> String {
 		var pretty = ""
 		
 		var between: String?
