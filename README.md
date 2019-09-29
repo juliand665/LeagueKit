@@ -1,4 +1,15 @@
+<p align="center">
+	<img width=192px src="GitHub/logo.png" /><br><br>
+	<a href="https://swift.org/package-manager/">
+		<img alt="Swift Package Manager compatible" src="https://img.shields.io/badge/swift_package_manager-compatible-brightgreen.svg" />
+	</a>
+	<a href="./LICENSE">
+		<img alt="MIT licensed" src="https://img.shields.io/badge/license-MIT-blue.svg" />
+	</a>
+</p>
+
 # LeagueKit
+
 Swifty access to League of Legends data
 ***
 ## Installation
