@@ -18,7 +18,7 @@ extension AssetProvider where AssetType: SearchableAsset, Contents == [AssetID: 
 			
 			The default ordering is `[MatchQuality].recommended`.
 	
-	- Returns: a list of IDs of matching assets, in the given ordering
+	- Returns: a list of matching assets, in the given ordering
 	*/
 	public func assets(matchingQuery query: String, ordering: [MatchQuality] = .recommended) -> [AssetType] {
 		return assetIDs(matchingQuery: query, ordering: ordering).map { contents[$0]! }

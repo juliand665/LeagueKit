@@ -3,7 +3,7 @@ Swifty access to League of Legends data
 ***
 ## Installation
 
-LeagueKit uses the Swift Package Manager. Simply add `.package(url: "https://github.com/juliand665/LeagueKit.git", .branch("master"))` to your `dependencies` in your `Package.swift` file.
+LeagueKit uses the Swift Package Manager. Simply add `.package(url: "https://github.com/juliand665/LeagueKit.git", .branch("master"))` to the `dependencies` in your `Package.swift` file.
 
 If you're using an older version of Xcode (pre-11), there's both a release and a branch with the old, Carthage-compatible version.
 
